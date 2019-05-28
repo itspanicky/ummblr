@@ -1,24 +1,17 @@
-# README
+ummblr
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Day 1: New account creation, login, and guest/demo login
+    - migration: users
+        - table, model, controller
+    - backend auth
+    - api
+        - routes (under namespace)
+        - views
+        - session_api_util for $.ajax request for signing up, in, out
 
-Things you may want to cover:
+    - greeting (navbar at the top)
+        - container
+        - 
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+last: session form
