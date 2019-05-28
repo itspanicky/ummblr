@@ -11,7 +11,15 @@ Day 1: New account creation, login, and guest/demo login
 
     - greeting (navbar at the top)
         - container
-        - 
 
+    - Session Form
+        - Sign up and login containers
 
-last: session form
+    - Bootstrap current user
+
+- end of day 1: can sign up/ bootstrap
+    - problem - can't sign in because of username line
+
+- tmrw day 2 task
+    - render errors
+    - css

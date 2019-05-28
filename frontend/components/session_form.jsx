@@ -16,9 +16,31 @@ class SessionForm extends React.Component {
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.processForm(this.state)
+        this.props.processForm(this.state);
     }
 
-    
+    handleInput(field){
+        return e => this.setState({
+            [field]: e.target.value
+        });
+    }
+
+    render() {
+        const submit = (this.props.formType === "signup" ? "Sign Up" : "Log In")
+        const usernameInput = (this.props.formType === "signup" ? <input type="text" value={this.state.username} onChange={this.handleInput("username")} /> : <span></span> )
+        return (
+            <>
+                <form onSubmit={this.handleSubmit}>
+                    <input type="text" value={this.state.email} onChange={this.handleInput("email")}/>
+                    {usernameInput}
+                    <input type="password" value={this.state.password} onChange={this.handleInput("password")}/>
+                    <input type="submit" value={submit}/>
+                </form>
+            </>
+        )
+    }
+
 
 }
+
+export default SessionForm;

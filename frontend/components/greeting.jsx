@@ -6,6 +6,7 @@ const Greeting = ({currentUser, logout}) => {
         return (
             <>
                 <h2>Tempt - you signed in!</h2>
+                <button onClick={() => logout()}>Logout</button>
             </>
         );
     } else {
@@ -22,9 +23,5 @@ const Greeting = ({currentUser, logout}) => {
 
 
 }
-
-
-
-
 
 export default Greeting;
