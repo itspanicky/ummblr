@@ -28,6 +28,7 @@ class SessionForm extends React.Component {
     render() {
         const submit = (this.props.formType === "signup" ? "Sign Up" : "Log In")
         const usernameInput = (this.props.formType === "signup" ? <input type="text" value={this.state.username} onChange={this.handleInput("username")} /> : <span></span> )
+        let errors = (this.props.errors.length > 1) ? this.props.errors.map(error => <li>{error}</li>) : null
         return (
             <>
                 <form onSubmit={this.handleSubmit}>
@@ -36,6 +37,7 @@ class SessionForm extends React.Component {
                     <input type="password" value={this.state.password} onChange={this.handleInput("password")}/>
                     <input type="submit" value={submit}/>
                 </form>
+                <ul>{errors}</ul>
             </>
         )
     }

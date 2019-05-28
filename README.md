@@ -19,7 +19,8 @@ Day 1: New account creation, login, and guest/demo login
 
 - end of day 1: can sign up/ bootstrap
     - problem - can't sign in because of username line
-
+    - problem - errors won't render on signup form
+    
 - tmrw day 2 task
     - render errors
     - css
