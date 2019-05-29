@@ -26,24 +26,37 @@ class SessionForm extends React.Component {
     }
 
     render() {
-        // const usernameInput = (this.props.formType === "Sign Up" ? <input type="text" value={this.state.username} onChange={this.handleInput("username")} /> : <span></span> )
-        let errors = (this.props.errors.length > 1) ? this.props.errors.map(error => <li>{error}</li>) : null
-        return (
-            <>
-                <form className="session-form" onSubmit={this.handleSubmit}>
-                    <input type="text" value={this.state.email} onChange={this.handleInput("email")}/>
-                    
-                    <input type="text" value={this.state.username} onChange={this.handleInput("username")} />
-                    <input type="password" value={this.state.password} onChange={this.handleInput("password")}/>
+        const userInput = (this.props.formType === "Sign Up" ? <input type="text" value={this.state.username} placeholder="Username" onChange={this.handleInput("username")} /> : <span></span> )
+        let errors = this.props.errors.map(error => <li key={error}>{error}</li>)
 
+        return (
+            <div className="modal-box">
+                <form className="session-form" onSubmit={this.handleSubmit}>
+                    <input 
+                        className="email-input" 
+                        type="text" 
+                        value={this.state.email} 
+                        placeholder="Email" 
+                        onChange={this.handleInput("email")
+                    }/>
+
+                    {userInput}
+                    {/* <input type="text" value={this.state.username} onChange={this.handleInput("username")} /> */}
+                    <input 
+                        className="password-input" 
+                        type="password"
+                        value={this.state.password}
+                        placeholder="Password" 
+                        onChange={this.handleInput("password")}/>
+
+                    <ul className="errors">
+                        {errors}
+                    </ul>
 
                     <input type="submit" value={this.props.formType}/>
                 </form>
-                
-                <ul className="errors">
-                    {errors}
-                </ul>
-            </>
+
+            </div>
         )
     }
 
