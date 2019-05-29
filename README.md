@@ -18,8 +18,10 @@ Day 1: New account creation, login, and guest/demo login
     - Bootstrap current user
 
 - end of day 1: can sign up/ bootstrap
-    - problem - can't sign in because of username line
-    - problem - errors won't render on signup form
+    - problem - can't log in because of username line
+    - problem - errors won't render on login form
+    - problem - errors won't render the first time
+    - problem - errors don't render until i switch from sign up to login or vice versa
     
 - tmrw day 2 task
     - render errors
