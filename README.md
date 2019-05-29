@@ -23,6 +23,8 @@ Day 1: New account creation, login, and guest/demo login
     - problem - errors won't render the first time
     - problem - errors don't render until i switch from sign up to login or vice versa
     
+
+
 - tmrw day 2 task
     - render errors
     - css

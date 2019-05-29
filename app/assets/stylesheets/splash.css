@@ -1,3 +1,145 @@
-body {
-    background-color: salmon;
+body, html {
+    position: relative;
+    background-color: #34526f;
+    color: white;
+    height: 100%;
+    width: 100%;
+}
+
+/* ---app name: ummblr --- */
+.ummblr {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    padding: 10px;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+}
+
+.ummblr:hover {
+    color: salmon;
+}
+
+/* ---Sign Up / Log In Links--- */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 0 auto;
+}
+
+.signup-login {
+    display: flex;
+    flex-direction: column; 
+}
+
+.signup-link {
+    border: 1px, transparent;
+    background-color: rgb(13, 184, 255);
+    width: 270px;
+    height: 30px;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+.signup-link:hover {
+    cursor: pointer;
+}
+
+.login-link {
+    border: 1px transparent;
+    background: white;
+    color: black;
+    width: 270px;
+    height: 30px;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.login-link:hover {
+    cursor: pointer;
+}
+
+/* ---session-form--- */
+
+.modal-box {
+    position: absolute;
+    display: flex;
+    z-index: 1;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #34526f;
+}
+.session-form {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.session-form > input {
+    padding: 10px;
+    width: 280px;
+    border: 0px transparent;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+}
+
+.email-input {
+    border-bottom: 1px solid gray;
+    border-radius: 3px 3px 0 0;
+}
+
+.password-input {
+    border-top: 1px solid gray;
+    border-radius: 0 0 3px 3px;
+}
+
+.errors {
+    margin: 8px 0;
+    width: 300px;
+}
+
+.errors > li {
+    border: 1px transparent;
+    background: black;
+    padding: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    opacity: 0.3;
+}
+
+.session-form > input[type=submit] {
+    margin: 3px 0;
+    padding: 10px;
+    background-color: rgb(13, 184, 255);
+    color: white;
+    border: 1px transparent;
+    border-radius: 3px;
+    width: 300px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px
+}
+
+.session-form > input[type=submit]:hover {
+    cursor: pointer;
 }
