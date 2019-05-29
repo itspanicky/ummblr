@@ -28,3 +28,12 @@ Day 1: New account creation, login, and guest/demo login
 - tmrw day 2 task
     - render errors
     - css
+
+
+
+
+credit due:  
+    icon-dashboard - Icon made by Anton Saputro from www.flaticon.com 
+    icon-explore - Icon made by Smashicons from www.flaticon.com
+    icon-account - Icon made by srip from www.flaticon.com
+    icon-post - Icon made by Kiranshastry from www.flaticon.com

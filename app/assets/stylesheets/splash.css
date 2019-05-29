@@ -8,12 +8,8 @@ body, html {
 
 /* ---app name: ummblr --- */
 .ummblr {
-    position: absolute;
-    top: 20%;
-    left: 50%;
+    text-align: center;
     padding: 10px;
-    z-index: 2;
-    transform: translate(-50%, -50%);
     font-size: 60px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 700;
@@ -81,13 +77,14 @@ nav {
 
 /* ---session-form--- */
 
-.modal-box {
+.form-box {
     position: absolute;
     display: flex;
-    z-index: 1;
-    top: 35%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    flex-direction: column;
+    justify-content: center;
     background-color: #34526f;
 }
 .session-form {

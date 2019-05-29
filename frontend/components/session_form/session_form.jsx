@@ -30,7 +30,9 @@ class SessionForm extends React.Component {
         let errors = this.props.errors.map(error => <li key={error}>{error}</li>)
 
         return (
-            <div className="modal-box">
+            <>
+            <div className="form-box">
+            <h1 className="ummblr">ummblr</h1>
                 <form className="session-form" onSubmit={this.handleSubmit}>
                     <input 
                         className="email-input" 
@@ -55,8 +57,8 @@ class SessionForm extends React.Component {
 
                     <input type="submit" value={this.props.formType}/>
                 </form>
-
             </div>
+            </>
         )
     }
 
