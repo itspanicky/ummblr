@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Greeting = ({currentUser, logout}) => {
     const leftSide = (
         <section className="left-side">
-            <button className="u-logo">u</button>
+            <Link to="/#/" className="u-logo">u</Link>
             <input className="search-bar" type="text" placeholder="Search ummblr" />
         </section>
     )
