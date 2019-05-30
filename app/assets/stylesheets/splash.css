@@ -16,7 +16,23 @@ body, html {
 }
 
 .ummblr:hover {
-    color: salmon;
+    animation: colorchange 1s ease-in-out infinite alternate;
+    -webkit-animation: colorchange 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes colorchange {
+    0% {
+        color: yellow;
+    }
+    25% {
+        color: salmon;
+    }
+    50% {
+        color: teal;
+    }
+    75% {
+        color: skyblue
+    }
 }
 
 /* ---Sign Up / Log In Links--- */
