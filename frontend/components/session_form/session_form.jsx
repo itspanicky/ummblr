@@ -25,12 +25,32 @@ class SessionForm extends React.Component {
         });
     }
 
+    componentDidMount(){
+        
+    }
+
     render() {
-        const userInput = (this.props.formType === "Sign Up" ? <input type="text" value={this.state.username} placeholder="Username" onChange={this.handleInput("username")} /> : <span></span> )
+        let userInput;
+        let linkTo;
+        if (this.props.formType === "Sign Up") {
+            userInput = ( <input 
+                    type="text" 
+                    value={this.state.username} 
+                    placeholder="Username" 
+                    onChange={this.handleInput("username")} 
+                /> 
+            );
+            linkTo = ( <Link className="link_to" to='/login'>Log In</Link> )
+        } else {
+            userInput = ( <span></span> );
+            linkTo = ( <Link className="link_to" to='/signup'>Sign In</Link> )
+        }
+
         let errors = this.props.errors.map(error => <li key={error}>{error}</li>)
 
         return (
             <>
+            {linkTo}
             <div className="form-box">
             <h1 className="ummblr">ummblr</h1>
                 <form className="session-form" onSubmit={this.handleSubmit}>
