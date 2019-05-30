@@ -58,7 +58,7 @@ class SessionForm extends React.Component {
                 <form className="session-form" onSubmit={this.handleSubmit}>
                     <input 
                         className="email-input" 
-                        type="text" 
+                        type="email" 
                         value={this.state.email} 
                         placeholder="Email" 
                         onChange={this.handleInput("email")
