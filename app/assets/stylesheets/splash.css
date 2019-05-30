@@ -87,6 +87,7 @@ nav {
     justify-content: center;
     background-color: #34526f;
 }
+
 .session-form {
     text-align: center;
     display: flex;
@@ -97,18 +98,30 @@ nav {
 .session-form > input {
     padding: 10px;
     width: 280px;
-    border: 0px transparent;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
 }
 
 .email-input {
-    border-bottom: 1px solid gray;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 0.5px solid black;
     border-radius: 3px 3px 0 0;
 }
 
+.user-input {
+    border-top: 0.5px solid black;
+    border-left: none;
+    border-right: none;
+    border-bottom: 0.5px solid black;
+}
+
 .password-input {
-    border-top: 1px solid gray;
+    border-top: 0.5px solid black;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
     border-radius: 0 0 3px 3px;
 }
 

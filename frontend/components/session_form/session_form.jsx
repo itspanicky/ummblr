@@ -25,15 +25,12 @@ class SessionForm extends React.Component {
         });
     }
 
-    componentDidMount(){
-        
-    }
-
     render() {
         let userInput;
         let linkTo;
         if (this.props.formType === "Sign Up") {
             userInput = ( <input 
+                    className="user-input"
                     type="text" 
                     value={this.state.username} 
                     placeholder="Username" 
@@ -47,7 +44,7 @@ class SessionForm extends React.Component {
         }
 
         let errors = this.props.errors.map(error => <li key={error}>{error}</li>)
-
+        
         return (
             <>
             {linkTo}
