@@ -16,7 +16,23 @@ body, html {
 }
 
 .ummblr:hover {
-    color: salmon;
+    animation: colorchange 1s ease-in-out infinite alternate;
+    -webkit-animation: colorchange 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes colorchange {
+    0% {
+        color: yellow;
+    }
+    25% {
+        color: salmon;
+    }
+    50% {
+        color: teal;
+    }
+    75% {
+        color: skyblue
+    }
 }
 
 /* ---Sign Up / Log In Links--- */
@@ -24,13 +40,24 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 500px;
+    height: 600px;
     width: 0 auto;
 }
 
 .signup-login {
     display: flex;
     flex-direction: column; 
+    animation: 2s ease 1s normal forwards 1 fadein;
+    -webkit-animation: 2s ease 1s normal forwards 1 fadein;
+    opacity: 0
+}
+
+@keyframes fadein{from{opacity:0}
+to{opacity:1}
+}
+
+@-webkit-keyframes fadein{from{opacity:0}
+to{opacity:1}
 }
 
 .signup-link {
@@ -48,6 +75,8 @@ nav {
     font-size: 16px;
     font-weight: bold;
     color: white;
+    animation: 4s ease 1s normal forwards 1 fadein;
+    -webkit-animation: 4s ease 1s normal forwards 1 fadein;
 }
 
 .signup-link:hover {
@@ -69,6 +98,8 @@ nav {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     font-weight: bold;
+    animation: 5s ease 1s normal forwards 1 fadein;
+    -webkit-animation: 5s ease 1s normal forwards 1 fadein;
 }
 
 .login-link:hover {
@@ -100,6 +131,17 @@ nav {
     width: 280px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
+    animation: 4s ease 0s normal forwards 1 fadein;
+    -webkit-animation: 4s ease 0s normal forwards 1 fadein;
+    opacity: 0
+}
+
+@keyframes fadein{from{opacity:0}
+to{opacity:1}
+}
+
+@-webkit-keyframes fadein{from{opacity:0}
+to{opacity:1}
 }
 
 .email-input {
@@ -147,9 +189,33 @@ nav {
     border-radius: 3px;
     width: 300px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px
+    font-size: 16px;
+    animation: 1s ease 8s normal forwards 1 fadein;
+    -webkit-animation: 8s ease 1s normal forwards 1 fadein;
 }
 
 .session-form > input[type=submit]:hover {
     cursor: pointer;
+}
+
+.session-form > button {
+    cursor: pointer;
+    margin: 3px 0;
+    padding: 10px;
+    border: 1px transparent;
+    border-radius: 3px;
+    width: 300px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    animation: 1s ease 8s normal forwards 1 fadein;
+    -webkit-animation: 8s ease 1s normal forwards 1 fadein;
+    opacity: 0
+}
+
+@keyframes fadein{from{opacity:0}
+to{opacity:1}
+}
+
+@-webkit-keyframes fadein{from{opacity:0}
+to{opacity:1}
 }
