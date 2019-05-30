@@ -12,11 +12,25 @@ class SessionForm extends React.Component {
             password: "",
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
+    }
+
+    handleDemo(e){
+        e.preventDefault();
+        this.props.processLogin({
+            email: "demo@gmail.com",
+            password: "password",
+            username: "demo_user"
+        });
     }
 
     handleSubmit(e){
         e.preventDefault();
-        this.props.processForm(this.state);
+        if (this.props.match.path === '/login') {
+            this.props.processLogin(this.state);
+        } else {
+            this.props.processSignup(this.state);
+        }
     }
 
     handleInput(field){
@@ -45,7 +59,7 @@ class SessionForm extends React.Component {
             linkTo = ( <Link className="link_to" to='/login'>Log In</Link> )
         } else {
             userInput = ( <span></span> );
-            linkTo = ( <Link className="link_to" to='/signup'>Sign In</Link> )
+            linkTo = ( <Link className="link_to" to='/signup'>Sign Up</Link> )
         }
 
         let errors = this.props.errors.map(error => <li key={error}>{error}</li>)
@@ -53,6 +67,10 @@ class SessionForm extends React.Component {
         return (
             <>
             {linkTo}
+            <section className="left-side">
+                <Link to="/" className="u-logo">u</Link>
+                <input className="search-bar" type="text" placeholder="Search ummblr" />
+            </section>
             <div className="form-box">
             <h1 className="ummblr">ummblr</h1>
                 <form className="session-form" onSubmit={this.handleSubmit}>
@@ -78,6 +96,7 @@ class SessionForm extends React.Component {
                     </ul>
 
                     <input type="submit" value={this.props.formType}/>
+                    <button onClick={this.handleDemo}>Demo Login</button>
                 </form>
             </div>
             </>

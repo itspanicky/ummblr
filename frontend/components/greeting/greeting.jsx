@@ -4,10 +4,11 @@ import { Link } from 'react-router-dom';
 const Greeting = ({currentUser, logout}) => {
     const leftSide = (
         <section className="left-side">
-            <button className="u-logo">u</button>
+            <Link to="/#/" className="u-logo">u</Link>
             <input className="search-bar" type="text" placeholder="Search ummblr" />
         </section>
     )
+    
     if (currentUser) {
         return (
             <>
@@ -16,21 +17,30 @@ const Greeting = ({currentUser, logout}) => {
 
                     <ul className="nav-list">
                         <li>
-                            <Link to="/"><i className="fas fa-home"></i></Link>
+                            <Link to="/"><i className="big fas fa-home"></i></Link>
                         </li>
                         <li>
-                            <Link to="/"><i className="fas fa-compass"></i></Link>
+                            <Link to="/"><i className="big fas fa-compass"></i></Link>
                         </li>
                         <li className="account">
-                            <p><i className="fas fa-user"></i></p>
+                            <p><i className="big fas fa-user"></i></p>
                             <ul className="account-dropdown">
                                 <li>
-                                    <p onClick={() => logout()}>Logout</p>
+                                    <p onClick={() => logout()}><i className="small fas fa-sign-out-alt"></i><span>Logout</span></p>
+                                </li>
+                                <li>
+                                    <p><i className="small fas fa-heart"></i><span>Likes</span></p>
+                                </li>
+                                <li>
+                                    <p><i className="small fas fa-child"></i><span>Following</span></p>
+                                </li>
+                                <li>
+                                    <p><i className="small fas fa-cog"></i><span>Settings</span></p>
                                 </li>
                             </ul>
                         </li>
                         <li>
-                            <Link to="/"><i className="fas fa-edit"></i></Link>
+                            <Link to="/"><i className="big fas fa-edit"></i></Link>
                         </li>
                     </ul>
                 </nav>
