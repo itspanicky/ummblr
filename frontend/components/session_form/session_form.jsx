@@ -1,7 +1,7 @@
 // form for sign up/ login
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -25,7 +25,12 @@ class SessionForm extends React.Component {
         });
     }
 
+    componentDidMount() {
+        this.props.clearSessionErrors()
+    }
+
     render() {
+        console.log(this.props);
         let userInput;
         let linkTo;
         if (this.props.formType === "Sign Up") {
@@ -44,7 +49,7 @@ class SessionForm extends React.Component {
         }
 
         let errors = this.props.errors.map(error => <li key={error}>{error}</li>)
-        
+
         return (
             <>
             {linkTo}
@@ -82,4 +87,5 @@ class SessionForm extends React.Component {
 
 }
 
-export default SessionForm;
+
+export default withRouter(SessionForm);
