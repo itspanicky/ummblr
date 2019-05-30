@@ -12,6 +12,16 @@ class SessionForm extends React.Component {
             password: "",
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemo = this.handleDemo.bind(this);
+    }
+
+    handleDemo(e){
+        e.preventDefault();
+        this.props.processForm({
+            email: "demo@gmail.com",
+            password: "password",
+            username: ""
+        })
     }
 
     handleSubmit(e){
@@ -53,6 +63,10 @@ class SessionForm extends React.Component {
         return (
             <>
             {linkTo}
+            <section className="left-side">
+                <Link to="/" className="u-logo">u</Link>
+                <input className="search-bar" type="text" placeholder="Search ummblr" />
+            </section>
             <div className="form-box">
             <h1 className="ummblr">ummblr</h1>
                 <form className="session-form" onSubmit={this.handleSubmit}>
@@ -78,6 +92,7 @@ class SessionForm extends React.Component {
                     </ul>
 
                     <input type="submit" value={this.props.formType}/>
+                    <button onClick={this.handleDemo}>Demo Login</button>
                 </form>
             </div>
             </>
