@@ -9,6 +9,21 @@ class Api::PostsController < ApplicationController
         end
     end
 
+    def update
+
+    end
+
+    def index
+
+    end
+
+    def show
+        render json: @post
+    end
+
+    def destroy
+        @post.destroy
+    end
 
     private
 
