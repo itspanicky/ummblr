@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PostButtonsContainer from '../post/post_buttons_container';
 
 const Greeting = ({currentUser, logout}) => {
     const leftSide = (
         <section className="left-side">
             <Link to="/#/" className="u-logo">u</Link>
-            <input className="search-bar" type="text" placeholder="Search ummblr" />
+            <input className="search-bar" type="text" placeholder="Search ummblr"/>
         </section>
     )
-    
+
     if (currentUser) {
         return (
             <>
@@ -43,7 +44,9 @@ const Greeting = ({currentUser, logout}) => {
                             <Link to="/"><i className="big fas fa-edit"></i></Link>
                         </li>
                     </ul>
+
                 </nav>
+                <PostButtonsContainer />
             </>
         );
     } else {
