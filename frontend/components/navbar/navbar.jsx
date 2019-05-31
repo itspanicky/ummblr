@@ -22,7 +22,7 @@ const Navbar = ({currentUser, logout}) => {
                 <p><i className="big fas fa-user"></i></p>
                 <ul className="account-dropdown">
                     <li>
-                        <p onClick={() => logout()}><i className="small fas fa-sign-out-alt"></i><span>Logout</span></p>
+                        <div><span>Account</span><span className="clickable" onClick={() => logout()}>Logout</span></div>
                     </li>
                     <li>
                         <p><i className="small fas fa-heart"></i><span>Likes</span></p>
