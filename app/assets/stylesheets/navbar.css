@@ -55,7 +55,7 @@
     background-color: black;
     opacity: 0.2;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     margin: 3px 5px;
 }
 
@@ -69,7 +69,7 @@
 
 .fa-search {
     position: absolute;
-    top: 20px;
+    top: 18px;
     left: 57px;
 }
 
@@ -104,26 +104,41 @@
 
 .account:hover .account-dropdown {
     display: block;
-    cursor: pointer;
-    border: 1px solid black;
+    border-bottom: 1px solid black;
     border-radius: 5px;
     background-color: white;
     color: black;
     right: 12px;
-    width: 150px;
+    width: 190px;
     margin: 2 auto;
     position: fixed;
 }
 
 .account-dropdown > li > p {
     display: flex;
+    cursor: pointer;
     justify-content: space-between;
     padding: 8px 8px;
 }
 
+.account-dropdown > li > div {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 8px;
+    background-color: lightgrey; 
+}
+
+.clickable:hover {
+    cursor: pointer;
+}
+
 .account-dropdown > li:hover {
     background: rgb(165, 211, 229);
-    border-radius: 5px;
+}
+
+.account-dropdown > li:last-child:hover {
+    background: rgb(165, 211, 229);
+    border-radius: 0 0 5px 5px;
 }
 
 .account-dropdown > li:first-child {
@@ -156,6 +171,7 @@
     color: black;
 }
 
-.link_to:hover {
-
+.link_to:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px rgb(90, 89, 89);
 }

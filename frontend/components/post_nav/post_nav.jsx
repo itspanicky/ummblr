@@ -1,6 +1,6 @@
 import React from 'react';
 
-const PostButtons = () => {
+const PostNav = () => {
 
     return (
         <>
@@ -22,4 +22,4 @@ const PostButtons = () => {
     )
 }
 
-export default PostButtons;
+export default PostNav;

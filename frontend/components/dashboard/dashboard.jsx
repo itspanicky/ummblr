@@ -1,5 +1,5 @@
 import React from 'react';
-import PostButtonsContainer from '../posts/post_buttons_container';
+import PostNavContainer from '../post_nav/post_nav_container';
 import NavbarContainer from '../navbar/navbar_container';
 
 class Dashboard extends React.Component {
@@ -14,7 +14,7 @@ class Dashboard extends React.Component {
                 <NavbarContainer />
                 <div className="dashboard">
                     <section className="dashboard-main">
-                        <PostButtonsContainer />
+                        <PostNavContainer />
                     </section>
                     <section className="dashboard-side">
 
