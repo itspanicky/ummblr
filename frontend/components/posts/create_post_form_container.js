@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { createPost } from '../../actions/entities/post_actions';
 import PostForm from './post_form';
+import { openModal, closeModal } from '../../actions/modal_actions';
 
 const msp = (state) => {
     return ({
@@ -11,7 +12,11 @@ const msp = (state) => {
 
 const mdp = (dispatch) => {
     return ({
-        createPost: (post) => dispatch(createPost(post))
+        createPost: (post) => dispatch(createPost(post)),
+        otherForm: (
+            <button onClick={() => dispatch(openModal('Text Form'))}></button>
+        ),
+        closeModal: () => dispatch(closeModal())
     })
 }
 
