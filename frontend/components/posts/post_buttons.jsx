@@ -6,16 +6,16 @@ const PostButtons = () => {
         <>
             <ul className="post_buttons">
                 <li>
-                    <p><div className="post_button text">Aa</div><span>Text</span></p>
+                    <div><p className="post_button text">Aa</p><span>Text</span></div>
                 </li>
                 <li>
-                    <p><i className="post_button fas fa-camera"></i><span>Photo</span></p>
+                    <div><i className="post_button fas fa-camera"></i><span>Photo</span></div>
                 </li>
                 <li>
-                    <p><i className="post_button fas fa-quote-right"></i><span>Quote</span></p>
+                    <div><i className="post_button fas fa-quote-right"></i><span>Quote</span></div>
                 </li>
                 <li>
-                    <p><i className="post_button fas fa-link"></i><span>Link</span></p>
+                    <div><i className="post_button fas fa-link"></i><span>Link</span></div>
                 </li>
             </ul>
         </>

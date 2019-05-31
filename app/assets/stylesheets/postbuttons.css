@@ -13,10 +13,11 @@
 }
 
 .post_buttons > li {
+    float: left;
     cursor: pointer;
 }
 
-.post_buttons > li > p {
+.post_buttons > li > div {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -47,13 +48,13 @@
     
 }
 
-p:hover .post_button {
+li div:hover .post_button {
     transform: translateY(-4px);
 }
 
-.post_buttons > li > p > span {
+.post_buttons > li > div > span {
     color: grey;
     font-size: 15px;
-    padding-top: 17px;
+    padding-top: 10px;
     text-align: center;
 }

@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 const Navbar = ({currentUser, logout}) => {
     const leftNav = (
         <section className="left-side">
-            <Link to="/#/" className="u-logo">u</Link>
+            <Link to="/" className="u-logo">u</Link>
+            <i className="fas fa-search"></i>
             <input className="search-bar" type="text" placeholder="Search ummblr" />
         </section>
     )
