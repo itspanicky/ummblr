@@ -17,7 +17,8 @@ export const fetchPost = (id) => {
 export const createPost = (post) => {
     return $.ajax({
         method: "post",
-        url: "/api/posts"
+        url: "/api/posts",
+        data: { post }
     })
 }
 

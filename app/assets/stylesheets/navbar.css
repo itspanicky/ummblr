@@ -61,8 +61,7 @@
 
 .search-bar:focus {
     background-color: white;
-    color: black;
-    opacity: 0.7;
+    color: rgba(0, 0, 0, 0.7);
     font-family: Arial, Helvetica, sans-serif;
     font-family: 14px;
 }

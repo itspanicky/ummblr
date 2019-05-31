@@ -6,7 +6,7 @@ export const REMOVE_POST = "REMOVE_POST";
 
 const receiveAllPosts = (posts) => {
     return {
-        type: RECEIVE_ALL_POSTS;
+        type: RECEIVE_ALL_POSTS,
         posts
     }
 }

@@ -1,21 +1,24 @@
 import { connect } from 'react-redux';
 import { createPost } from '../../actions/entities/post_actions';
 import PostForm from './post_form';
-import { openModal, closeModal } from '../../actions/modal_actions';
+import { closeModal } from '../../actions/modal_actions';
 
 const msp = (state) => {
+        const currentUser = state.entities.users[state.session.id];
     return ({
-        post: {title: "", content: "", type: ""}
+        post: {title: "", content: "", post_type: "text", author_id: currentUser.id},
         // how to add in type and author_id? -- maybe in state
+        formType: "Post",
+        currentUser: currentUser
     })
 }
 
 const mdp = (dispatch) => {
     return ({
-        createPost: (post) => dispatch(createPost(post)),
-        otherForm: (
-            <button onClick={() => dispatch(openModal('Text Form'))}></button>
-        ),
+        action: (post) => dispatch(createPost(post)),
+        // otherForm: (
+        //     <button onClick={() => dispatch(openModal('Text Form'))}></button>
+        // ),
         closeModal: () => dispatch(closeModal())
     })
 }
