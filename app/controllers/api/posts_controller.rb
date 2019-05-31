@@ -10,11 +10,25 @@ class Api::PostsController < ApplicationController
     end
 
     def update
-
+        @post = Post.find(params[:id])
+        if @post.update(post_params)
+            render json: @post
+        else
+            render @post.errors.full_messages, status: 422
+        end
     end
 
     def index
+        # refactor to display specific posts
+        # if params[:author_id] = params[:user_id]
+        #     @posts = Post.includes
+        # else
+        #     @posts = Post.all
+        #     render @posts
+        # end
 
+        @posts = Post.all
+        render json: @posts
     end
 
     def show
@@ -28,6 +42,6 @@ class Api::PostsController < ApplicationController
     private
 
     def post_params
-        params.requre(:post).permit(:title, :content, :type)
+        params.require(:post).permit(:title, :content, :post_type, :author_id)
     end
 end

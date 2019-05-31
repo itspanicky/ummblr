@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 
-import { CreatePostContainer } from '../posts/create_post_form_container';
+import CreatePostContainer from '../posts/create_post_form_container';
 
 const Modal = ({modal, closeModal}) => {
     if (!modal) {
@@ -17,8 +17,9 @@ const Modal = ({modal, closeModal}) => {
         default:
             return null;
     }
+
     return (
-        <div className="modal-background" onClick={closeModal}>
+        <div className="modal-background">
             <div className="modal-child" onClick={e => e.stopPropagation()}>
                 { component }
             </div>

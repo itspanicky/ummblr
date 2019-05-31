@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-class PostForm extends React.Component {
+class TextForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = this.props.post;
@@ -44,4 +44,4 @@ class PostForm extends React.Component {
     }
 }
 
-export default withRouter(PostForm);
+export default withRouter(TextForm);
