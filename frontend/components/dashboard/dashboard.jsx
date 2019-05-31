@@ -1,5 +1,5 @@
 import React from 'react';
-import PostButtonsContainer from '../post/post_buttons_container';
+import PostButtonsContainer from '../posts/post_buttons_container';
 import NavbarContainer from '../navbar/navbar_container';
 
 class Dashboard extends React.Component {
@@ -10,7 +10,7 @@ class Dashboard extends React.Component {
 
     render() {
         return (
-            <>
+            <div className="dashboard-container">
                 <NavbarContainer />
                 <div className="dashboard">
                     <section className="dashboard-main">
@@ -20,7 +20,7 @@ class Dashboard extends React.Component {
 
                     </section>
                 </div>
-            </>
+            </div>
         )
     }
 }
