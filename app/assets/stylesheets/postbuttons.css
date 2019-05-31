@@ -26,9 +26,10 @@
     font-size: 38px;
 }
 
-.fa-font {
+.text {
     color: black;
-    
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
 }
 
 .fa-camera {
@@ -46,11 +47,8 @@
     
 }
 
-p:hover .grow {
-    -webkit-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    transform: scale(1.2);
-    font-weight: bold;
+p:hover .post_button {
+    transform: translateY(-4px);
 }
 
 .post_buttons > li > p > span {
