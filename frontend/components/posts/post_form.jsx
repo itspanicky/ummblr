@@ -21,7 +21,7 @@ class PostForm extends React.Component {
 
     render() {
         return (
-            <div className="text_form_container">
+            <div className="form_container">
                 <form onSubmit={this.handleSubmit}>
                     <input 
                         type="text" 

@@ -1,5 +1,7 @@
 class Api::PostsController < ApplicationController
 
+    before_action :ensure_logged_in
+
     def create
         @post = Post.new(post_params)
         if @post.save
@@ -32,10 +34,12 @@ class Api::PostsController < ApplicationController
     end
 
     def show
+        @post = Post.find(params[:id])
         render json: @post
     end
 
     def destroy
+        @post = Post.find(params[:id])
         @post.destroy
     end
 

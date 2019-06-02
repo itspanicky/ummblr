@@ -7,11 +7,15 @@
     align-items: baseline;
     width: 100%;
     height: 50px;
-    border-bottom: 0.3px solid lightgrey;
     overflow: hidden;
     top: 0;
     background-color: #34526f;
     align-items: center;
+}
+
+.navbar-user {
+    border-bottom: 0.3px solid lightgrey;
+    /* background-color: rgb(5, 24, 51); */
 }
 
 .u-logo {

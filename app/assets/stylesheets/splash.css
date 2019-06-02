@@ -1,9 +1,19 @@
-body, html {
+/* body, html {
     position: relative;
     background-color: #34526f;
     color: white;
     height: 100%;
     width: 100%;
+} */
+
+.splash-container {
+    position: relative;
+    background-color: #34526f;
+    color: white;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 /* ---app name: ummblr --- */
@@ -42,6 +52,7 @@ nav {
     align-items: center;
     height: 600px;
     width: 0 auto;
+    background-color: #34526f;
 }
 
 .signup-login {
