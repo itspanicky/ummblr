@@ -10,7 +10,7 @@ const msp = (state) => {
         // how to add in type and author_id? -- maybe in state
         formType: "Post",
         currentUser: currentUser
-    })
+    });
 }
 
 const mdp = (dispatch) => {
@@ -20,7 +20,7 @@ const mdp = (dispatch) => {
         //     <button onClick={() => dispatch(openModal('Text Form'))}></button>
         // ),
         closeModal: () => dispatch(closeModal())
-    })
+    });
 }
 
 export default connect(msp, mdp)(PostForm)

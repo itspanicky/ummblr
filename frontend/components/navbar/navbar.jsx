@@ -43,7 +43,7 @@ const Navbar = ({currentUser, logout}) => {
 
     if (currentUser) {
         return (
-            <nav className="navbar">
+            <nav className="navbar navbar-user">
                 {leftNav}
                 {rightNav}
             </nav>

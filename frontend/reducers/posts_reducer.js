@@ -4,7 +4,7 @@ import {
     REMOVE_POST 
 } from '../actions/entities/post_actions';
 
-import merge from 'lodash';
+import { merge } from 'lodash';
 
 export default (state = {}, action) => {
     Object.freeze(state);
