@@ -24,16 +24,14 @@ class PostForm extends React.Component {
             <div className="form_container">
                 <div className="author_name">{this.props.currentUser.username}</div>
                 <form className="text-form" onSubmit={this.handleSubmit}>
-                    <input 
-                        className="title-text"
-                        type="text" 
+                    <input className="title-text"
+                        type="text"
                         value={this.state.title} 
                         onChange={this.handleInput("title")} 
                         placeholder="Title" 
                     />
 
-                    <textarea 
-                        className="content-text"
+                    <textarea className="content-text"
                         type="text"
                         value={this.state.content}
                         onChange={this.handleInput("content")}

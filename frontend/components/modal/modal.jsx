@@ -4,6 +4,8 @@ import { closeModal } from '../../actions/modal_actions';
 
 import CreatePostContainer from '../posts/create_post_form_container';
 import EditPostContainer from '../posts/edit_post_form_container';
+import CreatePhotoPostContainer from '../posts/create_photo_form_container';
+
 
 const Modal = ({modal}) => {
     if (!modal) {
@@ -18,10 +20,12 @@ const Modal = ({modal}) => {
         case 'Edit Text Form':
             component = <EditPostContainer postId={modal.postId} />;
             break;
+        case 'Create Photo Post':
+            component = <CreatePhotoPostContainer />
+            break;
         default:
             return null;
     }
-
     return (
         <div className="modal-background">
             <div className="modal-child" onClick={e => e.stopPropagation()}>

@@ -5,9 +5,9 @@
     background-color: white; 
 }
 
-.text-form {
+/* .text-form {
     
-}
+} */
 
 .author_name {
     width: 332px;
@@ -58,7 +58,7 @@
 }
 
 .submit-post {
-    width: 48px;
+    width: 62px;
     height: 28px;
     padding: 5px 10px;
     background-color: #00B8FF;
@@ -68,4 +68,15 @@
     cursor: pointer;
     font-size: 13px;
     color: white;
+}
+
+
+/* photo */
+/* .photo-form {
+    
+} */
+
+.image-prev {
+    width: 250px;
+    
 }

@@ -9,6 +9,11 @@
 User.delete_all
 Post.delete_all
 
+# to get user avatars:
+#require 'open-uri'
+# file = open('file_url/file.jpg')
+# demo.avatar.attach(io: file, filename: 'file.jpg')
+
 demo = User.create(username: 'demo_user', email: 'demo@gmail.com', password: 'password') 
 user1 = User.create(username: 'itspanicky', email: 'itspanicky@gmail.com', password: "password")
 user2 = User.create(username: 'im_a_fish', email: 'fish@gmai.com', password: 'password')

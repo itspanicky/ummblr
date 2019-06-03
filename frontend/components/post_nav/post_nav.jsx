@@ -9,7 +9,7 @@ const PostNav = ({ currentUser, openModal }) => {
                     <div onClick={ () => openModal('Create Text Form') }><p className="post_button text">Aa</p><span>Text</span></div>
                 </li>
                 <li>
-                    <div><i className="post_button fas fa-camera"></i><span>Photo</span></div>
+                    <div onClick={() => openModal('Create Photo Post') }><i className="post_button fas fa-camera"></i><span>Photo</span></div>
                 </li>
                 <li>
                     <div><i className="post_button fas fa-quote-right"></i><span>Quote</span></div>

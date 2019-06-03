@@ -3,19 +3,29 @@ import React from 'react';
 class PostIndexItem extends React.Component {
     constructor(props) {
         super(props);
-        debugger
     }
 
-    content(post){
+    postBody(post){
+        // let photo;
+        // if (post.photoUrl) {
+        //     photo = <img src={post.photoUrl} />
+        // }
         // const author = post.
         switch (post.post_type) {
             case "text":
                 return (
                     <div className="text-post">
                         <h3>{post.title}</h3>
+                        {/* {photo} */}
                         <p>{post.content}</p>
                     </div>
                 );
+            case "photo":
+                return (
+                    <div>
+                        <img className="photo-post" src={post.photoUrl} />
+                    </div>
+                )
         }
     }
 
@@ -29,7 +39,7 @@ class PostIndexItem extends React.Component {
                     {/* {this.props.author.username} */}
                 </div>
                 <div className="post-body-container">
-                    {this.content(post)}
+                    {this.postBody(post)}
                 </div>
                 <div className="post-action-container">
                     <span></span>
