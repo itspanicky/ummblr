@@ -5,7 +5,6 @@ import { deletePost } from '../../actions/entities/post_actions';
 
 const msp = (state, ownProps) => {
     const post = ownProps.post
-    debugger
     const author = state.entities.users[post.author_id]
     // const authorId = ownProps.post.author_id;
     // const author = state.entities.users[authorId];

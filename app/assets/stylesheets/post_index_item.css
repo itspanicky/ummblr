@@ -41,3 +41,9 @@
     border: none;
     font-size: 24px;
 }
+
+
+/* photo */
+.photo-post {
+    max-width: 540px;
+}

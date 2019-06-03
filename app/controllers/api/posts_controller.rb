@@ -3,7 +3,7 @@ class Api::PostsController < ApplicationController
     before_action :ensure_logged_in
 
     def create
-        @post = Post.new(post_params)
+        @post = current_user.posts.new(post_params)
         if @post.save
             render json: @post
         else
@@ -46,6 +46,6 @@ class Api::PostsController < ApplicationController
     private
 
     def post_params
-        params.require(:post).permit(:title, :content, :post_type, :author_id, :media)
+        params.require(:post).permit(:title, :content, :post_type, :author_id, :photo)
     end
 end
