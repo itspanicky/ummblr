@@ -6,7 +6,7 @@ const PostNav = ({ currentUser, openModal }) => {
         <>
             <ul className="post_buttons">
                 <li>
-                    <div onClick={ () => openModal('Text Form') }><p className="post_button text">Aa</p><span>Text</span></div>
+                    <div onClick={ () => openModal('Create Text Form') }><p className="post_button text">Aa</p><span>Text</span></div>
                 </li>
                 <li>
                     <div><i className="post_button fas fa-camera"></i><span>Photo</span></div>

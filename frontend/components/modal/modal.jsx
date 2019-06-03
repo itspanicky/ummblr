@@ -3,16 +3,20 @@ import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 
 import CreatePostContainer from '../posts/create_post_form_container';
+import EditPostContainer from '../posts/edit_post_form_container';
 
-const Modal = ({modal, closeModal}) => {
+const Modal = ({modal}) => {
     if (!modal) {
         return null;
     }
 
     let component;
-    switch (modal) {
-        case 'Text Form':
+    switch (modal.modal) {
+        case 'Create Text Form':
             component = <CreatePostContainer />;
+            break;
+        case 'Edit Text Form':
+            component = <EditPostContainer postId={modal.postId} />;
             break;
         default:
             return null;
@@ -37,7 +41,7 @@ const msp = (state) => {
 
 const mdp = (dispatch) => {
     return ({
-        closeModal: () => dispatch(closeModal())
+        closeModal: () => dispatch(closeModal()),
     })
 }
 

@@ -30,12 +30,12 @@ class Api::PostsController < ApplicationController
         # end
 
         @posts = Post.all
-        render json: @posts
+        render :index
     end
 
     def show
         @post = Post.find(params[:id])
-        render json: @post
+        render :show
     end
 
     def destroy
@@ -46,6 +46,6 @@ class Api::PostsController < ApplicationController
     private
 
     def post_params
-        params.require(:post).permit(:title, :content, :post_type, :author_id)
+        params.require(:post).permit(:title, :content, :post_type, :author_id, :media)
     end
 end
