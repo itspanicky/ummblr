@@ -14,6 +14,8 @@
 class Post < ApplicationRecord
     validates :title, :post_type, :author_id, presence: true
 
+    has_one_attached :media
+
     belongs_to :author,
         primary_key: :id,
         foreign_key: :author_id,

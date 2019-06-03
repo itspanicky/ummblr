@@ -23,7 +23,7 @@ class PostIndex extends React.Component {
         }).reverse();
         return (
             <div>
-                <ul>
+                <ul className="posts-container">
                     {posts}
                 </ul>
             </div>
