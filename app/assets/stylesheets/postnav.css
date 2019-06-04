@@ -7,13 +7,19 @@
     border-radius: 10px;
     width: 540px;
     height: 90px;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
 }
 
 .post_buttons > li {
-    float: left;
+    /* float: left; */
     cursor: pointer;
+    padding: 0 47px;
+    border-right: 1px solid lightgray;
+}
+
+.post_buttons > li:last-child {
+    border: none;
 }
 
 .post_buttons > li > div {
