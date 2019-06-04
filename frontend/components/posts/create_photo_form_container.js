@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import PhotoForm from './photo_form';
 import { closeModal } from '../../actions/modal_actions';
+import { createMediaPost } from '../../actions/entities/post_actions'
 
 const msp = (state) => {
     const currentUser = state.entities.users[state.session.id];
@@ -13,7 +14,7 @@ const msp = (state) => {
 
 const mdp = (dispatch) => {
     return ({
-        action: (post) => dispatch(createPost(post)),
+        action: (post) => dispatch(createMediaPost(post)),
         closeModal: () => dispatch(closeModal())
     })
 }
