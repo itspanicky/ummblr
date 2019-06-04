@@ -3,20 +3,34 @@ import React from 'react';
 class PostIndexItem extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            showMenu:  false
+        }
+        this.showMenu = this.showMenu.bind(this);
+        this.closeMenu = this.closeMenu.bind(this);
+    }
+
+    showMenu(e) {
+        e.preventDefault();
+        this.setState({ showMenu: true }, () => {
+            document.addEventListener('click', this.closeMenu)
+        });
+    }
+
+    closeMenu(e) {
+        if (!this.dropdownMenu.contains(event.target)) {
+            this.setState({ showMenu: false }, () => {
+                document.removeEventListener('click', this.closeMenu);
+            });  
+        }
     }
 
     postBody(post){
-        // let photo;
-        // if (post.photoUrl) {
-        //     photo = <img src={post.photoUrl} />
-        // }
-        // const author = post.
         switch (post.post_type) {
             case "text":
                 return (
                     <div className="text-post">
                         <h3>{post.title}</h3>
-                        {/* {photo} */}
                         <p>{post.content}</p>
                     </div>
                 );
@@ -34,10 +48,11 @@ class PostIndexItem extends React.Component {
 
     render() {  
         const post = this.props.post;
+        // const author = this.props.author.username;
         return (
             <div className="post-container">
                 <div className="post-author-container">
-                    {/* {this.props.author.username} */}
+                    {/* {author} */}
                 </div>
                 <div className="post-body-container">
                     {this.postBody(post)}
@@ -46,10 +61,21 @@ class PostIndexItem extends React.Component {
                     <span></span>
                     <ul>
                         <li>
-                            <ul><button className="settings"><i className="fas fa-cog"></i></button>
-                                <li onClick={() => this.props.openModal('Edit Text Form', post.id )}>Edit</li>
-                                <li><button onClick={ () => this.props.deletePost(post.id)}>Delete</button></li>
-                            </ul>
+                            <button className="settings-button" onClick={this.showMenu}>
+                                <i className="fas fa-cog"></i>
+                            </button>
+
+                            { this.state.showMenu
+                                ? (
+                                    <div className="settings-dropdown" ref={(element) => { this.dropdownMenu = element;}}>
+                                        <button onClick={() => this.props.openModal('Edit Text Form', post.id)}>Edit</button>
+                                        <button button onClick={() => this.props.deletePost(post.id)}>Delete</button>
+                                    </div>
+                                )
+                                : (
+                                    null
+                                )
+                            }
                         </li>
                     </ul>
                 </div>
