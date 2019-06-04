@@ -7,6 +7,14 @@
     background-color: white;
     border-radius: 3px;
     vertical-align: baseline;
+    transition: all ease .5s;
+}
+
+.post-container:hover {
+    border-radius: 0 20px 0 0;
+    border-style: solid;
+    transition: all ease .5s;
+
 }
 
 .post-author-container {
