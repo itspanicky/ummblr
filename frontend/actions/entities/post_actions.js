@@ -28,7 +28,7 @@ const removePost = (id) => {
 }
 
 export const fetchPosts = () => dispatch => {
-    return PostApiUtil.fetchPosts().then( (posts) => {
+    return PostApiUtil.fetchPosts().then((posts) => {
         return dispatch(receiveAllPosts(posts));
     });
 };
@@ -40,8 +40,8 @@ export const fetchPost = (id) => dispatch => {
 };
 
 export const createPost = (post) => dispatch => {
-    return PostApiUtil.createPost(post).then( (post) => {
-        return dispatch(receivePost(post));
+    return PostApiUtil.createPost(post).then((post) => {
+        return dispatch(receivePost(post.post));
     });
 };
 
@@ -59,13 +59,13 @@ export const deletePost = (id) => dispatch => {
 
 // media
 export const createMediaPost = (formData) => dispatch => {
-    return MediaApiUtil.createMediaPost(formData).then( (post) => {
-        return dispatch(receivePost(post))
+    return MediaApiUtil.createMediaPost(formData).then((post) => {
+        return dispatch(receivePost(post.post))
     })
 }
 
-export const editMediaPost = (formData) => dispatch => {
-    return MediaApiUtil.editMediaPost(formData).then((post) => {
+export const editMediaPost = (formData, post) => dispatch => {
+    return MediaApiUtil.editMediaPost(formData, post).then((post) => {
         return dispatch(receivePost(post))
     })
 }

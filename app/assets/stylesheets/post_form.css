@@ -99,9 +99,6 @@
     height: 170px;
 }
 
-.upload-file > p {
-}
-
 .fa-camera-retro {
     font-size: 45px;
     padding: 20px 0 15px 0;
@@ -118,4 +115,23 @@
     max-height: 450px;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+
+/* quote */
+.quote {
+    font-size: 30px;
+    padding: 0 10px;
+    width: 100%;
+}
+
+.quote-text {
+    width: 80px;
+    box-sizing:border-box;
+    size: 1;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    font-size: 30px;
 }

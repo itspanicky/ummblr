@@ -5,7 +5,7 @@ class Api::PostsController < ApplicationController
     def create
         @post = current_user.posts.new(post_params)
         if @post.save
-            render json: @post
+            render :show
         else
             render @post.errors.full_messages, status: 422
         end

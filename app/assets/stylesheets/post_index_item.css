@@ -76,3 +76,30 @@
 .settings-dropdown > button:hover {
     background-color: lightblue;
 }
+
+/* quote */
+
+.quote-post {
+    min-height: 47px;
+    margin: 0 0 10px;
+    padding: 0 20px;
+    word-wrap: break-word;
+}
+
+.quote-post > h3 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 48px;
+    
+}
+
+.quote-post > p {
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.quote-post > p > span {
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    position: relative;
+    top: 3px;
+}

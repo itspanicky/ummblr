@@ -41,6 +41,13 @@ class PostIndexItem extends React.Component {
                         <p className="content-post">{post.content}</p>
                     </div>
                 )
+            case "quote":
+                return (
+                    <div className="quote-post">
+                        <h3>&ldquo;{post.title}&rdquo;</h3>
+                        <p className="content-post"><span>-</span> {post.content}</p>
+                    </div>
+                )
         }
     }
 
@@ -53,6 +60,10 @@ class PostIndexItem extends React.Component {
             case "photo":
                 return (
                     <button onClick={() => this.props.openModal('Edit Photo Form', post.id)}>Edit</button>
+                )
+            case "quote":
+                return (
+                    <button onClick={() => this.props.openModal('Edit Quote Form', post.id)}>Edit</button>
                 )
         }
     }
@@ -90,7 +101,7 @@ class PostIndexItem extends React.Component {
                 </div>
             </div>
         )
-    }
+    };
 }
 
 export default PostIndexItem;
