@@ -12,12 +12,17 @@
 #
 
 class Post < ApplicationRecord
-    validates :title, :type, :author_id, presence: true
+    validates :post_type, :author_id, presence: true
+
+    has_one_attached :photo
 
     belongs_to :author,
         primary_key: :id,
         foreign_key: :author_id,
         class_name: :User
 
-    
+    # validate :ensure_photo
+    # def ensure_photo
+    #   unless self.photo.attached? errors[:photo] << "must be attached"
+    # end
 end

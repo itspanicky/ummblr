@@ -1,6 +1,7 @@
 import React from 'react';
-import PostButtonsContainer from '../posts/post_buttons_container';
+import PostNavContainer from '../post_nav/post_nav_container';
 import NavbarContainer from '../navbar/navbar_container';
+import PostIndexContainer from '../posts/post_index_container';
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -14,7 +15,12 @@ class Dashboard extends React.Component {
                 <NavbarContainer />
                 <div className="dashboard">
                     <section className="dashboard-main">
-                        <PostButtonsContainer />
+                        <div>
+                            <PostNavContainer />
+                        </div>
+                        <div>
+                            <PostIndexContainer />
+                        </div>
                     </section>
                     <section className="dashboard-side">
 

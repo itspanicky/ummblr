@@ -10,14 +10,18 @@ const Greeting = ({currentUser}) => {
         );
     } else {
         return (
-            <>
+            <div className="splash-container">
                 <Navbar />
                 <nav className="signup-login">
                     <h1 className="ummblr">ummblr</h1>
+                    <div className="spash-motto">
+                        <p>Come for what you love.</p>
+                        <p>umms for what you discover.</p>
+                    </div>
                     <Link className="signup-link" to='/signup'>Get Started</Link>
                     <Link className="login-link" to='/login'>Log In</Link>
                 </nav>
-            </>
+            </div>
         );
     }
 }
