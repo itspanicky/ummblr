@@ -63,3 +63,9 @@ export const createMediaPost = (formData) => dispatch => {
         return dispatch(receivePost(post))
     })
 }
+
+export const editMediaPost = (formData) => dispatch => {
+    return MediaApiUtil.editMediaPost(formData).then((post) => {
+        return dispatch(receivePost(post))
+    })
+}

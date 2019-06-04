@@ -69,7 +69,7 @@ class PostIndexItem extends React.Component {
                     {this.postBody(post)}
                 </div>
                 <div className="post-action-container">
-                    <span></span>
+                    <span>99 notes</span>
                     <ul>
                         <li>
                             <button className="settings-button" onClick={this.showMenu}>

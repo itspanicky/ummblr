@@ -93,8 +93,8 @@
     font-size: 14px;
     width: 500px;
     padding: 5px 20px;
-    border-top: 1px dashed black;
-    border-bottom: 1px dashed black;
+    border-top: 1px dashed grey;
+    border-bottom: 1px dashed grey;
     background-color: rgb(242, 242, 242);
     height: 170px;
 }
@@ -115,7 +115,7 @@
 .image-prev {
     display: block;
     width: 540px;
-    max-height: 500px;
+    max-height: 450px;
     background-size: cover;
     background-repeat: no-repeat;
 }
