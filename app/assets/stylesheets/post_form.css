@@ -72,9 +72,10 @@
 
 
 /* photo */
-/* .photo-form {
-    
-} */
+.photo-post {
+    max-width: 540px;
+}
+
 
 .image-prev {
     width: 250px;
