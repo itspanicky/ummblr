@@ -15,7 +15,7 @@ const PostNav = ({ currentUser, openModal }) => {
                     <div onClick={() => openModal('Create Quote Form')}><i className="post_button fas fa-quote-right"></i><span>Quote</span></div>
                 </li>
                 <li>
-                    <div><i className="post_button fas fa-link"></i><span>Link</span></div>
+                    <div onClick={() => openModal('Create Link Form')}><i className="post_button fas fa-link"></i><span>Link</span></div>
                 </li>
             </ul>
         </>

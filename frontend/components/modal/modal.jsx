@@ -8,6 +8,8 @@ import CreatePhotoPostContainer from '../posts/create_photo_form_container';
 import EditPhotoPostContainer from '../posts/edit_photo_form_container';
 import CreateQuoteContainer from '../posts/create_quote_form_container';
 import EditQuoteContainer from '../posts/edit_quote_form_container';
+import CreateLinkContainer from '../posts/create_link_form_container';
+import EditLinkContainer from '../posts/edit_link_form_container';
 
 const Modal = ({modal}) => {
     if (!modal) {
@@ -33,6 +35,12 @@ const Modal = ({modal}) => {
             break;
         case 'Edit Quote Form':
             component = <EditQuoteContainer postId={modal.postId}/>;
+            break;
+        case 'Create Link Form':
+            component = <CreateLinkContainer />
+            break;
+        case 'Edit Link Form':
+            component = <EditLinkContainer postId={modal.postId}/>;
             break;
         default:
             return null;

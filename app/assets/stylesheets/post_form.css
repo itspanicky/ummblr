@@ -122,16 +122,17 @@
 .quote {
     font-size: 30px;
     padding: 0 10px;
-    width: 100%;
+    max-width: 540px;
+    
 }
 
 .quote-text {
     width: 80px;
     box-sizing:border-box;
-    size: 1;
     border: none;
     outline: none;
     padding: 0;
     margin: 0;
     font-size: 30px;
+    
 }
