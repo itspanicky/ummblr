@@ -1,8 +1,3 @@
-.dashboard-container {
-    /* min-height: 100%;
-    background-color: rgb(5, 24, 51); */
-}
-
 .dashboard {
     display: flex;
     justify-content: space-around;
