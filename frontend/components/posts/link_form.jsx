@@ -24,11 +24,11 @@ class LinkForm extends React.Component {
             <div className="form_container">
                 <div className="author_name">{this.props.currentUser.username}</div>
                 <form className="text-form" onSubmit={this.handleSubmit}>
-                    <input className="title-text"
+                    <input className="link-text"
                         type="text"
                         value={this.state.title}
                         onChange={this.handleInput("title")}
-                        placeholder="Add a URL"
+                        placeholder="Type or Paste a URL"
                     />
 
                     <textarea className="content-text"
