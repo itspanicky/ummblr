@@ -8,11 +8,11 @@ export const createMediaPost = (formData) => {
     })
 }
 
-export const editMediaPost = (post) => {
+export const editMediaPost = (formData, post) => {
     return $.ajax({
-        method: "post",
+        method: "patch",
         url: `/api/posts/${post.id}`,
-        data: { post },
+        data: formData,
         contentType: false,
         processData: false,
     })

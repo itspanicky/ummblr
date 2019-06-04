@@ -17,7 +17,7 @@ const msp = (state, ownProps) => {
 
 const mdp = (dispatch) => {
     return ({
-        action: (post) => dispatch(editMediaPost(post)),
+        action: (formData, post) => dispatch(editMediaPost(formData, post)),
         closeModal: () => dispatch(closeModal())
     })
 }
