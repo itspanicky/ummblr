@@ -5,6 +5,7 @@ import { closeModal } from '../../actions/modal_actions';
 import CreatePostContainer from '../posts/create_post_form_container';
 import EditPostContainer from '../posts/edit_post_form_container';
 import CreatePhotoPostContainer from '../posts/create_photo_form_container';
+import EditPhotoPostContainer from '../posts/edit_photo_form_container';
 
 
 const Modal = ({modal}) => {
@@ -23,6 +24,8 @@ const Modal = ({modal}) => {
         case 'Create Photo Post':
             component = <CreatePhotoPostContainer />
             break;
+        case 'Edit Photo Form':
+            component = <EditPhotoPostContainer postId={modal.postId} />
         default:
             return null;
     }

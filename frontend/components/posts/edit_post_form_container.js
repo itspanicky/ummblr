@@ -12,6 +12,7 @@ const msp = (state, ownProps) => {
     return ({
         post: post,
         currentUser: currentUser,
+        formType: "Save"
     })
 }
 

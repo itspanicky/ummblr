@@ -54,25 +54,43 @@ class PhotoForm extends React.Component {
     }
 
     render() {
-        const preview = this.state.photoUrl ? <img className="image-prev" src={this.state.photoUrl} /> : null;
+        // const preview = this.state.photoUrl ? <img className="image-prev" src={this.state.photoUrl} /> : null;
+
+        const imageUpload = this.state.photoUrl ?
+            ( <img className="image-prev" src={this.state.photoUrl} /> ) :
+            ( <div>
+                <input className="upload"
+                type="file"
+                name="file"
+                id="file"
+                onChange={this.handleFile}
+                />
+                <label htmlFor="file">
+                    <div className="upload-file">
+                        <p><i className="fas fa-camera-retro"></i></p>
+                        <p>Upload a photo</p>
+                        <p><i className="far fa-laugh-squint"></i></p>
+                    </div>
+
+                </label>
+            </div> );
+
+
         return (
             <div className="form_container">
+                <div className="author_name">{this.props.currentUser.username}</div>
                 <form className="photo-form" onSubmit={this.handleSubmit}>
                     
-                    <input 
-                        type="file"
-                        onChange={this.handleFile} 
-                    />
-                    {preview}
+                    {imageUpload}
 
                     <textarea className="content-text"
                         type="text"
                         value={this.state.content}
                         onChange={this.handleInput("content")}
-                        placeholder="Your text here"
+                        placeholder="Add a caption, if you like"
                     />
 
-                    <div>
+                    <div className="post-form-footer">
                         <button onClick={this.props.closeModal} className="close-modal">Close</button>
                         <input className="submit-post" type="submit" value={this.props.formType} />
                     </div>

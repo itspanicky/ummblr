@@ -37,7 +37,7 @@ class PostForm extends React.Component {
                         onChange={this.handleInput("content")}
                         placeholder="Your text here"
                     />
-                    <div>
+                    <div className="post-form-footer">
                         <button onClick={this.props.closeModal} className="close-modal">Close</button>
                         <input className="submit-post" type="submit" value={this.props.formType}/>
                     </div>
