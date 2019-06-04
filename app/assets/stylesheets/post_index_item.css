@@ -37,13 +37,42 @@
     justify-content: space-between;
 }
 
-.settings {
+.settings-button {
     border: none;
-    font-size: 24px;
+    font-size: 22px;
+    position: relative;
+    outline: none;
+    cursor: pointer;
 }
+
+.settings-dropdown {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 4px 0;
+    width: 120px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+}
+
+.settings-dropdown > button {
+    border: none;
+    font-size: 14px;
+    padding: 5px 25px 5px 14px;
+    outline: none;
+    cursor: pointer;
+}
+
+.settings-dropdown > button:hover {
+    background-color: lightblue;
+}
+
+
 
 
 /* photo */
 .photo-post {
     max-width: 540px;
 }
+
