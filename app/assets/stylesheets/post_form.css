@@ -1,0 +1,82 @@
+.form_container {
+    display: block;
+    width: 540px;
+    border-radius: 5px;
+    background-color: white; 
+}
+
+/* .text-form {
+    
+} */
+
+.author_name {
+    width: 332px;
+    height: 20px;
+    font-size: 13px;
+    padding: 15px 15px 10px 20px;
+    color: black;
+}
+
+.title-text {
+    font-size: 35px;
+    width: 500px;
+    padding: 5px 20px;
+    min-height: 37px;
+    border: none;
+}
+
+.content-text {
+    width: 500px;
+    padding: 0 20px;
+    min-height: 80px;  
+    border: none;
+    font-size: 13px;
+    resize: none;
+}
+
+.text-form > div {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 15px 20px;
+    text-align: center;
+    border-top: 1px solid lightgray;
+    border-radius: 0 0 5px 5px;
+}
+
+.close-modal {
+    width: 51px;
+    height: 30px;
+    padding: 5px 7px;
+    background-color: #9DA6AF;
+    border: none;
+    border-radius: 2px;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.submit-post {
+    width: 62px;
+    height: 28px;
+    padding: 5px 10px;
+    background-color: #00B8FF;
+    border: none;
+    border-radius: 2px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 13px;
+    color: white;
+}
+
+
+/* photo */
+/* .photo-form {
+    
+} */
+
+.image-prev {
+    width: 250px;
+    
+}

@@ -56,10 +56,10 @@ class SessionForm extends React.Component {
                     onChange={this.handleInput("username")} 
                 /> 
             );
-            linkTo = ( <Link className="link_to" to='/login'>Log In</Link> )
+            linkTo = ( <Link className="link_to" to='/login'>Log in</Link> )
         } else {
             userInput = ( <span></span> );
-            linkTo = ( <Link className="link_to" to='/signup'>Sign Up</Link> )
+            linkTo = ( <Link className="link_to" to='/signup'>Sign up</Link> )
         }
 
         let errors = this.props.errors.map(error => <li key={error}>{error}</li>)

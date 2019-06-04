@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 const Navbar = ({currentUser, logout}) => {
     const leftNav = (
         <section className="left-side">
-            <Link to="/#/" className="u-logo">u</Link>
+            <Link to="/" className="u-logo">u</Link>
+            <i className="fas fa-search"></i>
             <input className="search-bar" type="text" placeholder="Search ummblr" />
         </section>
     )
@@ -21,7 +22,7 @@ const Navbar = ({currentUser, logout}) => {
                 <p><i className="big fas fa-user"></i></p>
                 <ul className="account-dropdown">
                     <li>
-                        <p onClick={() => logout()}><i className="small fas fa-sign-out-alt"></i><span>Logout</span></p>
+                        <div><span>Account</span><span className="clickable" onClick={() => logout()}>Logout</span></div>
                     </li>
                     <li>
                         <p><i className="small fas fa-heart"></i><span>Likes</span></p>
@@ -42,7 +43,7 @@ const Navbar = ({currentUser, logout}) => {
 
     if (currentUser) {
         return (
-            <nav className="navbar">
+            <nav className="navbar navbar-user">
                 {leftNav}
                 {rightNav}
             </nav>
