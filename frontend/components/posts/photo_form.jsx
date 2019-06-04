@@ -49,8 +49,6 @@ class PhotoForm extends React.Component {
         //     contentType: false,
         //     processData: false
         // }).then(this.props.closeModal());
-        
-        // this.props. action-createpost? (this.state).then(this.props.closeModal())
     }
 
     render() {
