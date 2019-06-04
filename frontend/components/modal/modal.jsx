@@ -26,6 +26,7 @@ const Modal = ({modal}) => {
             break;
         case 'Edit Photo Form':
             component = <EditPhotoPostContainer postId={modal.postId} />
+            break;
         default:
             return null;
     }

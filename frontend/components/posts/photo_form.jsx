@@ -75,7 +75,6 @@ class PhotoForm extends React.Component {
                 </label>
             </div> );
 
-
         return (
             <div className="form_container">
                 <div className="author_name">{this.props.currentUser.username}</div>
