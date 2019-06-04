@@ -27,14 +27,14 @@
 
 .content-text {
     width: 500px;
-    padding: 0 20px;
+    padding: 7px 20px;
     min-height: 80px;  
     border: none;
     font-size: 13px;
     resize: none;
 }
 
-.text-form > div {
+.post-form-footer {
     display: flex;
     justify-content: space-between;
     background-color: white;
@@ -71,13 +71,51 @@
 }
 
 
+.click {
+    background-color: black;
+}
+
 /* photo */
 .photo-post {
     max-width: 540px;
 }
 
+.upload {
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -2;
+}
+
+.upload-file {
+    color: black;
+    text-align: center;
+    font-size: 14px;
+    width: 500px;
+    padding: 5px 20px;
+    border-top: 1px dashed black;
+    border-bottom: 1px dashed black;
+    background-color: rgb(242, 242, 242);
+    height: 170px;
+}
+
+.upload-file > p {
+}
+
+.fa-camera-retro {
+    font-size: 45px;
+    padding: 20px 0 15px 0;
+}
+
+.fa-laugh-squint {
+    font-size: 20px;
+    padding: 30px 0 0 0;
+}
 
 .image-prev {
-    width: 250px;
-    
+    display: block;
+    width: 540px;
+    max-height: 500px;
+    background-size: cover;
+    background-repeat: no-repeat;
 }

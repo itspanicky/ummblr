@@ -44,6 +44,19 @@ class PostIndexItem extends React.Component {
         }
     }
 
+    postSetting(post){
+        switch (post.post_type) {
+            case "text":
+                return (
+                    <button onClick={() => this.props.openModal('Edit Text Form', post.id)}>Edit</button>
+                )
+            case "photo":
+                return (
+                    <button onClick={() => this.props.openModal('Edit Photo Form', post.id)}>Edit</button>
+                )
+        }
+    }
+
     render() {  
         const post = this.props.post;
         // const author = this.props.author.username;
@@ -66,7 +79,7 @@ class PostIndexItem extends React.Component {
                             { this.state.showMenu
                                 ? (
                                     <div className="settings-dropdown" ref={(element) => { this.dropdownMenu = element;}}>
-                                        <button onClick={() => this.props.openModal('Edit Text Form', post.id)}>Edit</button>
+                                        {this.postSetting(post)}
                                         <button button onClick={() => this.props.deletePost(post.id)}>Delete</button>
                                     </div>
                                 )
