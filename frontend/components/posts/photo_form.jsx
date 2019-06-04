@@ -41,13 +41,14 @@ class PhotoForm extends React.Component {
         if (this.state.photoFile) {
             formData.append('post[photo]', this.state.photoFile);
         }
-        $.ajax({
-            url: 'api/posts',
-            method: 'post',
-            data: formData,
-            contentType: false,
-            processData: false
-        }).then(this.props.closeModal());
+        this.props.action(formData).then(this.props.closeModal());
+        // $.ajax({
+        //     url: 'api/posts',
+        //     method: 'post',
+        //     data: formData,
+        //     contentType: false,
+        //     processData: false
+        // }).then(this.props.closeModal());
         
         // this.props. action-createpost? (this.state).then(this.props.closeModal())
     }

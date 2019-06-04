@@ -24,6 +24,7 @@ class PostIndexItem extends React.Component {
                 return (
                     <div>
                         <img className="photo-post" src={post.photoUrl} />
+                        <p>{post.content}</p>
                     </div>
                 )
         }
