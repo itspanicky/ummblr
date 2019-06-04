@@ -103,3 +103,13 @@
     position: relative;
     top: 3px;
 }
+
+/* link */
+.link-post {
+    color: black;
+    /* text-align: center; */
+    width: 500px;
+    padding: 5px 20px;
+    /* background-color: rgb(242, 242, 242); */
+    height: 50px;
+}
