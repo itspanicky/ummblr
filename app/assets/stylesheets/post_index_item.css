@@ -22,10 +22,10 @@
     word-wrap: break-word;
 }
 
-.text-post > p {
+.content-post {
     min-height: 21px;
-    margin: 0 0 10px;
-    padding: 0 20px;
+    margin: 0 0 5px;
+    padding: 10px 20px 0 20px;
     font-size: 14px;
     word-wrap: break-word;
 }
@@ -67,12 +67,3 @@
 .settings-dropdown > button:hover {
     background-color: lightblue;
 }
-
-
-
-
-/* photo */
-.photo-post {
-    max-width: 540px;
-}
-

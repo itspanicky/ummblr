@@ -31,20 +31,18 @@ class PostIndexItem extends React.Component {
                 return (
                     <div className="text-post">
                         <h3>{post.title}</h3>
-                        <p>{post.content}</p>
+                        <p className = "content-post">{post.content}</p>
                     </div>
                 );
             case "photo":
                 return (
                     <div>
                         <img className="photo-post" src={post.photoUrl} />
-                        <p>{post.content}</p>
+                        <p className="content-post">{post.content}</p>
                     </div>
                 )
         }
     }
-
-
 
     render() {  
         const post = this.props.post;
@@ -72,9 +70,7 @@ class PostIndexItem extends React.Component {
                                         <button button onClick={() => this.props.deletePost(post.id)}>Delete</button>
                                     </div>
                                 )
-                                : (
-                                    null
-                                )
+                                : (null)
                             }
                         </li>
                     </ul>
