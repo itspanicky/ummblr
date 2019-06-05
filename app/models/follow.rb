@@ -10,13 +10,16 @@
 #
 
 class Follow < ApplicationRecord
-    validates :following_id, uniqueness: true
+    # problem - getting duplicate follows
+    # validates :follower_id, uniqueness: true
+    # validates_uniqueness_of :follower_id, scope: { :follower}
 
-    belongs_to :user,
+    belongs_to :following,
         primary_key: :id,
         foreign_key: :following_id,
         class_name: :User
 
+    
     belongs_to :follower,
         primary_key: :id,
         foreign_key: :follower_id,
