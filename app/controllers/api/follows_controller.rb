@@ -1,5 +1,5 @@
 class Api::FollowsController < ApplicationController
-    before_action :ensure_logged_in
+    # before_action :ensure_logged_in
 
     def create
         @follow = Follow.new(follow_params)
@@ -44,4 +44,5 @@ class Api::FollowsController < ApplicationController
     def follow_params
         params.requires(:follow).permit(:following_id, :follower_id)
     end
+
 end

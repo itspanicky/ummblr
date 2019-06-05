@@ -1,6 +1,6 @@
 class Api::PostsController < ApplicationController
 
-    before_action :ensure_logged_in
+    # before_action :ensure_logged_in
 
     def create
         @post = current_user.posts.new(post_params)
