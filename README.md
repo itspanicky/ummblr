@@ -32,8 +32,14 @@ Day 1: New account creation, login, and guest/demo login
 
 
 
-credit due:  
-    icon-dashboard - Icon made by Anton Saputro from www.flaticon.com 
-    icon-explore - Icon made by Smashicons from www.flaticon.com
-    icon-account - Icon made by srip from www.flaticon.com
-    icon-post - Icon made by Kiranshastry from www.flaticon.com
+
+
+To follow/unfollow:
+button - onClick={() => follow()}
+button = onClick={() => unfollow()}
+
+In PostindexItem
+    import { follow, unfollow } from '../../actions/follow_actions';
+    or pass down from PostIndex
+
+Must render author/username on post first

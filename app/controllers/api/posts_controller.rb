@@ -1,6 +1,6 @@
 class Api::PostsController < ApplicationController
 
-    before_action :ensure_logged_in
+    # before_action :ensure_logged_in
 
     def create
         @post = current_user.posts.new(post_params)
@@ -22,7 +22,7 @@ class Api::PostsController < ApplicationController
 
     def index
         # refactor to display specific posts
-        # if params[:author_id] = params[:user_id]
+        # if params[:author_id] = current_user.id
         #     @posts = Post.includes
         # else
         #     @posts = Post.all
