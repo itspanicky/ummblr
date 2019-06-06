@@ -1,20 +1,21 @@
 .dashboard {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     margin: 80px auto;
 
 }
 
 .dashboard-main {
     position: relative;
+    padding: 0 50px;
 }
 
 .dashboard-main > div {
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     /* margin: 30px; */
-    width: 600px;
-
+    width: 620px;
+    
 }
 
 .post-container {
@@ -30,4 +31,20 @@
 
 .text-post > p {
     font-size: 14px;
+}
+
+/* avatar */
+.avatar {
+    width: 64px;
+    height: 64px;
+    border: none;
+    border-radius: 4px;
+    position: fixed;
+}
+
+
+/* postindex */
+.main-content {
+    display: flex;
+    justify-content: space-between;
 }

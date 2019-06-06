@@ -9,7 +9,6 @@ const msp = (state) => {
     // const followers = Object.values(currentUser.followers);
     // const followings = Object.values(currentUser.followings);
     
-    
     return ({
         posts: posts,
         currentUser: currentUser

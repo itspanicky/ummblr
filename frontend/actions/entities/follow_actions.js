@@ -13,7 +13,6 @@ const receiveAllFollows = (follows) => {
 }
 
 const receiveFollow = (follow) => {
-    debugger
     return {
         type: RECEIVE_FOLLOW,
         follow: follow
@@ -35,9 +34,7 @@ export const fetchFollows = (userId) => (dispatch) => {
 
 // followerId points to currentUserId
 export const follow = (followId) => (dispatch) => {
-    debugger
     return FollowApiUtil.follow(followId).then((follow) => {
-        debugger
         return dispatch(receiveFollow(follow));
     });
 }; 

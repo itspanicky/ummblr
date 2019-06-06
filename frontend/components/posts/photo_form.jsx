@@ -36,13 +36,12 @@ class PhotoForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const formData = new FormData();
-        formData.append('post[content]', this.state.content);
-        formData.append('post[post_type]', "photo");
-        formData.append('post[id]', this.state.post.id)
         if (this.state.photoFile) {
+            formData.append('post[post_type]', "photo");
+            formData.append('post[id]', this.state.post.id)
             formData.append('post[photo]', this.state.photoFile);
-        }
-        this.props.action(formData, this.state.post).then(this.props.closeModal());
+            this.props.action(formData, this.state.post).then(this.props.closeModal());
+        } 
         // $.ajax({
         //     url: 'api/posts',
         //     method: 'post',
