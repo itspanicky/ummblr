@@ -17,10 +17,10 @@ Follow.delete_all
 
 
 user1 = User.create(username: 'itspanicky', email: 'itspanicky@gmail.com', password: "password")
-user2 = User.create(username: 'fish123', email: 'fish@gmai.com', password: 'password')
-user3 = User.create(username: 'Gangstaboi92', email: 'momsspaghetti@gmai.com', password: 'password')
-user4 = User.create(username: 'ImABot', email: 'bot@gmai.com', password: 'password')
-user5 = User.create(username: 'uglyboy33', email: 'uglyboy@gmai.com', password: 'password')
+user2 = User.create(username: 'fish123', email: 'fish@gmail.com', password: 'password')
+user3 = User.create(username: 'Gangstaboi92', email: 'momsspaghetti@gmail.com', password: 'password')
+user4 = User.create(username: 'ImABot', email: 'bot@gmail.com', password: 'password')
+user5 = User.create(username: 'uglyboy33', email: 'uglyboy@gmail.com', password: 'password')
 demo = User.create(username: 'DemoUser', email: 'demo@gmail.com', password: 'password')
 
 
@@ -38,11 +38,16 @@ Follow.create(following_id: user2.id, follower_id: user3.id) # user3 follows use
 text1 = Post.create(title: 'Hello World', content: "This is my first post", post_type: "text", author_id: demo.id)
 
 quote1 = Post.create(title: "People are so scared to lose that they don't even try", content: "Kanye West", post_type: "quote", author_id: user3.id)
+quote2 = Post.create(title: "I feel like I'm too busy writing history to read it", content: "Kanye West", post_type: "quote", author_id: user3.id)
+
+photo2 = open('https://ummblr-dev.s3.amazonaws.com/Girl.jpg')
+image2 = Post.create(title: 'Photo', content: 'Another window', post_type: "photo", author_id: user2.id)
+image2.photo.attach(io: photo2, filename: 'https://ummblr-dev.s3.amazonaws.com/Girl.jpg')
 
 text2 = Post.create(title: 'I love fish', content: "especially when grilled", post_type: "text", author_id: user1.id)
 
 photo1 = open('https://ummblr-dev.s3.amazonaws.com/Window.jpeg')
-image1 = Post.create(title: 'Photo', content: 'This is a window', post_type: "photo", author_id: user1.id)
+image1 = Post.create(title: 'Photo', content: 'This is a window', post_type: "photo", author_id: user2.id)
 image1.photo.attach(io: photo1, filename: 'https://ummblr-dev.s3.amazonaws.com/Window.jpeg')
 
 

@@ -8,6 +8,8 @@ const msp = (state) => {
     const currentUser = state.entities.users[state.session.id];
     // const followers = Object.values(currentUser.followers);
     // const followings = Object.values(currentUser.followings);
+    
+    
     return ({
         posts: posts,
         currentUser: currentUser

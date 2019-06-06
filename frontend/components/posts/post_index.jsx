@@ -18,6 +18,7 @@ class PostIndex extends React.Component {
                     key={post.id}
                     post={post}
                     deletePost={this.props.deletePost}
+                    currentUser={this.props.currentUser}
                 />
             )
         }).reverse();

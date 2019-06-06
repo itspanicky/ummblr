@@ -7,9 +7,10 @@ export default (state = _nullSession, action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            return merge({}, state, { id: action.user.id });
+            return merge({}, state, { id: action.user.user.id });
         case LOGOUT_CURRENT_USER:
-            return merge({}, state, { id: null });
+            return _nullSession;
+            // return merge({}, state, { id: null });
         default:
             return state;
     }

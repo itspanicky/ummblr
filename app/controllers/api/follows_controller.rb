@@ -2,9 +2,9 @@ class Api::FollowsController < ApplicationController
     # before_action :ensure_logged_in
 
     def create
-        debugger
-        @follow = Follow.new(follow_params)
-        @follow.following_id = current_user.id
+        @follow = Follow.new()
+        @follow.follower_id = current_user.id
+        @follow.following_id = params[:followingId]
         if @follow.save
             render :show
         else
@@ -26,8 +26,8 @@ class Api::FollowsController < ApplicationController
         @follow = Follow.find_by(following_id: params[:id], follower_id: current_user.id )
         if @follow && @follow.destroy
             render :index
-        else
-            render json @follow.errors.full_messages
+        # else
+        #     render json @follow.errors.full_messages
         end
     end
 

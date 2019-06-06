@@ -4,11 +4,14 @@ class PostIndexItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            showMenu:  false
+            showMenu:  false,
+            followingStatus: this.props.followingStatus
         }
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
     }
+
+    
 
     showMenu(e) {
         e.preventDefault();
@@ -86,24 +89,64 @@ class PostIndexItem extends React.Component {
         }
     }
 
+
     render() {  
+        // console.log(this.props.follows)
+        console.log(this.props.followingStatus);
         const post = this.props.post;
-        const author = this.props.post.author
-        // this.props.post.author.followings 
-        // this.props.follow(author.id)
+        const author = this.props.post.author;
+        let followText = this.state.followingStatus ? "Unfollow" : "Follow"
         
+        let follow;
+        if (this.props.post.author.username === this.props.currentUser.username) {
+            follow = <span></span>
+        } else if (this.props.followingStatus === false) {
+            follow = <button className="follow-button" onClick={() => this.props.follow(author.id).then(this.setState({ followingStatus: !this.state.followingStatus }))}>{followText}</button>;
+        } else {
+            follow = <button className="follow-button" onClick={() => this.props.unfollow(author.id).then(this.setState({ followingStatus: !this.state.followingStatus }))}>{followText}</button>;
+        };
+        let settings;
+        if (this.props.currentUser.id === this.props.authorId) {
+            settings = (
+                <li>
+                    <button className="settings-button" onClick={this.showMenu}>
+                        <i className="fas fa-cog"></i>
+                    </button>
+
+                    {this.state.showMenu
+                        ? (
+                            <div className="settings-dropdown" ref={(element) => { this.dropdownMenu = element }}>
+                                {this.postSetting(post)}
+                                <button button onClick={() => this.props.deletePost(post.id)}>Delete</button>
+                            </div>
+                        )
+                        : (null)
+                    }
+                </li>
+            )
+        } else {
+            settings = (
+                <li><i className="fas fa-heart "></i></li>
+                )
+            };
+            
+            
+            debugger
         return (
             <div className="post-container">
                 <div className="post-author-container">
                     {author.username}
-                    {/* <button onClick={() => this.props.follow(author.id)}>Follow</button> */}
+                    {/* <button onClick={() => this.props.follow(author.id)}>Follow</button>
+                    <button onClick={() => this.props.unfollow(author.id)}>Unfollow</button> */}
+                    {follow}
                 </div>
                 <div className="post-body-container">
                     {this.postBody(post)}
                 </div>
                 <div className="post-action-container">
                     <span>99 notes</span>
-                    <ul>
+                    <ul className="post-action-actions">
+                        {/* <li><i className="fas fa-heart "></i></li>
                         <li>
                             <button className="settings-button" onClick={this.showMenu}>
                                 <i className="fas fa-cog"></i>
@@ -118,7 +161,8 @@ class PostIndexItem extends React.Component {
                                 )
                                 : (null)
                             }
-                        </li>
+                        </li> */}
+                        {settings} 
                     </ul>
                 </div>
             </div>

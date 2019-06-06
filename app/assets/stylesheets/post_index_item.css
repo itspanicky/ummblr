@@ -22,6 +22,18 @@
     padding: 0 20px 7px 20px;
 }
 
+.follow-button {
+    border: none;
+    padding: 0 2px;
+    margin: 0 2px;
+    font-size: 13px;
+    color: rgb(130, 200, 223);
+}
+
+.follow-button:hover {
+    cursor: pointer;
+}
+
 .text-post > h3 {
     min-height: 47px;
     margin: 0 0 10px;
@@ -112,4 +124,19 @@
     padding: 5px 20px;
     /* background-color: rgb(242, 242, 242); */
     height: 50px;
+}
+
+
+.post-action-actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.fa-heart {
+    border: none;
+    font-size: 22px;
+    position: relative;
+    outline: none;
+    cursor: pointer;
 }

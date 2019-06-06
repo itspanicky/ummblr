@@ -7,12 +7,11 @@ export const fetchFollows = (userId) => {
 }
 
 
-export const follow = (followerId) => {
-    debugger
+export const follow = (followingId) => {
     return $.ajax({
         method: "post",
         url: "/api/follows",
-        data: { followerId }
+        data: { followingId }
     })
 }
 
