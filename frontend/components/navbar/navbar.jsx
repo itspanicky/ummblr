@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = ({currentUser, logout}) => {
+    const user = (currentUser ? currentUser.username : 'Account')
+
     const leftNav = (
         <section className="left-side">
             <Link to="/" className="u-logo">u</Link>
@@ -22,7 +24,7 @@ const Navbar = ({currentUser, logout}) => {
                 <p><i className="big fas fa-user"></i></p>
                 <ul className="account-dropdown">
                     <li>
-                        <div><span>Account</span><span className="clickable" onClick={() => logout()}>Logout</span></div>
+                        <div><span>{user}</span><span className="clickable" onClick={() => logout()}>Logout</span></div>
                     </li>
                     <li>
                         <p><i className="small fas fa-heart"></i><span>Likes</span></p>

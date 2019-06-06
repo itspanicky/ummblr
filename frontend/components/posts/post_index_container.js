@@ -6,6 +6,9 @@ import { openModal } from '../../actions/modal_actions';
 const msp = (state) => {
     const posts = Object.values(state.entities.posts)
     const currentUser = state.entities.users[state.session.id];
+    // const followers = Object.values(currentUser.followers);
+    // const followings = Object.values(currentUser.followings);
+    
     return ({
         posts: posts,
         currentUser: currentUser

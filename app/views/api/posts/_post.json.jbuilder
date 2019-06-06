@@ -4,6 +4,9 @@ if post.photo.attached?
     json.photoUrl url_for(post.photo)
 end
 
+json.author do
+    json.partial! "api/users/user", user: post.author
+end
 
 # json.photoUrls post.photo.map { |file| url_for(file) }
 
