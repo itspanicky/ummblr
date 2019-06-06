@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
-import { follow } from './actions/entities/follow_actions';
+// import { follow, fetchFollows, unfollow } from './actions/entities/follow_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
     let store;
@@ -24,5 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // test
     window.getState = store.getState;
     window.dispatch = store.dispatch;
+    
 });
 

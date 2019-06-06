@@ -8,6 +8,7 @@ const msp = (state, ownProps) => {
     const post = ownProps.post
     // const authorId = ownProps.post.author_id;
     // const author = state.entities.users[authorId];
+    
     return ({
         post: post,
     })

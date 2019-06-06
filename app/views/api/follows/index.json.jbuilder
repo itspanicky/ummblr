@@ -1,7 +1,4 @@
-# all followings
-# all followers
+# all followings/followers for one user
 
-json.follows do
-    json.partial! "api/follows/follow" followings: @followings
-    json.partial! "api/follows/follow" followers: @followers
-end
+json.partial! 'api/follows/follow', followings: @followings, followers: @followers
+

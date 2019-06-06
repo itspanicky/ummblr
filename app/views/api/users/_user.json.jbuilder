@@ -1,9 +1,9 @@
 
 json.extract! user, :id, :username, :email
 
-# if user.avatar.attached?
-#     json.photoUrl url_for(user.avatar)
-# end
+if user.avatar.attached?
+    json.photoUrl url_for(user.avatar)
+end
 
 
 json.followings do

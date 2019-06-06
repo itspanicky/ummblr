@@ -1,3 +1,4 @@
+// { followings: {id, username}, followers: {id, username}}
 export const fetchFollows = (userId) => {
     return $.ajax({
         method: "get",
@@ -5,11 +6,13 @@ export const fetchFollows = (userId) => {
     })
 }
 
-export const follow = (user) => {
+
+export const follow = (followerId) => {
+    debugger
     return $.ajax({
         method: "post",
         url: "/api/follows",
-        data: { user }
+        data: { followerId }
     })
 }
 

@@ -10,9 +10,11 @@ export default (state = [], action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_ALL_FOLLOWS:
-            return action.follows;
+            return merge({}, state, action.follows)
         case RECEIVE_FOLLOW:
-            return action.follow;
+            let newState = merge({}, state);
+            delete newState[action.followingId];
+            return newState;
         case REMOVE_FOLLOW:
             return state;
         default:

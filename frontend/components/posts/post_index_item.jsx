@@ -88,13 +88,15 @@ class PostIndexItem extends React.Component {
 
     render() {  
         const post = this.props.post;
-        const author = this.props.post.author.username
+        const author = this.props.post.author
         // this.props.post.author.followings 
+        // this.props.follow(author.id)
         
         return (
             <div className="post-container">
                 <div className="post-author-container">
-                    {author}
+                    {author.username}
+                    {/* <button onClick={() => this.props.follow(author.id)}>Follow</button> */}
                 </div>
                 <div className="post-body-container">
                     {this.postBody(post)}
