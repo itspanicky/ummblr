@@ -27,6 +27,9 @@ demo = User.create(username: 'DemoUser', email: 'demo@gmail.com', password: 'pas
 itspanicky_avatar = open('https://ummblr-dev.s3.amazonaws.com/fullsizeoutput_1.jpeg')
 user1.avatar.attach(io: itspanicky_avatar, filename: 'https://ummblr-dev.s3.amazonaws.com/fullsizeoutput_1.jpeg')
 
+default_avatar = open('https://ummblr-dev.s3.amazonaws.com/Knight+-+White+Inverted.jpg')
+demo.avatar.attach(io: default_avatar, filename: 'https://ummblr-dev.s3.amazonaws.com/Knight+-+White+Inverted.jpg')
+
 # demo.followings 
 Follow.create(following_id: demo.id, follower_id: user5.id) # user5 follows demo
 Follow.create(following_id: user1.id, follower_id: user3.id) # user3 follows user1

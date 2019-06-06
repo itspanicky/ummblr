@@ -24,8 +24,8 @@
 
 .follow-button {
     border: none;
-    padding: 0 2px;
-    margin: 0 2px;
+    padding: 0 1px;
+    margin: 0 5px;
     font-size: 13px;
     color: rgb(130, 200, 223);
 }
