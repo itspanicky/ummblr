@@ -8,7 +8,8 @@ export default (state = {}, action) => {
         // case RECEIVE_ALL_USERS:
         //     return merge({}, state, action.users )
         case RECEIVE_CURRENT_USER:
-            return merge({}, state, { [action.user.id]: action.user });
+            debugger
+            return merge({}, state, { [action.user.user.id]: action.user.user });
         // case RECEIVE_USER:
         //     return merge({}, state, { [action.user.id]: action.user });
         default:

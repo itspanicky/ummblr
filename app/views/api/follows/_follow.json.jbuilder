@@ -16,3 +16,5 @@ json.followers do
         json.username follow.username
     end
 end
+
+# json.extract! follow, :following_id, :follower_id

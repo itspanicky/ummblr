@@ -10,9 +10,7 @@
 #
 
 class Follow < ApplicationRecord
-    # problem - getting duplicate follows
-    # validates :follower_id, uniqueness: true
-    # validates_uniqueness_of :follower_id, scope: { :follower}
+    validates :follower_id, uniqueness: {scope: :following_id, message: "You can't follow yourself"}
 
     belongs_to :following,
         primary_key: :id,
