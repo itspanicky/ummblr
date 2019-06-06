@@ -23,6 +23,10 @@ user4 = User.create(username: 'ImABot', email: 'bot@gmai.com', password: 'passwo
 user5 = User.create(username: 'uglyboy33', email: 'uglyboy@gmai.com', password: 'password')
 demo = User.create(username: 'DemoUser', email: 'demo@gmail.com', password: 'password')
 
+
+itspanicky_avatar = open('https://ummblr-dev.s3.amazonaws.com/fullsizeoutput_1.jpeg')
+user1.avatar.attach(io: itspanicky_avatar, filename: 'https://ummblr-dev.s3.amazonaws.com/fullsizeoutput_1.jpeg')
+
 # demo.followings 
 Follow.create(following_id: demo.id, follower_id: user5.id) # user5 follows demo
 Follow.create(following_id: user1.id, follower_id: user3.id) # user3 follows user1

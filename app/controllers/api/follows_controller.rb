@@ -2,7 +2,9 @@ class Api::FollowsController < ApplicationController
     # before_action :ensure_logged_in
 
     def create
+        debugger
         @follow = Follow.new(follow_params)
+        @follow.following_id = current_user.id
         if @follow.save
             render :show
         else
@@ -31,10 +33,10 @@ class Api::FollowsController < ApplicationController
 
     def index
         # query search followings and followers by matching user_id
-        user = User.includes(:followings, :followers).find_by(id: params[:user_id])
+        @user = User.includes(:followings, :followers).find_by(id: params[:user_id])
 
-        @followings = user.followings
-        @followers = user.followers
+        @followings = @user.followings
+        @followers = @user.followers
 
         render :index
     end
@@ -42,7 +44,7 @@ class Api::FollowsController < ApplicationController
     private
 
     def follow_params
-        params.requires(:follow).permit(:following_id, :follower_id)
+        params.require(:follow).permit(:following_id, :follower_id)
     end
 
 end

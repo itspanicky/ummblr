@@ -22,6 +22,11 @@ class User < ApplicationRecord
 
     has_one_attached :avatar
 
+    has_many :posts,
+        primary_key: :id,
+        foreign_key: :author_id,
+        class_name: :Post
+
     has_many :follower_joins,
         primary_key: :id,
         foreign_key: :following_id,
