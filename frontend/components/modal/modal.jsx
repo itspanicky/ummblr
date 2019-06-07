@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 
+
 import CreatePostContainer from '../posts/create_post_form_container';
 import EditPostContainer from '../posts/edit_post_form_container';
 import CreatePhotoPostContainer from '../posts/create_photo_form_container';
@@ -10,8 +11,9 @@ import CreateQuoteContainer from '../posts/create_quote_form_container';
 import EditQuoteContainer from '../posts/edit_quote_form_container';
 import CreateLinkContainer from '../posts/create_link_form_container';
 import EditLinkContainer from '../posts/edit_link_form_container';
+import Avatar from '../avatar/avatar';
 
-const Modal = ({modal}) => {
+const Modal = ({modal, currentUser}) => {
     if (!modal) {
         return null;
     }
@@ -48,6 +50,7 @@ const Modal = ({modal}) => {
     return (
         <div className="modal-background">
             <div className="modal-child" onClick={e => e.stopPropagation()}>
+                {/* <Avatar photoUrl={currentUser.photoUrl} currentUser={currentUser.username} /> */}
                 { component }
             </div>
         </div>
@@ -58,7 +61,8 @@ const Modal = ({modal}) => {
 
 const msp = (state) => {
     return ({
-        modal: state.ui.modal
+        modal: state.ui.modal,
+        currentUser: state.entities.users[state.session.id]
     })
 }
 

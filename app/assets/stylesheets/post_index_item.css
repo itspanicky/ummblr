@@ -25,9 +25,10 @@
 .follow-button {
     border: none;
     padding: 0 1px;
-    margin: 0 5px;
+    margin: 0 7px;
     font-size: 13px;
     color: rgb(130, 200, 223);
+    outline: none;
 }
 
 .follow-button:hover {
@@ -37,15 +38,15 @@
 .text-post > h3 {
     min-height: 47px;
     margin: 0 0 10px;
-    padding: 0 20px;
+    padding: 5px 18px 0 18px;
     font-size: 36px;
     word-wrap: break-word;
 }
 
 .content-post {
-    min-height: 21px;
+    /* min-height: 21px; */
     margin: 0 0 5px;
-    padding: 10px 20px 0 20px;
+    padding: 7px 20px 12px 20px;
     font-size: 14px;
     word-wrap: break-word;
 }
@@ -106,7 +107,7 @@
 
 .quote-post > p {
     font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
 }
 
 .quote-post > p > span {

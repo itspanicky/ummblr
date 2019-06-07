@@ -15,14 +15,14 @@ class PostIndex extends React.Component {
     render() {
         let posts = this.props.posts.map(post => {
             return (
-                <div className="">
-                    <PostIndexItem
-                        key={post.id}
-                        post={post}
-                        deletePost={this.props.deletePost}
-                        currentUser={this.props.currentUser}
-                    /> 
-                </div>
+                <PostIndexItem
+                    key={post.id}
+                    post={post}
+                    deletePost={this.props.deletePost}
+                    currentUser={this.props.currentUser}
+                    follow={this.props.follow}
+                    unfollow={this.props.unfollow}
+                /> 
             )
         }).reverse();
         return (

@@ -15,11 +15,12 @@ const Greeting = ({currentUser}) => {
                 <nav className="signup-login">
                     <h1 className="ummblr">ummblr</h1>
                     <div className="spash-motto">
-                        <p>Come for what you love.</p>
-                        <p>umms for what you discover.</p>
+                        <p className="splash-text" >Come for what you love</p>
+                        <p className="splash-text" >umms for what you discover</p>
                     </div>
                     <Link className="signup-link" to='/signup'>Get Started</Link>
                     <Link className="login-link" to='/login'>Log In</Link>
+                    <p className="splash-text" >See what's trending</p>
                 </nav>
             </div>
         );
