@@ -17,7 +17,7 @@ class Api::FollowsController < ApplicationController
        if @follow
             render :show
        else
-            render json @follow.errors.full_messages
+            render json: @follow.errors.full_messages
        end
     end
 
@@ -25,7 +25,7 @@ class Api::FollowsController < ApplicationController
         # for unfollowing
         @follow = Follow.find_by(following_id: params[:id], follower_id: current_user.id )
         if @follow && @follow.destroy
-            render :index
+            render json: @follow
         # else
         #     render json @follow.errors.full_messages
         end

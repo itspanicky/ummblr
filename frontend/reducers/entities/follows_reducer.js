@@ -14,9 +14,14 @@ export default (state = {}, action) => {
         case RECEIVE_FOLLOW:
             const newState = merge({}, state);
             newState[action.follow.id] = action.follow;
+            debugger
             return newState;
         case REMOVE_FOLLOW:
-            return merge({}, state, action.follow)            
+            debugger
+            return merge({}, state, action.follow)   
+            // newState = merge({}, state);
+            // delete newState[action.follow.id];
+            // return newState;          
         default:
             return state;
     }
