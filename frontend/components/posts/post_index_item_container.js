@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import PostIndexItem from './post_index_item';
 import { openModal } from '../../actions/modal_actions';
 import { deletePost } from '../../actions/entities/post_actions';
-import { follow, unfollow } from '../../actions/entities/follow_actions';
+import { follow, unfollow, fetchFollows } from '../../actions/entities/follow_actions';
 import { fetchPosts } from '../../actions/entities/post_actions';
 
 const msp = (state, ownProps) => {
@@ -21,7 +21,8 @@ const msp = (state, ownProps) => {
         post: post,
         followingStatus: followingStatus,
         authorId: authorId,
-        follows: state.entities.follows
+        currentUser: currentUser,
+        // follows: state.entities.follows
     })
 }
 
@@ -31,7 +32,8 @@ const mdp = (dispatch) => {
         deletePost: (id) => dispatch(deletePost(id)),
         follow: (user) => dispatch(follow(user)),
         unfollow: (user) => dispatch(unfollow(user)),
-        fetchPosts: () => dispatch(fetchPosts())
+        fetchPosts: () => dispatch(fetchPosts()),
+        fetchFollows: (userId) => dispatch(fetchFollows(userId))
     });
 }
 

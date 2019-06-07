@@ -6,14 +6,13 @@ class PostIndexItem extends React.Component {
         super(props);
         this.state = {
             showMenu:  false,
-            followingStatus: this.props.followingStatus
+            followingStatus: this.props.followingStatus,
         }
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
     }
 
     
-
     showMenu(e) {
         e.preventDefault();
         this.setState({ showMenu: true }, () => {
@@ -90,8 +89,14 @@ class PostIndexItem extends React.Component {
         }
     }
 
+    // componentDidMount(){
+    //     this.props.fetchFollows(this.props.currentUser.id);
+    //     debugger
+    // }
+
 
     render() {  
+        debugger
         const post = this.props.post;
         const author = this.props.post.author;
         let followText = this.state.followingStatus ? "Unfollow" : "Follow"

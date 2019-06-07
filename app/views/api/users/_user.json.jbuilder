@@ -5,6 +5,10 @@ if user.avatar.attached?
     json.photoUrl url_for(user.avatar)
 end
 
+# json.set! :follows do
+#     json.array! user.followings.pluck(:id).concat(user.followers.pluck(:id))
+# end
+
 json.set! :followings do
     json.array! user.followings.pluck(:id)
 end
