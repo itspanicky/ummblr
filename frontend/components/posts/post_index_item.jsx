@@ -91,12 +91,10 @@ class PostIndexItem extends React.Component {
 
     // componentDidMount(){
     //     this.props.fetchFollows(this.props.currentUser.id);
-    //     debugger
     // }
 
 
     render() {  
-        debugger
         const post = this.props.post;
         const author = this.props.post.author;
         let followText = this.state.followingStatus ? "Unfollow" : "Follow"

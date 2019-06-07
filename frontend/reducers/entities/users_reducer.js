@@ -9,10 +9,8 @@ export default (state = {}, action) => {
         case RECEIVE_CURRENT_USER:
             return merge({}, state, { [action.user.user.id]: action.user.user });
         case RECEIVE_FOLLOW:
-        debugger
         return state;
         case REMOVE_FOLLOW:
-        debugger
         return state;
         default:
             return state;

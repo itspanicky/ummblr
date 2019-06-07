@@ -11,10 +11,15 @@
 
 #### ummblr is a full-stack web application built using ruby on rails and postgreSQL database back-end with a react/redux front-end. ummblr incorporates Amazon S3 technologies to allow cloud-based hosting of image files for better scalbility and performance.
 
-- The primary focus of ummblr is to allow users to post content. 
+## Features 
+
+#### User authenetication
+- User are able to signup and login.
+
+#### The primary focus of ummblr is to allow users to post content. 
 ![alt text](https://ummblr-dev.s3.amazonaws.com/2019-06-07+at+10.37+AM.png "text post")
-When posting, the post will render seamlessly on the dashboard. Users are then able to edit or delete their own posts.
-- 
+- When posting, the post will render seamlessly on the dashboard. Users are then able to edit or delete their own posts.
+- Image files can be dragged and dropped in, which will then render a image preview before submitting. Upon submission, the image file will be uploaded to AWS.
 
 
 ## Future implementations
