@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchPosts, deletePost } from '../../actions/entities/post_actions';
 import PostIndex from './post_index';
+import { follow, unfollow } from '../../actions/entities/follow_actions';
 import { openModal } from '../../actions/modal_actions';
 
 const msp = (state) => {
@@ -22,7 +23,9 @@ const mdp = (dispatch) => {
         // otherForm: (
         //     <button onClick={() => dispatch(openModal('Text Form'))}></button>
         // )
-        deletePost: (id) => dispatch(deletePost(id))
+        deletePost: (id) => dispatch(deletePost(id)),
+        // follow: (user) => dispatch(follow(user)),
+        // unfollow: (user) => dispatch(unfollow(user)),
     });
 }
 

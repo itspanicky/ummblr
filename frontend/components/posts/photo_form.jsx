@@ -38,6 +38,7 @@ class PhotoForm extends React.Component {
         const formData = new FormData();
         if (this.state.photoFile) {
             formData.append('post[post_type]', "photo");
+            if (this.state.content) formData.append('post[content]', this.state.content);
             formData.append('post[id]', this.state.post.id)
             formData.append('post[photo]', this.state.photoFile);
             this.props.action(formData, this.state.post).then(this.props.closeModal());

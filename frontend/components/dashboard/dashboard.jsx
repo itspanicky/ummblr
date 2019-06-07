@@ -9,16 +9,22 @@ class Dashboard extends React.Component {
         super(props);
     }
 
-
     render() {
         const photoUrl = this.props.currentUser.photoUrl;
+        const currentUser = this.props.currentUser.username
+        let avatar;
+        if (this.props.currentUser.photoUrl) {
+            avatar = <Avatar photoUrl={photoUrl} currentUser={currentUser} />
+        } else {
+            avatar = <span></span>
+        }
         return (
             <div className="dashboard-container">
                 <NavbarContainer />
                 <div className="dashboard">
                     <section className="dashboard-main">
                         <div>
-                            <Avatar photoUrl={photoUrl} className="avatar" />
+                            {avatar}
                             <PostNavContainer />
                         </div>
                         <div className="post-index-container">

@@ -34,12 +34,34 @@
 }
 
 /* avatar */
+
 .avatar {
     width: 64px;
     height: 64px;
     border: none;
     border-radius: 4px;
     position: fixed;
+}
+
+.user-popup {
+    display: none;
+    position: absolute;
+}
+
+.user-avatar:hover .user-popup {
+    display: block;
+    width: 90px;
+    height: 18px;
+    background-color: white;
+    color: black;
+    border-radius: 2px;
+    padding: 5px 10px;
+    position: fixed;
+    z-index: 20;
+    text-align: center;
+    top: 150px;
+    left: 30px;
+    opacity: 0.7;
 }
 
 
