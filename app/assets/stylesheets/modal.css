@@ -10,7 +10,7 @@
 
 .modal-child {
     position: fixed;
-    top: 209px;
+    top: 208px;
     left: 400px;
     transform: translate(-50%, -50%);
     display: flex;
