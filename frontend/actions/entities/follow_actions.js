@@ -40,9 +40,7 @@ export const follow = (followId) => (dispatch) => {
 }; 
 
 export const unfollow = (userId) => (dispatch) => {
-    debugger
     return FollowApiUtil.unfollow(userId).then((follow) => {
-        debugger
         return dispatch(removeFollow(follow));
     });
 };
