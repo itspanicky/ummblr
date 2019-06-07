@@ -1,3 +1,4 @@
 # ummblr 
-## (http://ummblr.herokuapp.com 'ummblr')
+
+[ummblr] (http://ummblr.herokuapp.com 'ummblr')
 
