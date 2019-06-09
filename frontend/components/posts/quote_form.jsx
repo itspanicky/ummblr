@@ -20,16 +20,23 @@ class QuoteForm extends React.Component {
     }
 
     render() {
+        // debugger
+        // if(this.state.title===""){
+        //     what u h vae
+        // }else {
+        //     & rdquo${ this.state.ttile }& rdquo;
+        // }
+
         return (
             <div className="form_container">
                 <div className="author_name">{this.props.currentUser.username}</div>
                 <form className="text-form" onSubmit={this.handleSubmit}>
-                    <span className="quote">&ldquo;<input className="quote-text"
+                    <div className="quote">&ldquo;<input className="quote-text"
                         type="text"
                         value={this.state.title}
                         onChange={this.handleInput("title")} 
                         placeholder="Quote" 
-                    />&rdquo;</span>
+                    />&rdquo;</div>
 
                     <textarea className="content-text"
                         type="text"

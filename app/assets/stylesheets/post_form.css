@@ -128,6 +128,7 @@
 
 .quote-text {
     width: 85px;
+    /* min-width: 85px; */
     box-sizing:border-box;
     border: none;
     outline: none;
