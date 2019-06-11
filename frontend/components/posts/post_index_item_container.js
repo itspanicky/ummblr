@@ -4,6 +4,7 @@ import { openModal } from '../../actions/modal_actions';
 import { deletePost } from '../../actions/entities/post_actions';
 import { follow, unfollow, fetchFollows } from '../../actions/entities/follow_actions';
 import { fetchPosts } from '../../actions/entities/post_actions';
+import { likePost, unlikePost } from '../../actions/entities/like_actions';
 
 const msp = (state, ownProps) => {
     const post = ownProps.post
@@ -17,12 +18,13 @@ const msp = (state, ownProps) => {
         followingStatus = currentUser.followings.includes(authorId)
     }
     // const followings = Object.values(currentUser.followings);
+    debugger
     return ({
         post: post,
         followingStatus: followingStatus,
         authorId: authorId,
         currentUser: currentUser,
-        // follows: state.entities.follows
+        followings: currentUser.followings
     })
 }
 
@@ -33,7 +35,9 @@ const mdp = (dispatch) => {
         follow: (user) => dispatch(follow(user)),
         unfollow: (user) => dispatch(unfollow(user)),
         fetchPosts: () => dispatch(fetchPosts()),
-        fetchFollows: (userId) => dispatch(fetchFollows(userId))
+        fetchFollows: (userId) => dispatch(fetchFollows(userId)),
+        likePost: (postId) => dispatch(likePost(postId)),
+        unlikePost: () => dispatch(unlikePost())
     });
 }
 

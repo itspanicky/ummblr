@@ -6,6 +6,7 @@ class Api::PostsController < ApplicationController
         @post = current_user.posts.new(post_params)
         if @post.save
             render :show
+            # render :index
         else
             render @post.errors.full_messages, status: 422
         end

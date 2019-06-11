@@ -13,6 +13,18 @@ json.set! :followings do
     json.array! user.followings.pluck(:id)
 end
 
+
+
+# json.followings do
+#     json.array! user.followings.map { |follows| follows.following_id }
+# end
+
+# json.followers do
+#     json.array! user.followers.map { |follows| follows.follower_id }
+# end
+
+
+
 # json.followings do
 #     # json.array! user.followings do |follow|
 #     #     json.id follow.id

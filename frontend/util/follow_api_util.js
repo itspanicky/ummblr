@@ -8,6 +8,7 @@ export const fetchFollows = (userId) => {
 
 
 export const follow = (followingId) => {
+    debugger
     return $.ajax({
         method: "post",
         url: "/api/follows",
