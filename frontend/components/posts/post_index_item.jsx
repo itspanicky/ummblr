@@ -7,7 +7,9 @@ class PostIndexItem extends React.Component {
         this.state = {
             showMenu:  false,
             followingStatus: this.props.followingStatus,
+            followings: this.props.followings
         }
+        debugger
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
     }
@@ -89,10 +91,9 @@ class PostIndexItem extends React.Component {
         }
     }
 
-    // componentDidMount(){
-    //     this.props.fetchFollows(this.props.currentUser.id);
-    // }
-
+    componentDidMount(){
+        this.props.fetchFollows(this.props.currentUser.id);
+    }
 
     render() {  
         const post = this.props.post;
@@ -103,10 +104,14 @@ class PostIndexItem extends React.Component {
         if (this.props.post.author.username === this.props.currentUser.username) {
             follow = <span></span>
         } else if (this.props.followingStatus === false) {
-            follow = <button className="follow-button" onClick={() => this.props.follow(author.id).then(this.setState({ followingStatus: !this.state.followingStatus }))}>{followText}</button>;
+            // follow = <button className="follow-button" onClick={() => this.props.follow(author.id).then(this.setState({ followingStatus: !this.state.followingStatus }))}>{followText}</button>;
+            follow = <button className="follow-button" onClick={() => this.props.follow(author.id).then(this.setState({ followings: this.props.fetchFollows(currentUser.id) }))}>{followText}</button>
         } else {
-            follow = <button className="follow-button" onClick={() => this.props.unfollow(author.id).then(this.setState({ followingStatus: !this.state.followingStatus }))}>{followText}</button>;
+            // follow = <button className="follow-button" onClick={() => this.props.unfollow(author.id).then(this.setState({ followingStatus: !this.state.followingStatus }))}>{followText}</button>;
+            follow = <button className="follow-button" onClick={() => this.props.unfollow(author.id).then(this.setState({ followings: this.props.fetchFollows(currentUser.id) }))}>{followText}</button>
         };
+
+        
 
         let settings;
         if (this.props.currentUser.id === this.props.authorId) {
@@ -120,7 +125,7 @@ class PostIndexItem extends React.Component {
                         ? (
                             <div className="settings-dropdown" ref={(element) => { this.dropdownMenu = element }}>
                                 {this.postSetting(post)}
-                                <button button onClick={() => this.props.deletePost(post.id)}>Delete</button>
+                                <button onClick={() => this.props.deletePost(post.id)}>Delete</button>
                             </div>
                         )
                         : (null)
@@ -129,7 +134,11 @@ class PostIndexItem extends React.Component {
             )
         } else {
             settings = (
-                <li><i className="fas fa-heart "></i></li>
+                <li>
+                    <button onClick={() => this.props.likePost(post.id)}>
+                        <i className="fas fa-heart "></i>
+                    </button>
+                </li>
                 )
             };
             
@@ -155,22 +164,6 @@ class PostIndexItem extends React.Component {
                     <div className="post-action-container">
                         <span>99 notes</span>
                         <ul className="post-action-actions">
-                            {/* <li><i className="fas fa-heart "></i></li>
-                            <li>
-                                <button className="settings-button" onClick={this.showMenu}>
-                                    <i className="fas fa-cog"></i>
-                                </button>
-
-                                { this.state.showMenu
-                                    ? (
-                                        <div className="settings-dropdown" ref={(element) => { this.dropdownMenu = element;}}>
-                                            {this.postSetting(post)}
-                                            <button button onClick={() => this.props.deletePost(post.id)}>Delete</button>
-                                        </div>
-                                    )
-                                    : (null)
-                                }
-                            </li> */}
                             {settings} 
                         </ul>
                     </div>

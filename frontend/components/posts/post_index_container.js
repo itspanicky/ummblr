@@ -9,11 +9,10 @@ const msp = (state) => {
     const currentUser = state.entities.users[state.session.id];
     // const followers = Object.values(currentUser.followers);
     // const followings = Object.values(currentUser.followings);
-    
     return ({
         posts: posts,
-        currentUser: currentUser
-
+        currentUser: currentUser,
+        followings: currentUser.followings
     });
 }
 
@@ -26,7 +25,7 @@ const mdp = (dispatch) => {
         deletePost: (id) => dispatch(deletePost(id)),
         // follow: (user) => dispatch(follow(user)),
         // unfollow: (user) => dispatch(unfollow(user)),
-        // fetchFollows: (userId) => dispatch(fetchFollows(userId))
+        fetchFollows: (userId) => dispatch(fetchFollows(userId))
     });
 }
 

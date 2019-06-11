@@ -10,6 +10,9 @@ class PostIndex extends React.Component {
     
     componentDidMount(){
         this.props.fetchPosts();
+        debugger
+        this.props.fetchFollows(this.props.currentUser.id);
+        debugger
     }
 
     render() {

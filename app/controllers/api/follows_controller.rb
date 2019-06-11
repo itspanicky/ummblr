@@ -6,7 +6,8 @@ class Api::FollowsController < ApplicationController
         @follow.follower_id = current_user.id
         @follow.following_id = params[:followingId]
         if @follow.save
-            render :show
+            # render :show
+            render json: @follow
         else
             render json: @follow.errors.full_messages
         end

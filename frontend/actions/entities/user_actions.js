@@ -10,7 +10,7 @@ const receiveAllUsers = (users) => {
     }
 }
 
-const receiveUser = ( user ) => {
+export const receiveUser = ( user ) => {
     return {
         type: RECEIVE_USER,
         user

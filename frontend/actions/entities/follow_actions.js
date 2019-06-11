@@ -1,13 +1,16 @@
 import * as FollowApiUtil from '../../util/follow_api_util';
+import { receiveCurrentUser } from '../session_actions';
 
-export const RECEIVE_ALL_FOLLOWS = "RECEIVE_ALL_FOLLOWS";
+export const RECEIVE_USER_FOLLOWS = "RECEIVE_USER_FOLLOWS";
 export const RECEIVE_FOLLOW = "RECEIVE_FOLLOW";
 export const REMOVE_FOLLOW = "REMOVE_FOLLOW";
 
 // edit to take in more arguments
-const receiveAllFollows = (follows) => {
+const receiveUserFollows = (userId, follows) => {
+    debugger
     return {
-        type: RECEIVE_ALL_FOLLOWS,
+        type: RECEIVE_USER_FOLLOWS,
+        userId: userId,
         follows: follows
     }
 }
@@ -27,8 +30,10 @@ const removeFollow = (follow) => {
 }
 
 export const fetchFollows = (userId) => (dispatch) => {
+    debugger
     return FollowApiUtil.fetchFollows(userId).then((follows) => {
-        return dispatch(receiveAllFollows(follows));
+        debugger
+        return dispatch(receiveUserFollows(userId, follows));
     });
 };
 
@@ -47,7 +52,15 @@ export const unfollow = (userId) => (dispatch) => {
 
 
 // export const follow = (followId) => (dispatch) => {
-//     return FollowApiUtil.follow(followId).then( user => {
-//         return dispatch(receiveUser(user))
+//     debugger
+//     return FollowApiUtil.follow(followId).then( follows => {
+//         debugger
+//         return dispatch(receiveUserFollows(followId, follows))
+//     })
+// }
+
+// export const unfollow = (userId) => (dispatch) => {
+//     return FollowApiUtil.unfollow(userId).then( follows => {
+//         return dispatch(receiveUserFollows(userId, follows))
 //     })
 // }
