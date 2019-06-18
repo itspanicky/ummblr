@@ -9,7 +9,6 @@
 #     end
 # end
 
-
 # json.followers do
 #     json.array! followers do |follow|
 #         json.id follow.id

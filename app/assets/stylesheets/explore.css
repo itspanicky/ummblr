@@ -1,0 +1,13 @@
+.explore-posts {
+    display: grid;
+    position: relative;
+    top: 50px;
+    padding: 20px;
+    /* grid-template-columns: 25% 25% 25% 25%; */
+    grid-template-columns: 50% 50%;
+
+}
+
+.explore-posts > .post-container {
+    max-width: 300px;
+}

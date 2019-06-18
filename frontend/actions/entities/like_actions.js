@@ -31,9 +31,7 @@ import { receivePost } from './post_actions';
 // }
 
 export const likePost = (postId) => (dispatch) => {
-    debugger
     return LikeApiUtil.likePost(postId).then((post) => {
-        debugger
         return dispatch(receivePost(post))
     })
 }

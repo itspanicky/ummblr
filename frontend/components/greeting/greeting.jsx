@@ -20,7 +20,7 @@ const Greeting = ({currentUser}) => {
                     </div>
                     <Link className="signup-link" to='/signup'>Get Started</Link>
                     <Link className="login-link" to='/login'>Log In</Link>
-                    <p className="splash-text" >See what's trending</p>
+                    {/* <Link className="splash-text" to='/explore'>See what's trending</Link> */}
                 </nav>
             </div>
         );

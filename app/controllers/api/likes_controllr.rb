@@ -5,7 +5,6 @@ class Api::LikesController < ApplicationController
     end
 
     def create
-        debugger
         @like = Like.new(like_params)
         if @like.save
             render json: @like
@@ -26,7 +25,6 @@ class Api::LikesController < ApplicationController
     private
 
     def like_params
-        debugger
         params.require(:like).permit(:post_id, :user_id)
     end
 end

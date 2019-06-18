@@ -22,14 +22,12 @@ class Api::PostsController < ApplicationController
     end
 
     def index
-        # refactor to display specific posts
         # if params[:author_id] = current_user.id
         #     @posts = Post.includes
         # else
         #     @posts = Post.all
         #     render @posts
         # end
-
         @posts = Post.all
         render :index
     end

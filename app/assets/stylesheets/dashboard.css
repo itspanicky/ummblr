@@ -20,7 +20,7 @@
 
 .post-container {
     /* display: block; */
-    width: 540px;
+    max-width: 540px;
     /* height: 300px; */
 }
 
