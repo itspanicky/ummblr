@@ -10,6 +10,7 @@ import {
 export default (state = {}, action) => {
     Object.freeze(state);
     let newState;
+    let key;
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
             debugger
@@ -23,14 +24,15 @@ export default (state = {}, action) => {
         case RECEIVE_FOLLOW:
             newState = merge({}, state);
             debugger
-            newState[1].followings.push(action.follow.following_id);
+            key = action.follow.follower_id;
+            newState[key].followings.push(action.follow.following_id);
             debugger
             // return merge({}, state, { followings: action.follow.following_id});
             return newState;
         case REMOVE_FOLLOW:
             newState = merge({}, state);
             debugger
-            const key = action.follow.follower_id;
+            key = action.follow.follower_id;
             const index = newState[key].followings.indexOf(action.follow.following_id);
             // delete newState[1].followings[index];
             newState[key].followings.splice(index, 1)

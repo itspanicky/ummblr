@@ -1,38 +1,34 @@
 import React from 'react';
 import NavbarContainer from '../navbar/navbar_container';
 import PostIndexItem from '../posts/post_index_item_container';
+import ExploreIndexItem from './explore_index_item';
 
 class Explore extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            followings: this.props.currentUser.followings
-        }
     }
 
     componentDidMount(){
         this.props.fetchPosts();
     }
 
-    componentDidUpdate(prevProps) {
-        debugger
-        if (this.props.currentUser && this.props.currentUser.followings != prevProps.currentUser.followings) {
-            debugger
-            // this.props.fetchPosts();
-            this.setState({ followings: this.props.followings });
-            debugger
-        }
-    }
-
     render() {
         let posts = this.props.posts.map(post => {
-            if (post.author_id != this.props.currentUser.id) {
+            if (!this.props.currentUser) {
                 return (
-                    <PostIndexItem
+                    <ExploreIndexItem
+                        key={post.id}
+                        post={post}
+                    />
+                )
+            } else if (post.author_id != this.props.currentUser.id) {
+                return (
+                    <ExploreIndexItem
                         key={post.id}
                         post={post}
                         deletePost={this.props.deletePost}
                         currentUser={this.props.currentUser}
+                        followingStatus={this.props.followingStatus}
                         follow={this.props.follow}
                         unfollow={this.props.unfollow}
                     />

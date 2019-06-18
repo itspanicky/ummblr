@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { openModal } from '../../actions/modal_actions';
 
-const Navbar = ({currentUser, logout}) => {
+const Navbar = ({currentUser, logout, openModal}) => {
     const user = (currentUser ? currentUser.username : 'Account')
 
     const leftNav = (
@@ -38,7 +39,7 @@ const Navbar = ({currentUser, logout}) => {
                 </ul>
             </li>
             <li>
-                <Link to="/"><i className="big fas fa-edit"></i></Link>
+                <i className="big fas fa-edit" onClick={() => openModal("alt-create-post")}></i>
             </li>
         </ul>
     )

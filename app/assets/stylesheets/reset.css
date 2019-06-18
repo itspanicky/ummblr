@@ -54,3 +54,7 @@ table {
 textarea:focus, input:focus {
 	outline: none;
 }
+
+button {
+	border: none;
+}

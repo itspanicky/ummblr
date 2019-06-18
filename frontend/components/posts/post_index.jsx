@@ -6,9 +6,7 @@ import Avatar from '../avatar/avatar';
 class PostIndex extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            followings: this.props.currentUser.followings
-        }
+        
         debugger
     }
     
@@ -18,18 +16,8 @@ class PostIndex extends React.Component {
         // debugger
     }
 
-    componentDidUpdate(prevProps) {
-        debugger
-        if (this.props.currentUser.followings != prevProps.currentUser.followings) {
-        debugger
-            // this.props.fetchPosts();
-            this.setState({followings: this.props.followings});
-            debugger
-        }
-    }
-
     render() {
-        const followings = this.state.followings;
+        const followings = this.props.followings;
         let posts = this.props.posts.map(post => {
             if (followings.includes(post.author_id) || post.author_id === this.props.currentUser.id) {
                 debugger
@@ -41,6 +29,7 @@ class PostIndex extends React.Component {
                         currentUser={this.props.currentUser}
                         follow={this.props.follow}
                         unfollow={this.props.unfollow}
+                        openModal={this.props.openModal}
                     /> 
                 )
             }
