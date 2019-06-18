@@ -18,7 +18,7 @@ const Navbar = ({currentUser, logout}) => {
                 <Link to="/"><i className="big fas fa-home"></i></Link>
             </li>
             <li>
-                <Link to="/"><i className="big fas fa-compass"></i></Link>
+                <Link to="/explore"><i className="big fas fa-compass"></i></Link>
             </li>
             <li className="account">
                 <p><i className="big fas fa-user"></i></p>

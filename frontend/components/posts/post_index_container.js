@@ -5,8 +5,9 @@ import { follow, unfollow, fetchFollows } from '../../actions/entities/follow_ac
 import { openModal } from '../../actions/modal_actions';
 
 const msp = (state) => {
-    const posts = Object.values(state.entities.posts)
+    const posts = Object.values(state.entities.posts);
     const currentUser = state.entities.users[state.session.id];
+    debugger
     // const followers = Object.values(currentUser.followers);
     // const followings = Object.values(currentUser.followings);
     return ({
@@ -25,7 +26,7 @@ const mdp = (dispatch) => {
         deletePost: (id) => dispatch(deletePost(id)),
         // follow: (user) => dispatch(follow(user)),
         // unfollow: (user) => dispatch(unfollow(user)),
-        fetchFollows: (userId) => dispatch(fetchFollows(userId))
+        // fetchFollows: (userId) => dispatch(fetchFollows(userId))
     });
 }
 

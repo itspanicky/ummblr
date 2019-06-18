@@ -29,23 +29,27 @@ const removeFollow = (follow) => {
     }
 }
 
-export const fetchFollows = (userId) => (dispatch) => {
-    debugger
-    return FollowApiUtil.fetchFollows(userId).then((follows) => {
-        debugger
-        return dispatch(receiveUserFollows(userId, follows));
-    });
-};
+// export const fetchFollows = (userId) => (dispatch) => {
+//     debugger
+//     return FollowApiUtil.fetchFollows(userId).then((follows) => {
+//         debugger
+//         return dispatch(receiveUserFollows(userId, follows));
+//     });
+// };
 
 // followerId points to currentUserId
 export const follow = (followId) => (dispatch) => {
+    debugger
     return FollowApiUtil.follow(followId).then((follow) => {
+        debugger
         return dispatch(receiveFollow(follow));
     });
 }; 
 
 export const unfollow = (userId) => (dispatch) => {
+    debugger
     return FollowApiUtil.unfollow(userId).then((follow) => {
+        debugger
         return dispatch(removeFollow(follow));
     });
 };

@@ -7,11 +7,12 @@ class PostIndexItem extends React.Component {
         this.state = {
             showMenu:  false,
             followingStatus: this.props.followingStatus,
-            followings: this.props.followings
+            followings: this.props.currentUser.followings
         }
         debugger
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
+        this.handleFollow = this.handleFollow.bind(this);
     }
 
     
@@ -91,13 +92,24 @@ class PostIndexItem extends React.Component {
         }
     }
 
-    componentDidMount(){
-        this.props.fetchFollows(this.props.currentUser.id);
+    // componentDidMount(){
+    //     debugger
+    //     this.props.fetchFollows(this.props.currentUser.id);
+    // }
+
+    handleFollow(e) {
+        e.preventDefault();
+        if (this.props.followingStatus === false) {
+            this.props.follow(this.props.post.author.id);
+        } else {
+            this.props.unfollow(this.props.post.author.id);
+        }
     }
 
     render() {  
         const post = this.props.post;
         const author = this.props.post.author;
+        const currentUser = this.props.currentUser;
         let followText = this.state.followingStatus ? "Unfollow" : "Follow"
         
         let follow;
@@ -105,10 +117,14 @@ class PostIndexItem extends React.Component {
             follow = <span></span>
         } else if (this.props.followingStatus === false) {
             // follow = <button className="follow-button" onClick={() => this.props.follow(author.id).then(this.setState({ followingStatus: !this.state.followingStatus }))}>{followText}</button>;
-            follow = <button className="follow-button" onClick={() => this.props.follow(author.id).then(this.setState({ followings: this.props.fetchFollows(currentUser.id) }))}>{followText}</button>
+            // follow = <button className="follow-button" onClick={() => this.props.follow(author.id).then(this.setState({ followings: this.props.fetchFollows(currentUser.id) }))}>{followText}</button>
+            // follow = <button className="follow-button" onClick={() => this.props.follow(author.id)}>{followText}</ button>
+            follow = <button className="follow-button" onClick={this.handleFollow}>{followText}</ button>
         } else {
             // follow = <button className="follow-button" onClick={() => this.props.unfollow(author.id).then(this.setState({ followingStatus: !this.state.followingStatus }))}>{followText}</button>;
-            follow = <button className="follow-button" onClick={() => this.props.unfollow(author.id).then(this.setState({ followings: this.props.fetchFollows(currentUser.id) }))}>{followText}</button>
+            // follow = <button className="follow-button" onClick={() => this.props.unfollow(author.id).then(this.setState({ followings: this.props.fetchFollows(currentUser.id) }))}>{followText}</button>
+            // follow = <button className="follow-button" onClick={() => this.props.unfollow(author.id)}>{followText}</ button>
+            follow = <button className="follow-button" onClick={this.handleFollow}>{followText}</ button>
         };
 
         

@@ -9,23 +9,32 @@ import {
 
 export default (state = {}, action) => {
     Object.freeze(state);
-    let newState = merge({},state);
+    let newState;
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
             debugger
             return merge({}, state, { [action.user.user.id]: action.user.user });
-        case RECEIVE_USER_FOLLOWS:
-            debugger
-            return merge({}, state, action.follows)
-            // return merge({}, state, { "followers": action.follows.follower_id, "followings": action.follows.following_id})
+        // case RECEIVE_USER_FOLLOWS:
+        //     debugger
+        //     return state;
+            // return merge({}, state, action.follows);
+            // return action.follows;
+            // return merge({}, state, { "followers": action.follows.followers, "followings": action.follows.followings})
         case RECEIVE_FOLLOW:
+            newState = merge({}, state);
             debugger
-            newState.followings.push(action.follow.following_id);
+            newState[1].followings.push(action.follow.following_id);
+            debugger
             // return merge({}, state, { followings: action.follow.following_id});
             return newState;
         case REMOVE_FOLLOW:
+            newState = merge({}, state);
             debugger
-            delete newState.followings[action.follow.following_id];
+            const key = action.follow.follower_id;
+            const index = newState[key].followings.indexOf(action.follow.following_id);
+            // delete newState[1].followings[index];
+            newState[key].followings.splice(index, 1)
+            debugger
             return newState;
         default:
             return state;

@@ -1,5 +1,4 @@
 export const likePost = (postId) => {
-    debugger
     return $.ajax({
         method: "post",
         url: `/api/posts/${postId}/likes`
