@@ -24,8 +24,8 @@ const mdp = (dispatch) => {
         //     <button onClick={() => dispatch(openModal('Text Form'))}></button>
         // )
         deletePost: (id) => dispatch(deletePost(id)),
-        // follow: (user) => dispatch(follow(user)),
-        // unfollow: (user) => dispatch(unfollow(user)),
+        follow: (user) => dispatch(follow(user)),
+        unfollow: (user) => dispatch(unfollow(user)),
         // fetchFollows: (userId) => dispatch(fetchFollows(userId))
     });
 }
