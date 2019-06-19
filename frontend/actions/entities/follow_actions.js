@@ -7,7 +7,6 @@ export const REMOVE_FOLLOW = "REMOVE_FOLLOW";
 
 // edit to take in more arguments
 const receiveUserFollows = (userId, follows) => {
-    debugger
     return {
         type: RECEIVE_USER_FOLLOWS,
         userId: userId,
@@ -29,42 +28,15 @@ const removeFollow = (follow) => {
     }
 }
 
-// export const fetchFollows = (userId) => (dispatch) => {
-//     debugger
-//     return FollowApiUtil.fetchFollows(userId).then((follows) => {
-//         debugger
-//         return dispatch(receiveUserFollows(userId, follows));
-//     });
-// };
-
 // followerId points to currentUserId
 export const follow = (followId) => (dispatch) => {
-    debugger
     return FollowApiUtil.follow(followId).then((follow) => {
-        debugger
         return dispatch(receiveFollow(follow));
     });
 }; 
 
 export const unfollow = (userId) => (dispatch) => {
-    debugger
     return FollowApiUtil.unfollow(userId).then((follow) => {
-        debugger
         return dispatch(removeFollow(follow));
     });
 };
-
-
-// export const follow = (followId) => (dispatch) => {
-//     debugger
-//     return FollowApiUtil.follow(followId).then( follows => {
-//         debugger
-//         return dispatch(receiveUserFollows(followId, follows))
-//     })
-// }
-
-// export const unfollow = (userId) => (dispatch) => {
-//     return FollowApiUtil.unfollow(userId).then( follows => {
-//         return dispatch(receiveUserFollows(userId, follows))
-//     })
-// }

@@ -4,9 +4,17 @@ import {
     REMOVE_POST 
 } from '../../actions/entities/post_actions';
 
+import {
+    RECEIVE_LIKE,
+    REMOVE_LIKE
+} from '../../actions/entities/like_actions';
+
 import { merge } from 'lodash';
 
 export default (state = {}, action) => {
+    let newState = merge({}, state);
+    let liker;
+    let post;
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_ALL_POSTS:
@@ -14,8 +22,22 @@ export default (state = {}, action) => {
         case RECEIVE_POST:
             return merge({}, state, {[action.post.id]: action.post});
         case REMOVE_POST:
-            let newState = merge({}, state);
             delete newState[action.postId];
+            return newState;
+        case RECEIVE_LIKE:
+            debugger
+            liker = action.like.user_id;
+            post = action.like.post_id;
+            newState[post].likers.push(liker);
+            return newState;
+        case REMOVE_LIKE:
+            debugger
+            liker = action.like.user_id;
+            post = action.like.post_id;
+            const index = newState[post].likers.indexOf(liker);
+            debugger
+            newState[post].likers.splice(index);
+            debugger
             return newState;
         default:
             return state;

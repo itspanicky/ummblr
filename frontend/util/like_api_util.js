@@ -1,13 +1,17 @@
-export const likePost = (postId) => {
+export const likePost = (postId, userId) => {
+    debugger
     return $.ajax({
         method: "post",
-        url: `/api/posts/${postId}/likes`
+        url: "/api/likes",
+        data: { postId, userId}
     })
 }
 
-export const unlikePost = ({postId, likeId}) => {
+export const unlikePost = (postId) => {
+    debugger
     return $.ajax({
         method: "delete",
-        url: `/api/posts/${postId}/likes/${likeId}`
+        // url: `/api/likes/${id}`
+        url: `api/posts/${postId}/like`
     })
 }

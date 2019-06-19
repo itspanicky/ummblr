@@ -18,6 +18,7 @@ const msp = (state, ownProps) => {
         followingStatus = currentUser.followings.includes(authorId)
     }
     // const followings = Object.values(currentUser.followings);
+    debugger
     return ({
         post: post,
         followingStatus: followingStatus,
@@ -35,8 +36,8 @@ const mdp = (dispatch) => {
         unfollow: (user) => dispatch(unfollow(user)),
         fetchPosts: () => dispatch(fetchPosts()),
         // fetchFollows: (userId) => dispatch(fetchFollows(userId)),
-        likePost: (postId) => dispatch(likePost(postId)),
-        unlikePost: () => dispatch(unlikePost())
+        likePost: (postId, userId) => dispatch(likePost(postId, userId)),
+        unlikePost: (postId) => dispatch(unlikePost(postId))
     });
 }
 

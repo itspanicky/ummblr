@@ -8,11 +8,15 @@ Rails.application.routes.draw do
       resources :follows, only: :index
       resources :likes, only: :index
     end
-
+    
     resource :session, only: [:create, :destroy]
-    resources :posts, only: [:index, :create, :update, :show, :destroy]
+    
+    resources :posts, only: [:index, :create, :update, :show, :destroy] do
+      resource :like, only: [:destroy]
+    end
+    
+    resources :likes, only: [:create]
     resources :follows, only: [:create, :destroy, :show]
-    resources :likes, only: [:create, :destroy]
 
   end
 end

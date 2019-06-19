@@ -57,4 +57,5 @@ textarea:focus, input:focus {
 
 button {
 	border: none;
+	outline: none;
 }

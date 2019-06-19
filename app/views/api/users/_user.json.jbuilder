@@ -42,3 +42,7 @@ end
 #         # json.username follow.username
 #     end
 # end
+
+# json.set! :likes do
+#     json.array! user.likes.pluck(:post_id)
+# end
