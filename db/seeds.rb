@@ -10,6 +10,7 @@ require 'open-uri'
 User.delete_all
 Post.delete_all
 Follow.delete_all
+Like.delete_all
 
 # to get user avatars:
 # file = open('file_url/file.jpg')
@@ -38,6 +39,7 @@ Follow.create(following_id: user1.id, follower_id: demo.id)
 Follow.create(following_id: user2.id, follower_id: user1.id) # user1 follows user2
 Follow.create(following_id: user2.id, follower_id: user3.id) # user3 follows user2
 
+
 text1 = Post.create(title: 'Hello World', content: "This is my first post", post_type: "text", author_id: demo.id)
 
 quote1 = Post.create(title: "People are so scared to lose that they don't even try", content: "Kanye West", post_type: "quote", author_id: user3.id)
@@ -54,7 +56,17 @@ image1 = Post.create(title: 'Photo', content: 'This is a window', post_type: "ph
 image1.photo.attach(io: photo1, filename: 'https://ummblr-dev.s3.amazonaws.com/Window.jpeg')
 
 
-
+like1 = Like.create(user: user1, post: text1)
+like2 = Like.create(user: user2, post: text1)
+like3 = Like.create(user: user1, post: image1)
+like4 = Like.create(user: demo, post: image2)
+like5 = Like.create(user: demo, post: quote2)
+like6 = Like.create(user: user1, post: text2)
+like7 = Like.create(user: user5, post: text1)
+like8 = Like.create(user: user5, post: image1)
+like9 = Like.create(user: demo, post: image2)
+like10 = Like.create(user: demo, post: quote2)
+like11 = Like.create(user: user1, post: quote1)
 
 
 

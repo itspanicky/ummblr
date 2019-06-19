@@ -114,6 +114,14 @@ class PostIndexItem extends React.Component {
             follow = <button className="follow-button" onClick={this.handleFollow}>{followText}</ button>
         };
 
+        let likeBtn = !post.likers.includes(currentUser.id) ? 
+            <button onClick={() => this.props.likePost(post.id, currentUser.id)}>
+                <i className="far fa-heart"></i>
+            </button>
+            :
+            <button onClick={() => this.props.unlikePost(post.id)}>
+                <i className="fas fa-heart clicked"></i>
+            </button> ;
         
 
         let settings;
@@ -138,9 +146,7 @@ class PostIndexItem extends React.Component {
         } else {
             settings = (
                 <li>
-                    <button onClick={() => this.props.likePost(post.id)}>
-                        <i className="fas fa-heart "></i>
-                    </button>
+                    {likeBtn}
                 </li>
                 )
             };
