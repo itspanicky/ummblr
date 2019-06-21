@@ -18,7 +18,6 @@ const msp = (state, ownProps) => {
         followingStatus = currentUser.followings.includes(authorId)
     }
     // const followings = Object.values(currentUser.followings);
-    debugger
     return ({
         post: post,
         followingStatus: followingStatus,

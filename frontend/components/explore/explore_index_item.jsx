@@ -1,11 +1,10 @@
 import React from 'react';
 
 let follow = (props) => {
-    debugger
     if (props.currentUser) {
-        debugger
+
         if (!props.currentUser.followings.includes(props.post.author.id)) {
-            debugger
+    
             return <button className="follow-button" onClick={() => props.follow(props.post.author.id)}>Follow</button>
         } else {
             return <button className="follow-button" onClick={() => props.unfollow(props.post.author.id)}>Unfollow</button>
@@ -17,7 +16,7 @@ let postBody = (props) => {
     switch (props.post.post_type) {
         case "text":
             return (
-                <div className="text-post">
+                <div className="explore text-post">
                     <h3>{props.post.title}</h3>
                     <p className="content-post">{props.post.content}</p>
                 </div>
@@ -31,7 +30,7 @@ let postBody = (props) => {
             )
         case "quote":
             return (
-                <div className="quote-post">
+                <div className="explore quote-post">
                     <h3>&ldquo;{props.post.title}&rdquo;</h3>
                     <p className="content-post"><span>-</span> {props.post.content}</p>
                 </div>
@@ -54,21 +53,42 @@ let postBody = (props) => {
 }
 
 const ExploreIndexItem = (props) => {
-    debugger
+    let notes = <div></div>;
+    let likers = props.post.likers.length;
+    if (likers > 0) {
+        notes = (
+            <div>
+                <ul className="explore notes">{`${likers} ${likers === 1 ? "note" : "notes"}`}
+                    <li className="notes-dropdown">
+                    </li>
+                </ul>
+            </div>
+        )
+    } 
+
+    let likeBtn = !props.post.likers.includes(props.currentUser.id) ?
+        <button className="like-btn" onClick={() => props.likePost(props.post.id, props.currentUser.id)}>
+            <i className="fas fa-heart unclicked"></i>
+        </button>
+        :
+        <button onClick={() => props.unlikePost(props.post.id)}>
+            <i className="fas fa-heart clicked"></i>
+        </button>;
+
     return (
         <div className="explore-index-item-container">
-            <div className="post-author-container">
+            <div className="explore post-author-container">
                 {props.post.author.username}
                 {follow(props)}
             </div>
             <div className="post-body-container">
                 {postBody(props)}
             </div>
-            <div>
-                <span>99 notes</span>
-                <ul>
-                    <li>Reblog</li>
-                    <li>Like/unlike</li>
+            <div className="explore post-action-container">
+                {notes}
+                <ul className="explore post-action-actions">
+                    <li><i className="fas fa-retweet"></i></li>
+                    <li>{likeBtn}</li>
                 </ul>
             </div>
         </div>

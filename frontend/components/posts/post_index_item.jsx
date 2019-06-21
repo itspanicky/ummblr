@@ -7,7 +7,6 @@ class PostIndexItem extends React.Component {
         this.state = {
             showMenu:  false,
         }
-        debugger
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
         this.handleFollow = this.handleFollow.bind(this);
@@ -115,14 +114,29 @@ class PostIndexItem extends React.Component {
         };
 
         let likeBtn = !post.likers.includes(currentUser.id) ? 
-            <button onClick={() => this.props.likePost(post.id, currentUser.id)}>
-                <i className="far fa-heart"></i>
+            <button className="like-btn" onClick={() => this.props.likePost(post.id, currentUser.id)}>
+                <i className="fas fa-heart unclicked"></i>
             </button>
             :
             <button onClick={() => this.props.unlikePost(post.id)}>
                 <i className="fas fa-heart clicked"></i>
             </button> ;
         
+
+        let notes = <div></div>;
+        let likers = post.likers.length;
+        if (likers > 0) {
+            notes = (
+                <div>
+                    <ul>{`${likers} ${likers === 1 ? "note" : "notes"}`}
+                    <li className="notes-dropdown">
+                    </li>
+                    </ul>
+                </div>
+            )
+        } 
+        
+
 
         let settings;
         if (this.props.currentUser.id === this.props.authorId) {
@@ -160,7 +174,7 @@ class PostIndexItem extends React.Component {
         return (
             <div>
                 {/* {photoUrl} */}
-                <div className="post-container">
+                <div className="explore post-container">
                     <div className="post-author-container">
                         {author.username}
                         {/* <button onClick={() => this.props.follow(author.id)}>Follow</button>
@@ -171,7 +185,7 @@ class PostIndexItem extends React.Component {
                         {this.postBody(post)}
                     </div>
                     <div className="post-action-container">
-                        <span>99 notes</span>
+                        {notes}
                         <ul className="post-action-actions">
                             {settings} 
                         </ul>

@@ -6,21 +6,18 @@ import Avatar from '../avatar/avatar';
 class PostIndex extends React.Component {
     constructor(props) {
         super(props);
-        
-        debugger
+
     }
     
     componentDidMount(){
         this.props.fetchPosts();
-        // this.props.fetchFollows(this.props.currentUser.id);
-        // debugger
+
     }
 
     render() {
         const followings = this.props.followings;
         let posts = this.props.posts.map(post => {
             if (followings.includes(post.author_id) || post.author_id === this.props.currentUser.id) {
-                debugger
                 return (
                     <PostIndexItem
                         key={post.id}

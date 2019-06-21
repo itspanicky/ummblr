@@ -1,5 +1,4 @@
 export const likePost = (postId, userId) => {
-    debugger
     return $.ajax({
         method: "post",
         url: "/api/likes",
@@ -8,7 +7,6 @@ export const likePost = (postId, userId) => {
 }
 
 export const unlikePost = (postId) => {
-    debugger
     return $.ajax({
         method: "delete",
         // url: `/api/likes/${id}`

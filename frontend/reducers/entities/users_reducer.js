@@ -15,14 +15,17 @@ export default (state = {}, action) => {
     let key;
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            debugger
+            
             return merge({}, state, { [action.user.user.id]: action.user.user });
+        case RECEIVE_ALL_USERS:
+            
+            return merge({}, state, action.users);
         // case RECEIVE_USER_FOLLOWS:
-        //     debugger
+        //     
         //     return state;
-            // return merge({}, state, action.follows);
-            // return action.follows;
-            // return merge({}, state, { "followers": action.follows.followers, "followings": action.follows.followings})
+        //     return merge({}, state, action.follows);
+        //     return action.follows;
+        //     return merge({}, state, { "followers": action.follows.followers, "followings": action.follows.followings})
         case RECEIVE_FOLLOW:
             newState = merge({}, state);
             key = action.follow.follower_id;
@@ -38,9 +41,9 @@ export default (state = {}, action) => {
             return newState;
         // case RECEIVE_LIKE:
         //     newState = merge({}, state);
-        //     debugger
+        //     
         // case REMOVE_LIKE:
-        //     debugger
+        //     
         default:
             return state;
     }

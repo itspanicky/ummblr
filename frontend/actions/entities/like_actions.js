@@ -5,7 +5,7 @@ export const RECEIVE_LIKE = "RECEIVE_LIKE";
 export const REMOVE_LIKE = "REMOVE_LIKE";
 
 const receiveLike = (like) => {
-    debugger
+    
     return {
         type: RECEIVE_LIKE,
         like
@@ -13,7 +13,7 @@ const receiveLike = (like) => {
 }
 
 const removeLike = (like) => {
-    debugger
+    
     return {
         type: REMOVE_LIKE,
         like
@@ -21,17 +21,17 @@ const removeLike = (like) => {
 }
 
 export const likePost = (postId, userId) => (dispatch) => {
-    debugger
+    
     return LikeApiUtil.likePost(postId, userId).then((like) => {
-        debugger
+        
         return dispatch(receiveLike(like));
     })
 }
 
 export const unlikePost = (postId) => (dispatch) => {
-    debugger
+    
     return LikeApiUtil.unlikePost(postId).then((like) => {
-        debugger
+        
         return dispatch(removeLike(like));
     })
 }

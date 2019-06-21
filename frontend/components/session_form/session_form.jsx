@@ -44,7 +44,6 @@ class SessionForm extends React.Component {
     }
 
     render() {
-        console.log(this.props);
         let userInput;
         let linkTo;
         if (this.props.formType === "Sign Up") {

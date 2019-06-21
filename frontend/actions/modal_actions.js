@@ -10,7 +10,6 @@ export const openModal = (modal, postId) => {
 };
 
 export const closeModal = () => {
-    debugger
     return {
         type: CLOSE_MODAL,
     }

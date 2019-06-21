@@ -20,12 +20,6 @@ class QuoteForm extends React.Component {
     }
 
     render() {
-        // debugger
-        // if(this.state.title===""){
-        //     what u h vae
-        // }else {
-        //     & rdquo${ this.state.ttile }& rdquo;
-        // }
 
         return (
             <div className="form_container">
