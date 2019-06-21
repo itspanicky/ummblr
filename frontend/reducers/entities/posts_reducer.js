@@ -25,19 +25,15 @@ export default (state = {}, action) => {
             delete newState[action.postId];
             return newState;
         case RECEIVE_LIKE:
-            debugger
             liker = action.like.user_id;
             post = action.like.post_id;
             newState[post].likers.push(liker);
             return newState;
         case REMOVE_LIKE:
-            debugger
             liker = action.like.user_id;
             post = action.like.post_id;
             const index = newState[post].likers.indexOf(liker);
-            debugger
             newState[post].likers.splice(index);
-            debugger
             return newState;
         default:
             return state;

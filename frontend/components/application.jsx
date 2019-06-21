@@ -11,7 +11,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 const App = () => {
     return(
         <div className="app">
-            <Modal />
+            {/* <Modal /> */}
             <header>
                 {/* <GreetingContainer /> */}
             </header>
@@ -20,7 +20,7 @@ const App = () => {
                 <AuthRoute path="/signup" component={SignupFormContainer} />
                 <AuthRoute path="/login" component={LoginFormContainer} />
                 <ProtectedRoute path="/dashboard" component={DashboardContainer} />
-                <Route path="/explore" component={ExploreContainer} />
+                <ProtectedRoute path="/explore" component={ExploreContainer} />
                 <AuthRoute exact path="/" component={GreetingContainer} />
             </Switch>
 

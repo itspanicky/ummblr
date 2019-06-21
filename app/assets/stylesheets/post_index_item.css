@@ -3,8 +3,9 @@
 }
 
 .post-container {
+    width: 540px;
     font-size: 14px;
-    padding: 5px 0 10px 0;
+    padding: 0 0 0 0;
     margin: 0 0 20px 0;
     word-wrap: break-word;
     border-radius: 3px;
@@ -22,7 +23,7 @@
 
 .post-author-container {
     height: 20px;
-    padding: 10px 20px 7px 20px;
+    padding: 13px 20px 10px 20px;
 }
 
 .follow-button {
@@ -39,8 +40,7 @@
 }
 
 .text-post > h3 {
-    min-height: 47px;
-    margin: 0 0 10px;
+    margin: 0 5px 0 0;
     padding: 5px 18px 0 18px;
     font-size: 36px;
     word-wrap: break-word;
@@ -48,17 +48,17 @@
 
 .content-post {
     /* min-height: 21px; */
-    margin: 0 0 5px;
-    padding: 7px 20px 12px 20px;
+    padding: 7px 20px 7px 20px;
     font-size: 14px;
     word-wrap: break-word;
 }
 
 .post-action-container {
-    height: 45;
-    padding: 0 20px;
+    /* height: 45px; */
+    padding: 5px 20px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     color: darkgray;
 }
 
@@ -97,7 +97,6 @@
 /* quote */
 
 .quote-post {
-    min-height: 47px;
     margin: 0 0 10px;
     padding: 0 20px;
     word-wrap: break-word;
@@ -137,11 +136,18 @@
     flex-direction: row;
     align-items: center;
 }
-
-.fa-heart {
-    border: none;
+.post-action-actions > li > * {
     font-size: 22px;
-    position: relative;
-    outline: none;
     cursor: pointer;
+}
+.fa-heart.unclicked {
+    position: relative;
+    color: gray;
+    cursor: pointer;
+}
+
+.fa-heart.clicked {
+    position: relative;
+    cursor: pointer;
+    color: red;
 }

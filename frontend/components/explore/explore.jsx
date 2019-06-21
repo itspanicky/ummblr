@@ -31,10 +31,17 @@ class Explore extends React.Component {
                         followingStatus={this.props.followingStatus}
                         follow={this.props.follow}
                         unfollow={this.props.unfollow}
+                        likePost={this.props.likePost}
+                        unlikePost={this.props.unlikePost}
                     />
                 ) 
             }
         }).reverse();
+        // const col = Math.floor(posts.length / 4);
+        // const postsA = posts.slice(0, col);
+        // const postsB = posts.slice(col, 2 * col );
+        // const postsC = posts.slice(2 * col, 3* col);
+        // const postsD = posts.slice(3 * col, posts.length);
 
         return (
             <>
@@ -43,6 +50,18 @@ class Explore extends React.Component {
                     <ul className="explore-posts">
                         {posts}
                     </ul>
+                    {/* <ul className="explore-posts A">
+                        {postsA}
+                    </ul>
+                    <ul className="explore-posts B">
+                        {postsB}
+                    </ul>
+                    <ul className="explore-posts C">
+                        {postsC}
+                    </ul>
+                    <ul className="explore-posts D">
+                        {postsD}
+                    </ul> */}
                 </div>
             </>
             

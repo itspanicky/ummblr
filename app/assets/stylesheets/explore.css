@@ -1,23 +1,56 @@
 .explore-posts {
-    /* float: left; */
-    top: 50px;
+    top: 60px;
     position: relative;
-    display: grid;
-    grid-template-columns: repeat( auto-fit, minmax(300px, 2fr) );
     padding: 20px;
-    /* margin: 20px 50px 20px 20px; */
+    display: flex;
+    flex-flow: column wrap;
+    /* justify-content: space-around; */
+    height: 1000px;
+    width: 20em;
 }
+
+/* @media only screen and (max-width: 768px) {
+    [class*=".explore-posts"] {
+        height: 1500px;
+    }
+} */
 
 .explore-index-item-container {
-    /* float: left; */
-    /* justify-self: start; */
+    align-self: flex-start;
     background-color: white;
     width: 300px;
-    min-height: 300px;
+    /* min-height: 100px; */
     border-radius: 3px;
     margin: 10px;
+    
 }
 
-.post-author-container {
-    
+/* .explore.post-container {
+    float: left;
+    align-self: flex-start;
+    max-height: 200px;
+} */
+
+.explore.post-author-container {
+    padding: 10px 8px 5px 8px;
+}
+
+.explore.post-action-container{
+    padding: 5px 10px;
+}
+
+.explore.post-action-actions > li > * {
+    font-size: 16px;
+}
+
+.explore.notes {
+    font-size: 16px
+}
+
+.explore.quote-post > h3 {
+    font-size: 25px;
+}
+
+.explore.text-post > h3 {
+    font-size: 25px;
 }

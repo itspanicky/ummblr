@@ -53,7 +53,7 @@
     
 }
 
-li div:hover .post_button {
+.post_buttons > li:hover .post_button {
     transform: translateY(-4px);
 }
 

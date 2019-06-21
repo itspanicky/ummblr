@@ -10,15 +10,15 @@
 //     Object.freeze(state);
 //     switch (action.type) {
 //         case RECEIVE_ALL_FOLLOWS:
-//             debugger
+//             
 //             return merge({}, state, action.follows)
 //         case RECEIVE_FOLLOW:
-//             debugger
+//             
 //             const newState = merge({}, state);
 //             newState[action.follow.id] = action.follow;
 //             return newState;
 //         case REMOVE_FOLLOW:
-//             debugger
+//             
 //             return merge({}, state, action.follow)   
 //             // newState = merge({}, state);
 //             // delete newState[action.follow.id];
