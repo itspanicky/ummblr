@@ -217,6 +217,16 @@ to{opacity:1}
     cursor: pointer;
 }
 
+.session-form > input[type=submit]:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px rgb(90, 89, 89);
+}
+
+.session-form > button:active {
+    transform: translateY(2px);
+    box-shadow: 0 3px rgb(90, 89, 89);
+}
+
 .session-form > button {
     cursor: pointer;
     margin: 3px 0;
@@ -246,8 +256,6 @@ to{opacity:1}
     right: 10%;
     bottom: 1px;
     display: flex;
-    /* animation: slide-in 0.5s forwards;
-    -webkit-animation: slide-in 0.5S forwards; */
 }
 
 .about-me > * {
@@ -266,25 +274,3 @@ to{opacity:1}
     animation: colorchange 1s ease-in-out infinite alternate;
     -webkit-animation: colorchange 1s ease-in-out infinite alternate;
 }
-
-/* .about-me >*:hover .about-me-prompt {
-    display: flex;
-    position: fixed;
-    flex-direction: column;
-    color: white;
-    background-color: rgba(0,0,0,0.2);
-    padding: 10px;
-    border-radius: 5px;
-    width: 150px;
-    right: 11%;
-    bottom: 80px;
-    font-size: 14px;
-    /* animation: 5s ease 0s normal forwards 1 fadein;
-    -webkit-animation: 5s ease 0s normal forwards 1 fadein; */
-}
-
-.about-me-prompt > div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-} */
