@@ -14,6 +14,7 @@
     width: 100%;
     padding: 0;
     margin: 0;
+    overflow: hidden;
 }
 
 /* ---app name: ummblr --- */
@@ -236,4 +237,38 @@ to{opacity:1}
 
 @-webkit-keyframes fadein{from{opacity:0}
 to{opacity:1}
+}
+
+/* about me */
+
+.about-me {
+    position: fixed;
+    right: 150px;
+    bottom: 1px;
+    display: flex;
+    /* animation: slide-in 0.5s forwards;
+    -webkit-animation: slide-in 0.5S forwards; */
+    animation: 3s ease 0s normal forwards 1 fadein;
+    -webkit-animation: 3s ease 0s normal forwards 1 fadein;
+}
+
+@keyframes fadein{from{opacity:0}
+to{opacity:1}
+}
+
+@-webkit-keyframes fadein{from{opacity:0}
+to{opacity:1}
+}
+
+.about-me > * {
+    padding: 5px;
+    font-size: 35px;
+    margin: 10px;
+    transition: all .2s ease-in-out;
+    color: whitesmoke;
+}
+
+.about-me > *:hover {
+    transform: scale(1.2);
+    cursor: pointer;
 }

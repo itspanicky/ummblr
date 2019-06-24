@@ -31,7 +31,7 @@ const Navbar = ({currentUser, logout, openModal}) => {
                         <p><i className="small fas fa-heart"></i><span>Likes</span></p>
                     </li>
                     <li>
-                        <p><i className="small fas fa-child"></i><span>Following</span></p>
+                        <Link to="/following"><i className="small fas fa-child"></i><span>Following</span></Link>
                     </li>
                     <li>
                         <p><i className="small fas fa-cog"></i><span>Settings</span></p>

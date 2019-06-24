@@ -3,6 +3,7 @@ import PostNavContainer from '../post_nav/post_nav_container';
 import NavbarContainer from '../navbar/navbar_container';
 import PostIndexContainer from '../posts/post_index_container';
 import Avatar from '../avatar/avatar';
+import AboutMe from '../greeting/about-me';
 import Modal from '../modal/modal';
 
 class Dashboard extends React.Component {
@@ -20,13 +21,13 @@ class Dashboard extends React.Component {
         const allUsers = this.props.allUsers;
         const follow = this.props.follow;
         let avatar;
-        if (this.props.currentUser.photoUrl) {
+        if (currentUser.photoUrl) {
             avatar = <Avatar klass={"post-avatar"} photoUrl={photoUrl} user={currentUser.username} />
         } else {
-            avatar = <span></span>
+            avatar = <img className="post-avatar" src={window.brentURL}></img>
         };
 
-        let recommended = allUsers.slice(0, 5).map(user => {
+        let recommended = allUsers.slice(0, 7).map(user => {
             if (!currentUser.followings.includes(user.id) && user.id != currentUser.id) {
                 let otherAvatar;
                 if (user.photoUrl) {
@@ -50,7 +51,6 @@ class Dashboard extends React.Component {
             <div className="dashboard-container">
                 <NavbarContainer />
                 <div className="dashboard">
-                    {/* <Modal /> */}
                     <section className="dashboard-main">
                         <div>
                             {avatar}
@@ -58,7 +58,10 @@ class Dashboard extends React.Component {
                         </div>
                         <div className="post-index-container">
                             <span></span>
-                            <PostIndexContainer />
+                            <div>
+                                <div className="modal-opened"></div>
+                                <PostIndexContainer />
+                            </div>
                         </div>
                     </section>
                     <section className="dashboard-side">
@@ -67,6 +70,7 @@ class Dashboard extends React.Component {
                         </ul>
                     </section>
                 </div>
+                <AboutMe />
             </div>
         )
     }

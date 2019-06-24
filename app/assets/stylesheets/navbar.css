@@ -117,11 +117,12 @@
     position: fixed;
 }
 
-.account-dropdown > li > p {
+.account-dropdown > li > * {
     display: flex;
     cursor: pointer;
     justify-content: space-between;
     padding: 8px 8px;
+    color: black;
 }
 
 .account-dropdown > li > div {
@@ -185,13 +186,11 @@
     position: fixed;
     display: flex;
     flex-direction: row;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.2);
+    top: 250px;
+    left: -200px;
+    /* margin: 0 auto; */
     justify-content: space-around;
-    /* align-items: center; */
+    align-items: center;
     color: white;
     /* z-index: 600; */
 }
@@ -207,7 +206,7 @@
 
 .alt {
     padding: 20px;
-    margin: 25px 0;
+    margin: 0 0 25px 0;
     border-radius: 50%;
 }
 

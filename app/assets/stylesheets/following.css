@@ -1,0 +1,42 @@
+.following-index-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 500px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 80px auto;
+}
+
+.following-length {
+    text-align: center;
+    font-size: 20px;
+    padding: 0 0 15px 0;
+}
+
+.following-index-list {
+    width: 100%;
+    font-size: 16px;
+}
+
+.following-user {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 7px 0;
+}
+
+.following-user-user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.following.follow-button {
+    border: 1px solid navy;
+    color: navy;
+    border-radius: 3px;
+    padding: 0 7px;
+
+}

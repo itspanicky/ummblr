@@ -79,6 +79,7 @@
 
 .recommended-blogs > p {
     font-size: 18px;
+    text-align: center;
     padding: 10px 0px;
     border-bottom: 2px solid whitesmoke;
 }
@@ -99,6 +100,10 @@
     padding: 5px 10px;
     font-size: 16px;
     
+}
+
+.recommended-users:hover {
+    opacity: 0.7;
 }
 
 .recommended-users > div {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../navbar/navbar_container'
+import AboutMe from './about-me';
 
 const Greeting = ({currentUser}) => {
     if (currentUser) {
@@ -22,6 +23,7 @@ const Greeting = ({currentUser}) => {
                     <Link className="login-link" to='/login'>Log In</Link>
                     {/* <Link className="splash-text" to='/explore'>See what's trending</Link> */}
                 </nav>
+                <AboutMe/>
             </div>
         );
     }
