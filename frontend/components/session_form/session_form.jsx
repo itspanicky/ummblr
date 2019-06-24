@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import AboutMe from '../greeting/about-me';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -98,6 +99,7 @@ class SessionForm extends React.Component {
                     <button onClick={this.handleDemo}>Demo Login</button>
                 </form>
             </div>
+            <AboutMe />
             </>
         )
     }
