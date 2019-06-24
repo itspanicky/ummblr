@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Avatar = ({ photoUrl, currentUser }) => (
+const Avatar = ({ photoUrl, user, klass }) => (
     <div className="user-avatar">
-        <img className="avatar" src={photoUrl} alt=""/>
+        <img className={klass} src={photoUrl} alt=""/>
         <ul className="user-popup"> 
-            <li>{currentUser}</li>
+            <li>{user}</li>
         </ul>
     </div>
 )

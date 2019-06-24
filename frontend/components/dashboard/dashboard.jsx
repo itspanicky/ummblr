@@ -21,16 +21,25 @@ class Dashboard extends React.Component {
         const follow = this.props.follow;
         let avatar;
         if (this.props.currentUser.photoUrl) {
-            avatar = <Avatar photoUrl={photoUrl} currentUser={currentUser.username} />
+            avatar = <Avatar klass={"post-avatar"} photoUrl={photoUrl} user={currentUser.username} />
         } else {
             avatar = <span></span>
         };
 
         let recommended = allUsers.slice(0, 5).map(user => {
-            if (!currentUser.followings.includes(user.id)) {
+            if (!currentUser.followings.includes(user.id) && user.id != currentUser.id) {
+                let otherAvatar;
+                if (user.photoUrl) {
+                    otherAvatar = <Avatar klass={"other-avatar"}photoUrl={user.photoUrl} user={user.username} />
+                } else {
+                    otherAvatar = <img className="other-avatar" src={window.brentURL}></img>
+                }
                 return (
-                    <li key={user.id}>
-                        <div>{user.username}</div>
+                    <li key={user.id} className="recommended-users">
+                        <div>
+                            {otherAvatar}
+                            <div>{user.username}</div>
+                        </div>
                         <button className="follow-button" onClick={() => follow(user.id)}><i className="fas fa-plus-square"></i></button>
                     </li>
                 )
@@ -39,9 +48,9 @@ class Dashboard extends React.Component {
 
         return (
             <div className="dashboard-container">
-                <Modal />
                 <NavbarContainer />
                 <div className="dashboard">
+                    {/* <Modal /> */}
                     <section className="dashboard-main">
                         <div>
                             {avatar}
@@ -53,7 +62,7 @@ class Dashboard extends React.Component {
                         </div>
                     </section>
                     <section className="dashboard-side">
-                        <ul> Recommended Blogs
+                        <ul className="recommended-blogs"> <p>Recommended Blogs</p>
                             {recommended}
                         </ul>
                     </section>

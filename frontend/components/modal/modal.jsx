@@ -67,6 +67,7 @@ const Modal = ({modal, currentUser, closeModal}) => {
                 {/* <Avatar photoUrl={currentUser.photoUrl} currentUser={currentUser.username} /> */}
                 { component }
             </div>
+            <div></div>
         </div>
     )
 }
