@@ -27,7 +27,7 @@
     font-size: 45px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bolder;
-    margin: 0 10px;
+    margin: 0 10px 0 30px;
 }
 
 .u-logo:hover {
@@ -72,7 +72,7 @@
 .fa-search {
     position: absolute;
     top: 23px;
-    left: 60px;
+    left: 80px;
 }
 
 /* ---when signed in--- */
@@ -80,6 +80,7 @@
     display: flex;
     flex-direction: row;
     position: relative;
+    margin-right: 30px;
 }
 
 .nav-list > li {
@@ -176,4 +177,60 @@
 .link_to:active {
     transform: translateY(2px);
     box-shadow: 0 3px rgb(90, 89, 89);
+}
+
+/* alt creat post */
+
+.alt-post-buttons {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.2);
+    justify-content: space-around;
+    /* align-items: center; */
+    color: white;
+    /* z-index: 600; */
+}
+
+.alt-post-buttons > li > *{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 25px;
+    transition: all .2s ease-in-out;
+}
+
+.alt {
+    padding: 20px;
+    margin: 25px 0;
+    border-radius: 50%;
+}
+
+.alt.post_button.text {
+    background-color: whitesmoke;
+}
+
+.alt.post_button.fas.fa-camera {
+    background-color: tomato;
+}
+
+.alt.post_button.fas.fa-quote-right {
+    background-color: cornflowerblue;
+}
+
+.alt.post_button.fas.fa-link {
+    background-color: aqua;
+}
+
+
+
+
+.alt-post-buttons > li > div:hover {
+    cursor: pointer;
+    transform: scale(1.2);
 }

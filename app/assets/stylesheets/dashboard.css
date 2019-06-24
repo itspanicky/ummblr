@@ -1,13 +1,15 @@
 .dashboard {
+    /* position: relative; */
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 80px auto;
+    padding: 0 225px;
+    position: relative;
 
 }
 
 .dashboard-main {
     position: relative;
-    padding: 0 0px 0 0 ;
 }
 
 .dashboard-main > div {
@@ -35,7 +37,7 @@
 
 /* avatar */
 
-.avatar {
+.post-avatar {
     width: 64px;
     height: 64px;
     /* margin: 0 50px; */
@@ -67,8 +69,62 @@
 
 
 .dashboard-side {
+    color: white;
+    width: 320px;
+    height: 400px;
+    margin: 0 auto;
+}
+
+
+
+.recommended-blogs > p {
+    font-size: 18px;
+    padding: 10px 0px;
+    border-bottom: 2px solid whitesmoke;
+}
+
+.recommended-blogs > li {
+    border-bottom: 1px solid white;
+}
+
+.recommended-blogs > li:last-child {
+    border: none;
+}
+
+.recommended-users {
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    width: 200px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    font-size: 16px;
+    
+}
+
+.recommended-users > div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.other-avatar {
+    width: 37px;
+    height: 37px;
+    /* margin: 0 50px; */
+    border: none;
+    border-radius: 4px;
+    padding-right: 8px;
+}
+
+.follow-button {
+    background: transparent;
+}
+
+.fa-plus-square {
+    font-size: 24px;
+    color: white;
+}
+
+.fa-plus-square:hover {
+    color: rgb(90, 160, 204);
 }
