@@ -1,0 +1,20 @@
+.likes-index-container {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    min-height: 800px;
+    padding: 80px 225px;
+    background-color: #34526f;
+
+}
+
+.no-likes {
+    font-size: 20px;
+    padding: 30px;
+    margin: 0 auto;
+}

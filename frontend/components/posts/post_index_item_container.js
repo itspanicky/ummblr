@@ -33,7 +33,6 @@ const mdp = (dispatch) => {
         deletePost: (id) => dispatch(deletePost(id)),
         follow: (user) => dispatch(follow(user)),
         unfollow: (user) => dispatch(unfollow(user)),
-        fetchPosts: () => dispatch(fetchPosts()),
         // fetchFollows: (userId) => dispatch(fetchFollows(userId)),
         likePost: (postId, userId) => dispatch(likePost(postId, userId)),
         unlikePost: (postId) => dispatch(unlikePost(postId))

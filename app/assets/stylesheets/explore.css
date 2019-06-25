@@ -1,5 +1,12 @@
+.explore-container {
+    position: relative;
+
+    padding: 60px;
+    /* margin: 0 auto; */
+    background-color: #34526f;
+}
+
 .explore-posts {
-    top: 60px;
     position: relative;
     padding: 20px;
     display: flex;

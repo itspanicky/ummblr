@@ -2,10 +2,10 @@
     /* position: relative; */
     display: flex;
     justify-content: space-around;
-    margin: 80px auto;
-    padding: 0 225px;
+    margin: 0 auto;
+    padding: 80px 225px;
     position: relative;
-
+    background-color: #34526f;
 }
 
 .dashboard-main {

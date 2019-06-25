@@ -3,16 +3,37 @@ import { Link } from 'react-router-dom';
 import Navbar from '../navbar/navbar_container'
 import AboutMe from './about-me';
 
-const Greeting = ({currentUser}) => {
-    if (currentUser) {
-        return (
-            <>
-            </>
-        );
-    } else {
+class Greeting extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount() {
+        this.props.fetchPosts();
+    }
+
+    render() {
+
+        let backgroundImages = this.props.posts.slice(0, 7).map(post => {
+            if (post.post_type === "photo") {
+                debugger
+                return (
+                    <>
+                        <img className="background-image" src={post.photoUrl}/>
+                        <div className="background-image-author"><div>Posted by </div><p>{post.author.username}</p></div>
+                    </>
+                )
+            }
+        });
+
+        const backgroundImage = backgroundImages[Math.floor(Math.random() * backgroundImages.length)];
+
+        debugger
+       
         return (
             <div className="splash-container">
                 <Navbar />
+                {backgroundImage}
                 <nav className="signup-login">
                     <h1 className="ummblr">ummblr</h1>
                     <div className="spash-motto">
@@ -23,7 +44,7 @@ const Greeting = ({currentUser}) => {
                     <Link className="login-link" to='/login'>Log In</Link>
                     {/* <Link className="splash-text" to='/explore'>See what's trending</Link> */}
                 </nav>
-                <AboutMe/>
+                <AboutMe />
             </div>
         );
     }
