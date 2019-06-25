@@ -23,11 +23,12 @@ time, mark, audio, video {
 
 body {
 	background-color: #34526f;
-	position: absolute;
+	/* position: absolute;
 	top:0;
 	bottom:0;
 	left:0;
-	right:0;
+	right:0; */
+	z-index: -10;
 }
 
 
