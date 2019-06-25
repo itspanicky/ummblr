@@ -59,8 +59,9 @@ class SessionForm extends React.Component {
             }
         });
 
-        const backgroundImage = backgroundImages[Math.floor(Math.random() * backgroundImages.length)];
-
+        // const backgroundImage = backgroundImages[Math.floor(Math.random() * backgroundImages.length)];
+        const backgroundImage = backgroundImages[4];
+        
         let userInput;
         let linkTo;
         if (this.props.formType === "Sign Up") {

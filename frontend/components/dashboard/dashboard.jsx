@@ -24,8 +24,11 @@ class Dashboard extends React.Component {
         if (currentUser.photoUrl) {
             avatar = <Avatar klass={"post-avatar"} photoUrl={photoUrl} user={currentUser.username} />
         } else {
-            avatar = <img className="post-avatar" src={window.brentURL}></img>
-        };
+            avatar = <span></span>
+        }
+        // else {
+        //     avatar = <img className="post-avatar" src={window.brentURL}></img>
+        // };
 
         let recommended = allUsers.slice(0, 7).map(user => {
             if (!currentUser.followings.includes(user.id) && user.id != currentUser.id) {

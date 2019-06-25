@@ -182,7 +182,7 @@
 
 .link_to:active {
     transform: translateY(2px);
-    box-shadow: 0 3px rgb(90, 89, 89);
+    box-shadow: 0 2px rgb(90, 89, 89);
 }
 
 /* alt creat post */
