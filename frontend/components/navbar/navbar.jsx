@@ -28,14 +28,14 @@ const Navbar = ({currentUser, logout, openModal}) => {
                         <div><span>{user}</span><span className="clickable" onClick={() => logout()}>Logout</span></div>
                     </li>
                     <li>
-                        <p><i className="small fas fa-heart"></i><span>Likes</span></p>
+                        <Link to="/likes"><i className="small fas fa-heart"></i><span>Likes</span></Link>
                     </li>
                     <li>
                         <Link to="/following"><i className="small fas fa-child"></i><span>Following</span></Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <p><i className="small fas fa-cog"></i><span>Settings</span></p>
-                    </li>
+                    </li> */}
                 </ul>
             </li>
             <li>
@@ -53,7 +53,7 @@ const Navbar = ({currentUser, logout, openModal}) => {
         )
     } else {
         return (
-            <nav className="navbar">
+            <nav className="navbar navbar-splash">
                 {leftNav}
             </nav>
         )

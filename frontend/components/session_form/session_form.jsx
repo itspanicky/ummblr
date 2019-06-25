@@ -41,10 +41,26 @@ class SessionForm extends React.Component {
     }
 
     componentDidMount() {
-        this.props.clearSessionErrors()
+        this.props.fetchPosts();
+        this.props.clearSessionErrors();
     }
 
     render() {
+
+        let backgroundImages = this.props.posts.slice(0, 7).map(post => {
+            if (post.post_type === "photo") {
+                debugger
+                return (
+                    <>
+                        <img className="background-image" src={post.photoUrl} />
+                        <div className="background-image-author"><div>Posted by </div><p>{post.author.username}</p></div>
+                    </>
+                )
+            }
+        });
+
+        const backgroundImage = backgroundImages[Math.floor(Math.random() * backgroundImages.length)];
+
         let userInput;
         let linkTo;
         if (this.props.formType === "Sign Up") {
@@ -65,42 +81,43 @@ class SessionForm extends React.Component {
         let errors = this.props.errors.map(error => <li key={error}>{error}</li>)
 
         return (
-            <>
-            {linkTo}
-            <section className="left-side">
-                <Link to="/" className="u-logo">u</Link>
-                <input className="search-bar" type="text" placeholder="Search ummblr" />
-            </section>
-            <div className="form-box">
-            <h1 className="ummblr">ummblr</h1>
-                <form className="session-form" onSubmit={this.handleSubmit}>
-                    <input 
-                        className="email-input" 
-                        type="text" 
-                        value={this.state.email} 
-                        placeholder="Email" 
-                        onChange={this.handleInput("email")
-                    }/>
+            <div className="splash-container">
+                {linkTo}
+                {backgroundImage}
+                <section className="left-side">
+                    <Link to="/" className="u-logo">u</Link>
+                    <input className="search-bar" type="text" placeholder="Search ummblr" />
+                </section>
+                <div className="form-box">
+                <h1 className="ummblr">ummblr</h1>
+                    <form className="session-form" onSubmit={this.handleSubmit}>
+                        <input 
+                            className="email-input" 
+                            type="text" 
+                            value={this.state.email} 
+                            placeholder="Email" 
+                            onChange={this.handleInput("email")
+                        }/>
 
-                    {userInput}
-                    {/* <input type="text" value={this.state.username} onChange={this.handleInput("username")} /> */}
-                    <input 
-                        className="password-input" 
-                        type="password"
-                        value={this.state.password}
-                        placeholder="Password" 
-                        onChange={this.handleInput("password")}/>
+                        {userInput}
+                        {/* <input type="text" value={this.state.username} onChange={this.handleInput("username")} /> */}
+                        <input 
+                            className="password-input" 
+                            type="password"
+                            value={this.state.password}
+                            placeholder="Password" 
+                            onChange={this.handleInput("password")}/>
 
-                    <ul className="errors">
-                        {errors}
-                    </ul>
+                        <ul className="errors">
+                            {errors}
+                        </ul>
 
-                    <input type="submit" value={this.props.formType}/>
-                    <button onClick={this.handleDemo}>Demo Login</button>
-                </form>
+                        <input type="submit" value={this.props.formType}/>
+                        <button onClick={this.handleDemo}>Demo Login</button>
+                    </form>
+                </div>
+                <AboutMe />
             </div>
-            <AboutMe />
-            </>
         )
     }
 

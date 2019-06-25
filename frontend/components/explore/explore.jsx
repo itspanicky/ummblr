@@ -10,10 +10,13 @@ class Explore extends React.Component {
 
     componentDidMount(){
         this.props.fetchPosts();
+        debugger
     }
 
     render() {
+        debugger
         let posts = this.props.posts.map(post => {
+            debugger
             if (!this.props.currentUser) {
                 return (
                     <ExploreIndexItem
@@ -42,7 +45,7 @@ class Explore extends React.Component {
         // const postsB = posts.slice(col, 2 * col );
         // const postsC = posts.slice(2 * col, 3* col);
         // const postsD = posts.slice(3 * col, posts.length);
-
+        debugger
         return (
             <>
                 <NavbarContainer />

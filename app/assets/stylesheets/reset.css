@@ -23,6 +23,11 @@ time, mark, audio, video {
 
 body {
 	background-color: #34526f;
+	position: absolute;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
 }
 
 
@@ -58,6 +63,7 @@ textarea:focus, input:focus {
 button {
 	border: none;
 	outline: none;
+	cursor: pointer;
 }
 
 /* html, body {

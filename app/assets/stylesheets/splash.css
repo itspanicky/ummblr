@@ -1,22 +1,31 @@
-/* body, html {
-    position: relative;
-    background-color: #34526f;
-    color: white;
-    height: 100%;
-    width: 100%;
-} */
-
 .splash-container {
-    position: relative;
-    background-color: #34526f;
     color: white;
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
+
 }
 
+.background-image {
+    background-position: center center;
+    background-size: cover;
+    position: fixed;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    animation: 3s ease 0s normal forwards 1 fadein;
+    -webkit-animation: 3s ease 0s normal forwards 1 fadein;
+    z-index: -5;
+}
+
+.background-image-author {
+    position: absolute;
+    font-size: 12px;
+    bottom: 50px;
+    left: 100px;
+}
+
+.background-image-author > p {
+    font-style: italic;
+    font-weight: bold;
+}
 /* ---app name: ummblr --- */
 .ummblr {
     text-align: center;
@@ -53,13 +62,13 @@ nav {
     align-items: center;
     height: 600px;
     width: 0 auto;
-    background-color: #34526f;
+    /* background-color: #34526f; */
 }
 
 .spash-motto {
     text-align: center;
     /* padding: 2px; */
-    /* margin: 0 0 20px 0px; */
+    margin: 10px 0;
 }
 
 .signup-login {
@@ -134,7 +143,7 @@ to{opacity:1}
     transform: translate(-50%, -50%);
     flex-direction: column;
     justify-content: center;
-    background-color: #34526f;
+    /* background-color: #34526f; */
 }
 
 .session-form {
@@ -256,6 +265,7 @@ to{opacity:1}
     right: 10%;
     bottom: 1px;
     display: flex;
+    color: cornsilk;
 }
 
 .about-me > * {

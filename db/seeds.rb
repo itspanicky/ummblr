@@ -22,6 +22,7 @@ user2 = User.create(username: 'fish123', email: 'fish@gmail.com', password: 'pas
 user3 = User.create(username: 'Gangstaboi92', email: 'momsspaghetti@gmail.com', password: 'password')
 user4 = User.create(username: 'ImABot', email: 'bot@gmail.com', password: 'password')
 user5 = User.create(username: 'uglyboy33', email: 'uglyboy@gmail.com', password: 'password')
+user6 = User.create(username: 'unSplash', email: 'unsplash@gmail.com', password: 'password')
 demo = User.create(username: 'DemoUser', email: 'demo@gmail.com', password: 'password')
 
 
@@ -39,6 +40,33 @@ Follow.create(following_id: user1.id, follower_id: demo.id)
 Follow.create(following_id: user2.id, follower_id: user1.id) # user1 follows user2
 Follow.create(following_id: user2.id, follower_id: user3.id) # user3 follows user2
 
+wallpaper1 = open('https://ummblr-dev.s3.amazonaws.com/steve-johnson-3Sf_G9m0gcQ-unsplash.jpg')
+wallpaperPost1 = Post.create(title: 'Photo', content: 'Abstract - Steve Johnson', post_type: "photo", author_id: user6.id)
+wallpaperPost1.photo.attach(io: wallpaper1, filename: 'https://ummblr-dev.s3.amazonaws.com/steve-johnson-3Sf_G9m0gcQ-unsplash.jpg')
+
+wallpaper2 = open('https://ummblr-dev.s3.amazonaws.com/Ocean.jpg')
+wallpaperPost2 = Post.create(title: 'Photo', content: 'Views from a fish', post_type: "photo", author_id: user5.id)
+wallpaperPost2.photo.attach(io: wallpaper2, filename: 'https://ummblr-dev.s3.amazonaws.com/Ocean.jpg')
+
+wallpaper3 = open('https://ummblr-dev.s3.amazonaws.com/anders-jilden-uwbajDCODj4-unsplash.jpg')
+wallpaperPost3 = Post.create(title: 'Photo', content: 'Sunset - Anders Jilden', post_type: "photo", author_id: user6.id)
+wallpaperPost3.photo.attach(io: wallpaper3, filename: 'https://ummblr-dev.s3.amazonaws.com/anders-jilden-uwbajDCODj4-unsplash.jpg')
+
+wallpaper4 = open('https://ummblr-dev.s3.amazonaws.com/cassi-josh-lhnOvu72BM8-unsplash.jpg')
+wallpaperPost4 = Post.create(title: 'Photo', content: 'Blood vein texture - Cassi Josh', post_type: "photo", author_id: user6.id)
+wallpaperPost4.photo.attach(io: wallpaper4, filename: 'https://ummblr-dev.s3.amazonaws.com/cassi-josh-lhnOvu72BM8-unsplash.jpg')
+
+wallpaper5 = open('https://ummblr-dev.s3.amazonaws.com/patrick-tomasso-QMDap1TAu0g-unsplash.jpg')
+wallpaperPost5 = Post.create(title: 'Photo', content: 'Blue - Patrick Tomasso', post_type: "photo", author_id: user6.id)
+wallpaperPost5.photo.attach(io: wallpaper5, filename: 'https://ummblr-dev.s3.amazonaws.com/patrick-tomasso-QMDap1TAu0g-unsplash.jpg')
+
+wallpaper6 = open('https://ummblr-dev.s3.amazonaws.com/UNADJUSTEDNONRAW_thumb_2.jpg')
+wallpaperPost6 = Post.create(title: 'Photo', content: '...', post_type: "photo", author_id: user1.id)
+wallpaperPost6.photo.attach(io: wallpaper6, filename: 'https://ummblr-dev.s3.amazonaws.com/UNADJUSTEDNONRAW_thumb_2.jpg')
+
+wallpaper7 = open('https://ummblr-dev.s3.amazonaws.com/koushik-chowdavarapu-Zjd6NvWUf5k-unsplash.jpg')
+wallpaperPost7 = Post.create(title: 'Photo', content: 'Gray Concrete - Koushik Chowdavarapu', post_type: "photo", author_id: user6.id)
+wallpaperPost7.photo.attach(io: wallpaper7, filename: 'https://ummblr-dev.s3.amazonaws.com/koushik-chowdavarapu-Zjd6NvWUf5k-unsplash.jpg')
 
 text1 = Post.create(title: 'Hello World', content: "This is my first post", post_type: "text", author_id: demo.id)
 
@@ -48,6 +76,8 @@ quote2 = Post.create(title: "I feel like I'm too busy writing history to read it
 photo2 = open('https://ummblr-dev.s3.amazonaws.com/Girl.jpg')
 image2 = Post.create(title: 'Photo', content: 'Another window', post_type: "photo", author_id: user2.id)
 image2.photo.attach(io: photo2, filename: 'https://ummblr-dev.s3.amazonaws.com/Girl.jpg')
+
+quote3 = Post.create(title: "I just think we all deserve to be with someone who wants to be with us", content: "Phyllis from The Office", post_type: "quote", author_id: user5.id)
 
 text2 = Post.create(title: 'I love fish', content: "especially when grilled", post_type: "text", author_id: user1.id)
 
