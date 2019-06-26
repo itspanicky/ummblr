@@ -79,6 +79,7 @@
     width: 120px;
     border: 1px solid lightgray;
     border-radius: 3px;
+    z-index: 20;
 }
 
 .settings-dropdown > button {
