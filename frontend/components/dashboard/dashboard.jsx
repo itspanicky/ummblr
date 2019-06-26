@@ -60,11 +60,8 @@ class Dashboard extends React.Component {
                             <PostNavContainer />
                         </div>
                         <div className="post-index-container">
-                            <span></span>
-                            <div>
-                                <div className="modal-opened"></div>
-                                <PostIndexContainer />
-                            </div>
+                            {/* <span></span> */}
+                            <PostIndexContainer />
                         </div>
                     </section>
                     <section className="dashboard-side">

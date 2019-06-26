@@ -1,4 +1,6 @@
 .form_container {
+    position: relative;
+    /* top: 80px; */
     display: block;
     width: 540px;
     border-radius: 4px;
