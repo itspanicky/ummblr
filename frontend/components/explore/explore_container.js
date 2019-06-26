@@ -11,7 +11,6 @@ const msp = (state) => {
     // if (currentUser.followings) {
     //     followingStatus = currentUser.followings.includes(authorId)
     // }
-    debugger
     return ({
         posts: posts,
         currentUser: currentUser,

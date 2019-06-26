@@ -6,22 +6,17 @@ import ExploreIndexItem from '../explore/explore_index_item';
 class LikesIndex extends React.Component {
     constructor(props) {
         super(props);
-        debugger
     }
 
     componentDidMount() {
         this.props.fetchPosts();
-        debugger
 
     }
 
     render() {
         const currentUser = this.props.currentUser;
-        debugger
         // let posts = this.props.posts.map(post => {
-        //     debugger
         //     if (post.likers.includes(currentUser.id)) {
-        //         debugger
         //         return (
         //             <PostIndexItem
         //                 key={post.id}
