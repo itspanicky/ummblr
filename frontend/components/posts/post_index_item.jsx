@@ -166,16 +166,16 @@ class PostIndexItem extends React.Component {
             };
             
 
-        // let photoUrl;    
-        // if (this.props.post.author.photoUrl) {
-        //     photoUrl = <Avatar photoUrl={this.props.post.author.photoUrl} className="avatar"/>
-        // } else {
-        //     photoUrl = <img className="post-avatar" src={window.brentURL}></img>
-        // }
+        let photoUrl;    
+        if (this.props.post.author.photoUrl) {
+            photoUrl = <Avatar photoUrl={this.props.post.author.photoUrl} klass={"author-avatar"}/>
+        } else {
+            photoUrl = <img className="author-avatar" src={window.brentURL}></img>
+        }
             
         return (
-            <div>
-                {/* {photoUrl} */}
+            <div className="post-index-item-container">
+                {photoUrl}
                 <div className="explore post-container">
                     <div className="post-author-container">
                         {author.username}

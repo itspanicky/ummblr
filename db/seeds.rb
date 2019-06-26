@@ -29,6 +29,21 @@ demo = User.create(username: 'DemoUser', email: 'demo@gmail.com', password: 'pas
 itspanicky_avatar = open('https://ummblr-dev.s3.amazonaws.com/fullsizeoutput_1.jpeg')
 user1.avatar.attach(io: itspanicky_avatar, filename: 'https://ummblr-dev.s3.amazonaws.com/fullsizeoutput_1.jpeg')
 
+user2_avatar = open('https://ummblr-dev.s3.amazonaws.com/fish.jpg')
+user2.avatar.attach(io: user2_avatar, filename: 'https://ummblr-dev.s3.amazonaws.com/fish.jpg')
+
+user3_avatar = open('https://ummblr-dev.s3.amazonaws.com/kanye.jpg')
+user3.avatar.attach(io: user3_avatar, filename: 'https://ummblr-dev.s3.amazonaws.com/kanye.jpg')
+
+user4_avatar = open('https://ummblr-dev.s3.amazonaws.com/Girl.jpg')
+user4.avatar.attach(io: user4_avatar, filename: 'https://ummblr-dev.s3.amazonaws.com/Girl.jpg')
+
+user5_avatar = open('https://ummblr-dev.s3.amazonaws.com/ub.jpg')
+user5.avatar.attach(io: user5_avatar, filename: 'https://ummblr-dev.s3.amazonaws.com/ub.jpg')
+
+unsplash_avatar = open('https://ummblr-dev.s3.amazonaws.com/prof1.jpg')
+user6.avatar.attach(io: unsplash_avatar, filename: 'https://ummblr-dev.s3.amazonaws.com/prof1.jpg')
+
 default_avatar = open('https://ummblr-dev.s3.amazonaws.com/Knight+-+White+Inverted.jpg')
 demo.avatar.attach(io: default_avatar, filename: 'https://ummblr-dev.s3.amazonaws.com/Knight+-+White+Inverted.jpg')
 
