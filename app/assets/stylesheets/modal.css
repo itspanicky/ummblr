@@ -15,12 +15,10 @@
     margin: 0 auto;
     position: relative;
     top: 80px;
-    left: -41px;
-    /* right: 5000px;
-    /* transform: translate(-11.3%, 0); */
-    /* display: flex;
+    left: -53px;
+    display: flex;
     flex-direction: column;
-    justify-content: space-evenly; */
+    justify-content: flex-start;
     animation: slide-in 0.5s forwards;
     -webkit-animation: slide-in 0.5S forwards;
 }

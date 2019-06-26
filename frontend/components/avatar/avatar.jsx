@@ -5,6 +5,7 @@ const Avatar = ({ photoUrl, user, klass }) => (
         <img className={klass} src={photoUrl} alt=""/>
         <ul className="user-popup"> 
             <li>{user}</li>
+            <img className={klass} src={photoUrl} className="larger-avatar" alt="" />
         </ul>
     </div>
 )
