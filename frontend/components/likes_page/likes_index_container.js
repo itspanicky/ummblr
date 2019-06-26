@@ -9,7 +9,6 @@ const msp = (state) => {
     const postLiked = posts.filter(post => {
         if (post.likers.includes(currentUser.id)) return post
     })
-    debugger
     return ({
         posts: posts,
         currentUser: currentUser,

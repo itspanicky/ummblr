@@ -16,7 +16,6 @@ class Greeting extends React.Component {
 
         let backgroundImages = this.props.posts.slice(0, 7).map(post => {
             if (post.post_type === "photo") {
-                debugger
                 return (
                     <>
                         <img className="background-image" src={post.photoUrl}/>
@@ -27,8 +26,6 @@ class Greeting extends React.Component {
         });
 
         const backgroundImage = backgroundImages[Math.floor(Math.random() * backgroundImages.length)];
-
-        debugger
        
         return (
             <div className="splash-container">

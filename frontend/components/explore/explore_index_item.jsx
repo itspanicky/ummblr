@@ -13,7 +13,6 @@ let follow = (props) => {
 }
 
 let postBody = (props) => {
-    debugger
     switch (props.post.post_type) {
         case "text":
             return (
@@ -23,7 +22,6 @@ let postBody = (props) => {
                 </div>
             );
         case "photo":
-            debugger
             return (
                 <div>
                     <img className="photo-post" src={props.post.photoUrl} />
