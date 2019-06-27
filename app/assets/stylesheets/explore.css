@@ -1,7 +1,7 @@
 .explore-container {
     position: relative;
 
-    padding: 60px;
+    padding: 60px 10px;
     /* margin: 0 auto; */
     background-color: #34526f;
 }
@@ -12,8 +12,8 @@
     display: flex;
     flex-flow: column wrap;
     /* justify-content: space-around; */
-    height: 1000px;
-    width: 20em;
+    height: 1200px;
+    /* width: 20em; */
 }
 
 /* @media only screen and (max-width: 768px) {
