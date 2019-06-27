@@ -23,12 +23,10 @@ class Dashboard extends React.Component {
         let avatar;
         if (currentUser.photoUrl) {
             avatar = <Avatar klass={"post-avatar"} photoUrl={photoUrl} user={currentUser.username} />
-        } else {
-            avatar = <span></span>
-        }
-        // else {
-        //     avatar = <img className="post-avatar" src={window.brentURL}></img>
-        // };
+        } 
+        else {
+            avatar = <img className="post-avatar" src={window.brentURL}></img>
+        };
 
         let recommended = allUsers.slice(0, 7).map(user => {
             if (!currentUser.followings.includes(user.id) && user.id != currentUser.id) {
@@ -48,14 +46,14 @@ class Dashboard extends React.Component {
                     </li>
                 )
             }
-        })
+        });
 
         return (
             <div className="dashboard-container">
                 <NavbarContainer />
                 <div className="dashboard">
                     <section className="dashboard-main">
-                        <div>
+                        <div className="post-nav-container">
                             {avatar}
                             <PostNavContainer />
                         </div>

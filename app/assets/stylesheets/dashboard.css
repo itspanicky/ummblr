@@ -12,6 +12,13 @@
     position: relative;
 }
 
+/* .post-nav-container {
+    display: flex;
+    flex-direction: row
+    justify-content: space-between;
+    width: 690px;
+} */
+
 .dashboard-main > div {
     display: flex;
     justify-content: space-evenly;
@@ -39,12 +46,14 @@
 /* avatar */
 
 .post-avatar {
+    position: sticky;
     width: 64px;
     height: 64px;
     /* margin: 0 50px; */
     border: none;
     border-radius: 4px;
-    z-index: 100;
+    z-index: 500;
+    background-color: black;
 }
 
 .post-index-item-container {
