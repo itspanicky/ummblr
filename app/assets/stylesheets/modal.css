@@ -11,7 +11,6 @@
 }
 
 .modal-child {
-    
     margin: 0 auto;
     position: relative;
     top: 80px;
@@ -31,6 +30,20 @@
     transform: translateY(0%);
   }
 }
+/* 
+.modall-close {
+  animation: slide-out 0.5s forwards;
+  -webkit-animation: slide-out 0.5S forwards;
+}
+
+@-webkit-keyframes slide-out {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-30%);
+  }
+} */
 
 .close {
     cursor: pointer;
