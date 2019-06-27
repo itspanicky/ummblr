@@ -4,6 +4,7 @@
     padding: 60px 10px;
     /* margin: 0 auto; */
     background-color: #34526f;
+    display: flex;
 }
 
 .explore-posts {
@@ -16,12 +17,6 @@
     /* width: 20em; */
 }
 
-/* @media only screen and (max-width: 768px) {
-    [class*=".explore-posts"] {
-        height: 1500px;
-    }
-} */
-
 .explore-index-item-container {
     align-self: flex-start;
     background-color: white;
@@ -31,12 +26,6 @@
     margin: 10px;
     
 }
-
-/* .explore.post-container {
-    float: left;
-    align-self: flex-start;
-    max-height: 200px;
-} */
 
 .explore.post-author-container {
     padding: 10px 8px 5px 8px;
