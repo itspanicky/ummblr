@@ -32,6 +32,8 @@ class PostIndex extends React.Component {
             }
             
         }).reverse();
+
+        
         return (
             <div className="main-content">
                 <ul className="posts-container">
