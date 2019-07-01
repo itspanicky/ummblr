@@ -3,16 +3,16 @@ import { fetchPosts } from '../../actions/entities/post_actions';
 import Explore from './explore';
 import { follow, unfollow } from '../../actions/entities/follow_actions';
 import { likePost, unlikePost } from '../../actions/entities/like_actions';
+import { openModal } from '../../actions/modal_actions';
 
 const msp = (state) => {
     const posts = Object.values(state.entities.posts);
+    const allPosts = state.entities.posts;
     const currentUser = state.entities.users[state.session.id];
-    // let followingStatus = false;
-    // if (currentUser.followings) {
-    //     followingStatus = currentUser.followings.includes(authorId)
-    // }
+    
     return ({
         posts: posts,
+        allPosts,
         currentUser: currentUser,
         // followingStatus,
         // followings: currentUser.followings
@@ -25,7 +25,8 @@ const mdp = (dispatch) => {
         follow: (user) => dispatch(follow(user)),
         unfollow: (user) => dispatch(unfollow(user)),
         likePost: (postId, userId) => dispatch(likePost(postId, userId)),
-        unlikePost: (postId) => dispatch(unlikePost(postId))
+        unlikePost: (postId) => dispatch(unlikePost(postId)),
+        openModal: (modal) => dispatch(openModal(modal))
     })
 }
 

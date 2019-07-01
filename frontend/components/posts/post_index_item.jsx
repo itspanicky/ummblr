@@ -29,42 +29,97 @@ class PostIndexItem extends React.Component {
     }
 
     postBody(post){
-        switch (post.post_type) {
-            case "text":
-                return (
-                    <div className="text-post">
-                        <h3>{post.title}</h3>
-                        <p className = "content-post">{post.content}</p>
-                    </div>
-                );
-            case "photo":
-                return (
-                    <div>
-                        <img className="photo-post" src={post.photoUrl} />
-                        <p className="content-post">{post.content}</p>
-                    </div>
-                )
-            case "quote":
-                return (
-                    <div className="quote-post">
-                        <h3>&ldquo;{post.title}&rdquo;</h3>
-                        <p className="content-post"><span>-</span> {post.content}</p>
-                    </div>
-                )
-            case "link":
-                let link;
-                if (post.title.includes("https://")) {
-                    link = post.title
-                } else {
-                    link = "http://" + post.title;
-                }
+        if (post.reblog_post_id) {
+            let reblogDescription = post.reblog_description ? 
+                <div className="reblog-container">
+                    <p className="content-author-name">{post.author.username}:</p>
+                    <p className="content-post">{post.reblog_description}</p>
+                </div> : <span></span>
+            switch (post.post_type) {
+                case "text":
+                    return (
+                        <div className="text-post">
+                            <h3>{post.title}</h3>
+                            <div>
+                                <p className="content-author-name">{this.props.originalPost.author.username}:</p>
+                                <p className="content-post">{post.content}</p>
+                            </div>
+                            {reblogDescription}
+                        </div>
+                    );
+                case "photo":
+                    return (
+                        <div>
+                            <img className="photo-post" src={this.props.originalPost.photoUrl} />
+                            <p className="content-author-name">{this.props.originalPost.author.username}:</p>
+                            <p className="content-post">{post.content}</p>
+                            {reblogDescription}
+                        </div>
+                    )
+                case "quote":
+                    return (
+                        <div className="quote-post">
+                            <h3>&ldquo;{post.title}&rdquo;</h3>
+                            <p className="content-post"><span>-</span> {post.content}</p>
+                            {reblogDescription}
+                        </div>
+                    )
+                case "link":
+                    let link;
+                    if (post.title.includes("https://")) {
+                        link = post.title
+                    } else {
+                        link = "http://" + post.title;
+                    }
 
-                return (
-                    <div className="text-post">
-                        <h3 className="link-post"><a  href={link}>{post.title}</a></h3>
-                        <p className="content-post">{post.content}</p>
-                    </div>
-                )
+                    return (
+                        <div className="text-post">
+                            <h3 className="link-post"><a href={link}>{post.title}</a></h3>
+                            <p className="content-author-name">{this.props.originalPost.author.username}:</p>
+                            <p className="content-post">{post.content}</p>
+                            {reblogDescription}
+                        </div>
+                    )
+            }
+        }
+        else {
+            switch (post.post_type) {
+                case "text":
+                    return (
+                        <div className="text-post">
+                            <h3>{post.title}</h3>
+                            <p className = "content-post">{post.content}</p>
+                        </div>
+                    );
+                case "photo":
+                    return (
+                        <div>
+                            <img className="photo-post" src={post.photoUrl} />
+                            <p className="content-post">{post.content}</p>
+                        </div>
+                    )
+                case "quote":
+                    return (
+                        <div className="quote-post">
+                            <h3>&ldquo;{post.title}&rdquo;</h3>
+                            <p className="content-post"><span>-</span> {post.content}</p>
+                        </div>
+                    )
+                case "link":
+                    let link;
+                    if (post.title.includes("https://")) {
+                        link = post.title
+                    } else {
+                        link = "http://" + post.title;
+                    }
+
+                    return (
+                        <div className="text-post">
+                            <h3 className="link-post"><a  href={link}>{post.title}</a></h3>
+                            <p className="content-post">{post.content}</p>
+                        </div>
+                    )
+            }
         }
     }
 
@@ -101,6 +156,13 @@ class PostIndexItem extends React.Component {
     render() {  
         const post = this.props.post;
         const author = this.props.post.author;
+        let originalPost;
+        let originalAuthor;
+        if (this.props.originalPost) {
+            originalPost = this.props.originalPost;
+            originalAuthor = <span><i className="fas fa-retweet"></i> {originalPost.author.username}</span>;
+        }
+
         const currentUser = this.props.currentUser;
         let followText = this.props.followingStatus ? "Unfollow" : "Follow"
         
@@ -121,7 +183,7 @@ class PostIndexItem extends React.Component {
             <button onClick={() => this.props.unlikePost(post.id)}>
                 <i className="fas fa-heart clicked"></i>
             </button> ;
-        
+
 
         let notes = <div></div>;
         let likers = post.likers.length;
@@ -129,8 +191,7 @@ class PostIndexItem extends React.Component {
             notes = (
                 <div>
                     <ul>{`${likers} ${likers === 1 ? "note" : "notes"}`}
-                    <li className="notes-dropdown">
-                    </li>
+                        <li className="notes-dropdown"></li>
                     </ul>
                 </div>
             )
@@ -160,6 +221,7 @@ class PostIndexItem extends React.Component {
         } else {
             settings = (
                 <li>
+                    <i className="fas fa-retweet" onClick={() => this.props.openModal('Create Reblog', this.props.post.id)}></i>
                     {likeBtn}
                 </li>
                 )
@@ -172,19 +234,23 @@ class PostIndexItem extends React.Component {
         } else {
             photoUrl = <img className="author-avatar" src={window.brentURL}></img>
         }
-            
+
+        // let reblogDescription = post.reblog_description !== "undefined" ?
+        //     <p>{post.reblog_description}</p> : <span></span>
+        
         return (
             <div className="post-index-item-container">
                 {photoUrl}
                 <div className="explore post-container">
                     <div className="post-author-container">
-                        {author.username}
+                        {author.username} {originalAuthor}
                         {/* <button onClick={() => this.props.follow(author.id)}>Follow</button>
                         <button onClick={() => this.props.unfollow(author.id)}>Unfollow</button> */}
                         {follow}
                     </div>
                     <div className="post-body-container">
                         {this.postBody(post)}
+                        {/* {reblogDescription} */}
                     </div>
                     <div className="post-action-container">
                         {notes}

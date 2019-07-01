@@ -15,7 +15,8 @@ class Explore extends React.Component {
     render() {
 
         let posts = null;
-        let allPosts = this.props.posts
+        let allPosts = this.props.posts;
+        let allPostsIds = this.props.allPosts;
         let colOne;
         let colTwo;
         let colThree;
@@ -40,11 +41,14 @@ class Explore extends React.Component {
             }
 
             colOne = col1.map(post => {
+                let originalPost = post.reblog_post_id ? allPostsIds[post.reblog_post_id] : <span></span>;
+                
                 if (post.author_id != this.props.currentUser.id) {
                     return (
                         <ExploreIndexItem
                             key={post.id}
                             post={post}
+                            originalPost={originalPost}
                             deletePost={this.props.deletePost}
                             currentUser={this.props.currentUser}
                             followingStatus={this.props.followingStatus}
@@ -58,11 +62,13 @@ class Explore extends React.Component {
             });
 
             colTwo = col2.map(post => {
+                const originalPost = post.reblog_post_id ? allPostsIds[post.reblog_post_id] : <span></span>;
                 if (post.author_id != this.props.currentUser.id) {
                     return (
                         <ExploreIndexItem
                             key={post.id}
                             post={post}
+                            originalPost={originalPost}
                             deletePost={this.props.deletePost}
                             currentUser={this.props.currentUser}
                             followingStatus={this.props.followingStatus}
@@ -76,11 +82,14 @@ class Explore extends React.Component {
             });
 
             colThree = col3.map(post => {
+                const originalPost = post.reblog_post_id ? allPostsIds[post.reblog_post_id] : <span></span>;
+                debugger
                 if (post.author_id != this.props.currentUser.id) {
                     return (
                         <ExploreIndexItem
                             key={post.id}
                             post={post}
+                            originalPost={originalPost}
                             deletePost={this.props.deletePost}
                             currentUser={this.props.currentUser}
                             followingStatus={this.props.followingStatus}
@@ -94,11 +103,14 @@ class Explore extends React.Component {
             });
 
             colFour = col4.map(post => {
+                const originalPost = post.reblog_post_id ? allPostsIds[post.reblog_post_id] : <span></span>;
+                
                 if (post.author_id != this.props.currentUser.id) {
                     return (
                         <ExploreIndexItem
                             key={post.id}
                             post={post}
+                            originalPost={originalPost}
                             deletePost={this.props.deletePost}
                             currentUser={this.props.currentUser}
                             followingStatus={this.props.followingStatus}
@@ -106,6 +118,7 @@ class Explore extends React.Component {
                             unfollow={this.props.unfollow}
                             likePost={this.props.likePost}
                             unlikePost={this.props.unlikePost}
+                            openModal={this.props.openModal}
                         />
                     )
                 }
@@ -113,30 +126,6 @@ class Explore extends React.Component {
 
         }
 
-        // let posts = this.props.posts.map(post => {
-        //     if (!this.props.currentUser) {
-        //         return (
-        //             <ExploreIndexItem
-        //                 key={post.id}
-        //                 post={post}
-        //             />
-        //         )
-        //     } else if (post.author_id != this.props.currentUser.id) {
-        //         return (
-        //             <ExploreIndexItem
-        //                 key={post.id}
-        //                 post={post}
-        //                 deletePost={this.props.deletePost}
-        //                 currentUser={this.props.currentUser}
-        //                 followingStatus={this.props.followingStatus}
-        //                 follow={this.props.follow}
-        //                 unfollow={this.props.unfollow}
-        //                 likePost={this.props.likePost}
-        //                 unlikePost={this.props.unlikePost}
-        //             />
-        //         ) 
-        //     }
-        // }).reverse();
         return (
             <>
                 <NavbarContainer />

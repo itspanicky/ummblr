@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
-class PostForm extends React.Component {
+class Reblog extends React.Component {
     constructor(props) {
         super(props);
         this.state = this.props.post;
@@ -14,14 +14,16 @@ class PostForm extends React.Component {
         });
     }
 
-    handleSubmit(e){
+    handleSubmit(e) {
         e.preventDefault();
-        this.props.action(this.state).then(this.props.closeModal());
+        this.props.createPost(this.state).then(this.props.closeModal());
+        
     }
 
     render() {
-        
         let title = this.props.formType === "Reblog" ?
+        this.props.post.photoUrl ? 
+            (<img className="image-prev" src={this.props.post.photoUrl} />) :
             <p className="title-text">{this.state.title}</p> :
             <input className="title-text"
                 type="text"
@@ -49,7 +51,6 @@ class PostForm extends React.Component {
             <span></span>
 
         return (
-
             <div className="form_container">
                 <div className="author_name">{this.props.currentUser.username}</div>
                 <form className="text-form" onSubmit={this.handleSubmit}>
@@ -58,10 +59,10 @@ class PostForm extends React.Component {
                     {content}
 
                     {reblogDescription}
-                    
+
                     <div className="post-form-footer">
                         <button onClick={this.props.closeModal} className="close-modal">Close</button>
-                        <input className="submit-post" type="submit" value={this.props.formType}/>
+                        <input className="submit-post" type="submit" value={this.props.formType} />
                     </div>
                 </form>
             </div>
@@ -69,4 +70,4 @@ class PostForm extends React.Component {
     }
 }
 
-export default withRouter(PostForm);
+export default Reblog;

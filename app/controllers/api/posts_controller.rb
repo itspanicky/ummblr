@@ -29,11 +29,17 @@ class Api::PostsController < ApplicationController
         #     render @posts
         # end
         @posts = Post.all
+        
         render :index
     end
 
     def show
         @post = Post.find(params[:id])
+        if @post.reblog_post_id
+            @original_post = Post.find(@post.reblog_post_id)
+            debugger
+        end
+        debugger
         render :show
     end
 
@@ -45,6 +51,6 @@ class Api::PostsController < ApplicationController
     private
 
     def post_params
-        params.require(:post).permit(:title, :content, :post_type, :author_id, :photo )
+        params.require(:post).permit(:title, :content, :post_type, :author_id, :photo, :reblog_post_id, :reblog_description)
     end
 end
