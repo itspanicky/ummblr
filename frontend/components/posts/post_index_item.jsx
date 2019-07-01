@@ -1,5 +1,6 @@
 import React from 'react';
 import Avatar from '../avatar/avatar';
+import UserMini from '../avatar/user-mini';
 
 class PostIndexItem extends React.Component {
     constructor(props) {
@@ -157,10 +158,17 @@ class PostIndexItem extends React.Component {
         const post = this.props.post;
         const author = this.props.post.author;
         let originalPost;
+        let reblogSymbol;
         let originalAuthor;
         if (this.props.originalPost) {
             originalPost = this.props.originalPost;
-            originalAuthor = <span><i className="fas fa-retweet"></i> {originalPost.author.username}</span>;
+            reblogSymbol = <i className="fas fa-retweet"></i>;
+            originalAuthor = < UserMini
+                follow={this.props.follow}
+                unfollow={this.props.unfollow}
+                currentUser={this.props.currentUser}
+                otherUser={originalPost.author}
+            />
         }
 
         const currentUser = this.props.currentUser;
@@ -230,7 +238,16 @@ class PostIndexItem extends React.Component {
 
         let photoUrl;    
         if (this.props.post.author.photoUrl) {
-            photoUrl = <Avatar photoUrl={this.props.post.author.photoUrl} klass={"author-avatar"}/>
+            
+            photoUrl = 
+                <Avatar 
+                    photoUrl={this.props.post.author.photoUrl} 
+                    klass={"author-avatar"}
+                    user={this.props.post.author}
+                    follow={this.props.follow}
+                    unfollow={this.props.unfollow}
+                    currentUser={currentUser}
+                />
         } else {
             photoUrl = <img className="author-avatar" src={window.brentURL}></img>
         }
@@ -240,14 +257,16 @@ class PostIndexItem extends React.Component {
                 {photoUrl}
                 <div className="explore post-container">
                     <div className="post-author-container">
-                        <ul className="user-hover">{author.username}
-                            <li className="user-hover-dropdown">
-                                <div className="user-dropdown-top"><div className="user-dropdown-info">{author.username} {follow}</div></div>
-                            </li>
-                        </ul> {originalAuthor}
+                        < UserMini
+
+                            follow={this.props.follow}
+                            unfollow={this.props.unfollow}
+                            currentUser={this.props.currentUser}
+                            otherUser={author}
+                        /> {reblogSymbol} {originalAuthor}
                         {/* <button onClick={() => this.props.follow(author.id)}>Follow</button>
                         <button onClick={() => this.props.unfollow(author.id)}>Unfollow</button> */}
-                        {follow}
+                        {/* {follow} */}
                     </div>
                     <div className="post-body-container">
                         {this.postBody(post)}

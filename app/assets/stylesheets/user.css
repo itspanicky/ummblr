@@ -2,6 +2,10 @@
     display: inline-block;
 }
 
+.user-hover > p {
+    cursor: pointer;
+}
+
 .user-hover-dropdown {
     display: none;
 }
@@ -12,6 +16,7 @@
     width: 300px;
     height: 300px;
     background-color: white;
+    border: 1px solid black;
     border-radius: 3px;
     animation: 1s ease 0s normal forwards 1 fadein;
     -webkit-animation: 1s ease 0s normal forwards 1 fadein;
@@ -31,7 +36,28 @@ to{opacity:1}
     background-color: black;
     height: 100px;
     border-radius: 3px 3px 0 0;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-around; */
 }
+
+.user-dropdown-avatar {
+    display: flex;
+    flex-direction: row;
+    width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    justify-content: center;
+}
+
+.larger-avatar {
+    width: 134px;
+    height: 134px;
+    border: none;
+    border-radius: 4px;
+    background-color: black;
+}
+
 
 .user-dropdown-info {
     padding: 10px;
