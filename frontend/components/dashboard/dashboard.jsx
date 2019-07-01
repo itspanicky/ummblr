@@ -4,6 +4,7 @@ import NavbarContainer from '../navbar/navbar_container';
 import PostIndexContainer from '../posts/post_index_container';
 import Avatar from '../avatar/avatar';
 import AboutMe from '../greeting/about-me';
+import UserMini from '../avatar/user-mini';
 import Modal from '../modal/modal';
 
 class Dashboard extends React.Component {
@@ -22,7 +23,12 @@ class Dashboard extends React.Component {
         const follow = this.props.follow;
         let avatar;
         if (currentUser.photoUrl) {
-            avatar = <Avatar klass={"post-avatar"} photoUrl={photoUrl} user={currentUser.username} />
+            avatar = <Avatar 
+                klass={"post-avatar"} 
+                photoUrl={photoUrl} 
+                user={currentUser}
+                currentUser={currentUser}
+                 />
         } 
         else {
             avatar = <img className="post-avatar" src={window.brentURL}></img>
@@ -32,7 +38,7 @@ class Dashboard extends React.Component {
             if (!currentUser.followings.includes(user.id) && user.id != currentUser.id) {
                 let otherAvatar;
                 if (user.photoUrl) {
-                    otherAvatar = <Avatar klass={"other-avatar"}photoUrl={user.photoUrl} user={user.username} />
+                    otherAvatar = <Avatar klass={"other-avatar"} photoUrl={user.photoUrl} user={user.username} />
                 } else {
                     otherAvatar = <img className="other-avatar" src={window.brentURL}></img>
                 }

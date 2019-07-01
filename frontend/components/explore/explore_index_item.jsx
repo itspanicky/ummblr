@@ -1,4 +1,5 @@
 import React from 'react';
+import UserMini from '../avatar/user-mini';
 
 let follow = (props) => {
     if (props.currentUser) {
@@ -113,7 +114,20 @@ const ExploreIndexItem = (props) => {
     let originalAuthor;
     if (props.originalPost.type !== "span") {
         originalPost = props.originalPost;
-        originalAuthor = <span><i className="fas fa-retweet"></i> {originalPost.author.username}</span>;
+        originalAuthor = 
+            <>
+                <span> </span>
+                <i className="fas fa-retweet"></i>
+                <span> </span>
+                {/* {originalPost.author.username} */}
+                < UserMini
+                    follow={props.follow}
+                    unfollow={props.unfollow}
+                    currentUser={props.currentUser}
+                    otherUser={originalPost.author}
+                />
+
+            </>;
     }
 
 
@@ -142,9 +156,15 @@ const ExploreIndexItem = (props) => {
     return (
         <div className="explore-index-item-container">
             <div className="explore post-author-container">
-                {props.post.author.username}
+                {/* {props.post.author.username} */}
+                < UserMini
+                    follow={props.follow}
+                    unfollow={props.unfollow}
+                    currentUser={props.currentUser}
+                    otherUser={props.post.author}
+                    />
                 {follow(props)}
-                <p className="explore-reblog-author">{originalAuthor}</p>
+                <div className="explore-reblog-author">{originalAuthor}</div>
             </div>
             <div className="post-body-container">
                 {postBody(props)}
