@@ -240,7 +240,11 @@ class PostIndexItem extends React.Component {
                 {photoUrl}
                 <div className="explore post-container">
                     <div className="post-author-container">
-                        {author.username} {originalAuthor}
+                        <ul className="user-hover">{author.username}
+                            <li className="user-hover-dropdown">
+                                <div className="user-dropdown-top"><div className="user-dropdown-info">{author.username} {follow}</div></div>
+                            </li>
+                        </ul> {originalAuthor}
                         {/* <button onClick={() => this.props.follow(author.id)}>Follow</button>
                         <button onClick={() => this.props.unfollow(author.id)}>Unfollow</button> */}
                         {follow}
