@@ -83,7 +83,6 @@ class Explore extends React.Component {
 
             colThree = col3.map(post => {
                 const originalPost = post.reblog_post_id ? allPostsIds[post.reblog_post_id] : <span></span>;
-                debugger
                 if (post.author_id != this.props.currentUser.id) {
                     return (
                         <ExploreIndexItem

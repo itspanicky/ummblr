@@ -234,9 +234,6 @@ class PostIndexItem extends React.Component {
         } else {
             photoUrl = <img className="author-avatar" src={window.brentURL}></img>
         }
-
-        // let reblogDescription = post.reblog_description !== "undefined" ?
-        //     <p>{post.reblog_description}</p> : <span></span>
         
         return (
             <div className="post-index-item-container">
