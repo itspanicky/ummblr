@@ -37,9 +37,7 @@ class Api::PostsController < ApplicationController
         @post = Post.find(params[:id])
         if @post.reblog_post_id
             @original_post = Post.find(@post.reblog_post_id)
-            debugger
         end
-        debugger
         render :show
     end
 

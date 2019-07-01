@@ -142,8 +142,9 @@ const ExploreIndexItem = (props) => {
     return (
         <div className="explore-index-item-container">
             <div className="explore post-author-container">
-                {props.post.author.username} {originalAuthor}
+                {props.post.author.username}
                 {follow(props)}
+                <p className="explore-reblog-author">{originalAuthor}</p>
             </div>
             <div className="post-body-container">
                 {postBody(props)}
