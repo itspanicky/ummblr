@@ -3,6 +3,10 @@ json.post do
     if @post.photo.attached?
         json.photoUrl url_for(@post.photo)
     end
+
+    # json.original_post do
+    #     json.partial "api/posts/post", original_post: @original_post
+    # end
 end
 
 # json.author do

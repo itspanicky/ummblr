@@ -43,13 +43,6 @@ class PhotoForm extends React.Component {
             formData.append('post[photo]', this.state.photoFile);
             this.props.action(formData, this.state.post).then(this.props.closeModal());
         } 
-        // $.ajax({
-        //     url: 'api/posts',
-        //     method: 'post',
-        //     data: formData,
-        //     contentType: false,
-        //     processData: false
-        // }).then(this.props.closeModal());
     }
 
     render() {
@@ -57,6 +50,8 @@ class PhotoForm extends React.Component {
 
         const imageUpload = this.state.photoUrl ?
             ( <img className="image-prev" src={this.state.photoUrl} /> ) :
+            this.props.post.photoUrl ?
+            (<img className="image-prev" src={this.props.post.photoUrl} />) :
             ( <div>
                 <input className="upload"
                 type="file"

@@ -20,23 +20,44 @@ class PostForm extends React.Component {
     }
 
     render() {
+        
+        let title = this.props.formType === "Reblog" ?
+            <p className="title-text">{this.state.title}</p> :
+            <input className="title-text"
+                type="text"
+                value={this.state.title}
+                onChange={this.handleInput("title")}
+                placeholder="Title"
+            />
+
+        let content = this.props.formType === "Reblog" ?
+            <div className="content-text"><p></p>{this.state.content}</div> :
+            <textarea className="content-text"
+                type="text"
+                value={this.state.content}
+                onChange={this.handleInput("content")}
+                placeholder="Your text here"
+            />
+
+        let reblogDescription = this.props.formType === "Reblog" ?
+            <textarea className="content-text"
+                type="text"
+                value={this.state.reblog_description}
+                onChange={this.handleInput("reblog_description")}
+                placeholder="Your text here"
+            /> :
+            <span></span>
+
         return (
+
             <div className="form_container">
                 <div className="author_name">{this.props.currentUser.username}</div>
                 <form className="text-form" onSubmit={this.handleSubmit}>
-                    <input className="title-text"
-                        type="text"
-                        value={this.state.title} 
-                        onChange={this.handleInput("title")} 
-                        placeholder="Title" 
-                    />
+                    {title}
 
-                    <textarea className="content-text"
-                        type="text"
-                        value={this.state.content}
-                        onChange={this.handleInput("content")}
-                        placeholder="Your text here"
-                    />
+                    {content}
+
+                    {reblogDescription}
                     
                     <div className="post-form-footer">
                         <button onClick={this.props.closeModal} className="close-modal">Close</button>

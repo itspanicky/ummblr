@@ -13,6 +13,7 @@ import CreateQuoteContainer from '../posts/create_quote_form_container';
 import EditQuoteContainer from '../posts/edit_quote_form_container';
 import CreateLinkContainer from '../posts/create_link_form_container';
 import EditLinkContainer from '../posts/edit_link_form_container';
+import CreateReblogContainer from '../posts/reblog_container';
 
 
 import Avatar from '../avatar/avatar';
@@ -57,6 +58,9 @@ const Modal = ({modal, currentUser, closeModal}) => {
                     </div>
                 </div>
             )
+            break;
+        case 'Create Reblog':
+            component = <CreateReblogContainer postId={modal.postId} />
             break;
         default:
             return null;

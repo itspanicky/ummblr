@@ -13,46 +13,110 @@ let follow = (props) => {
 }
 
 let postBody = (props) => {
-    switch (props.post.post_type) {
-        case "text":
-            return (
-                <div className="explore text-post">
-                    <h3>{props.post.title}</h3>
-                    <p className="content-post">{props.post.content}</p>
-                </div>
-            );
-        case "photo":
-            return (
-                <div>
-                    <img className="photo-post" src={props.post.photoUrl} />
-                    <p className="content-post">{props.post.content}</p>
-                </div>
-            )
-        case "quote":
-            return (
-                <div className="explore quote-post">
-                    <h3>&ldquo;{props.post.title}&rdquo;</h3>
-                    <p className="content-post"><span>-</span> {props.post.content}</p>
-                </div>
-            )
-        case "link":
-            let link;
-            if (post.title.includes("https://")) {
-                link = props.post.title
-            } else {
-                link = "http://" + props.post.title;
-            }
+    if (props.post.reblog_post_id) {
+        let reblogDescription = props.post.reblog_description ?
+            <div className="reblog-container">
+                <p className="content-author-name">{props.post.author.username}:</p>
+                <p className="content-post">{props.post.reblog_description}</p>
+            </div> : <span></span>
+        switch (props.post.post_type) {
+            case "text":
+                return (
+                    <div className="explore text-post">
+                        <h3>{props.post.title}</h3>
+                        <div>
+                            <p className="content-author-name">{props.originalPost.author.username}:</p>
+                            <p className="content-post">{props.post.content}</p>
+                        </div>
+                        {reblogDescription}
+                    </div>
+                );
+            case "photo":
+                return (
+                    <div>
+                        <img className="photo-post" src={props.originalPost.photoUrl} />
+                        <p className="content-author-name">{props.originalPost.author.username}:</p>
+                        <p className="content-post">{props.post.content}</p>
+                        {reblogDescription}
+                    </div>
+                )
+            case "quote":
+                return (
+                    <div className="explore quote-post">
+                        <h3>&ldquo;{props.post.title}&rdquo;</h3>
+                        <p className="content-post"><span>-</span> {props.post.content}</p>
+                        {reblogDescription}
+                    </div>
+                )
+            case "link":
+                let link;
+                if (post.title.includes("https://")) {
+                    link = props.post.title
+                } else {
+                    link = "http://" + props.post.title;
+                }
 
-            return (
-                <div className="text-post">
-                    <h3 className="link-post"><a href={link}>{props.post.title}</a></h3>
-                    <p className="content-post">{props.post.content}</p>
-                </div>
-            )
+                return (
+                    <div className="text-post">
+                        <h3 className="link-post"><a href={link}>{props.post.title}</a></h3>
+                        <p className="content-author-name">{props.originalPost.author.username}:</p>
+                        <p className="content-post">{props.post.content}</p>
+                        {reblogDescription}
+                    </div>
+                )
+        }
+    }
+    else {
+        switch (props.post.post_type) {
+            case "text":
+                return (
+                    <div className="explore text-post">
+                        <h3>{props.post.title}</h3>
+                        <p className="content-post">{props.post.content}</p>
+                    </div>
+                );
+            case "photo":
+                return (
+                    <div>
+                        <img className="photo-post" src={props.post.photoUrl} />
+                        <p className="content-post">{props.post.content}</p>
+                    </div>
+                )
+            case "quote":
+                return (
+                    <div className="explore quote-post">
+                        <h3>&ldquo;{props.post.title}&rdquo;</h3>
+                        <p className="content-post"><span>-</span> {props.post.content}</p>
+                    </div>
+                )
+            case "link":
+                let link;
+                if (post.title.includes("https://")) {
+                    link = props.post.title
+                } else {
+                    link = "http://" + props.post.title;
+                }
+
+                return (
+                    <div className="text-post">
+                        <h3 className="link-post"><a href={link}>{props.post.title}</a></h3>
+                        <p className="content-post">{props.post.content}</p>
+                    </div>
+                )
+        }
     }
 }
 
 const ExploreIndexItem = (props) => {
+
+    let originalPost;
+    let originalAuthor;
+    if (props.originalPost.type !== "span") {
+        originalPost = props.originalPost;
+        originalAuthor = <span><i className="fas fa-retweet"></i> {originalPost.author.username}</span>;
+    }
+
+
     let notes = <div></div>;
     let likers = props.post.likers.length;
     if (likers > 0) {
@@ -78,7 +142,7 @@ const ExploreIndexItem = (props) => {
     return (
         <div className="explore-index-item-container">
             <div className="explore post-author-container">
-                {props.post.author.username}
+                {props.post.author.username} {originalAuthor}
                 {follow(props)}
             </div>
             <div className="post-body-container">
@@ -87,7 +151,7 @@ const ExploreIndexItem = (props) => {
             <div className="explore post-action-container">
                 {notes}
                 <ul className="explore post-action-actions">
-                    <li><i className="fas fa-retweet"></i></li>
+                    <li><i className="fas fa-retweet" onClick={() => props.openModal('Create Reblog', props.post.id)}></i></li>
                     <li>{likeBtn}</li>
                 </ul>
             </div>

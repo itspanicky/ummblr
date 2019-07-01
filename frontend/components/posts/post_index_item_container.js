@@ -17,9 +17,13 @@ const msp = (state, ownProps) => {
     if (currentUser.followings ) {
         followingStatus = currentUser.followings.includes(authorId)
     }
+    let originalPost;
+    if (post.reblog_post_id) originalPost = state.entities.posts[post.reblog_post_id];
+
     // const followings = Object.values(currentUser.followings);
     return ({
         post: post,
+        originalPost,
         followingStatus: followingStatus,
         authorId: authorId,
         currentUser: currentUser,

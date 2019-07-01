@@ -48,9 +48,20 @@
 
 .content-post {
     /* min-height: 21px; */
-    padding: 7px 20px 7px 20px;
+    padding: 8px 20px 6px 20px;
     font-size: 14px;
     word-wrap: break-word;
+}
+
+.content-author-name {
+    padding: 7px 20px 3px 20px;
+    font-size: 14px; 
+    font-weight: bold;
+}
+
+.reblog-container {
+    border-top: 1px solid lightgray;
+    margin-top: 2px;
 }
 
 .post-action-container {
@@ -98,19 +109,20 @@
 /* quote */
 
 .quote-post {
-    margin: 0 0 10px;
-    padding: 0 20px;
+    /* margin: 0 30px; */
     word-wrap: break-word;
 }
 
 .quote-post > h3 {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 48px;
+    padding: 0 30px;
     
 }
 
 .quote-post > p {
     font-size: 14px;
+    padding: 0 30px;
     /* font-family: Arial, Helvetica, sans-serif; */
 }
 
