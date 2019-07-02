@@ -2,6 +2,8 @@ import { connect } from 'react-redux';
 import { fetchPosts } from '../../actions/entities/post_actions';
 import { likePost, unlikePost } from '../../actions/entities/like_actions';
 import LikesIndex from './likes_index';
+import { openModal } from '../../actions/modal_actions';
+import { follow, unfollow } from '../../actions/entities/follow_actions';
 
 const msp = (state) => {
     const posts = Object.values(state.entities.posts);
@@ -22,7 +24,8 @@ const mdp = (dispatch) => {
         follow: (user) => dispatch(follow(user)),
         unfollow: (user) => dispatch(unfollow(user)),
         likePost: (postId, userId) => dispatch(likePost(postId, userId)),
-        unlikePost: (postId) => dispatch(unlikePost(postId))
+        unlikePost: (postId) => dispatch(unlikePost(postId)),
+        openModal: (modal, postId) => dispatch(openModal(modal, postId)),
     });
 }
 

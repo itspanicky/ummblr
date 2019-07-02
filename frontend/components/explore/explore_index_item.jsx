@@ -112,7 +112,7 @@ const ExploreIndexItem = (props) => {
 
     let originalPost;
     let originalAuthor;
-    if (props.originalPost.type !== "span") {
+    if (props.originalPost && props.originalPost.type !== "span") {
         originalPost = props.originalPost;
         originalAuthor = 
             <>
