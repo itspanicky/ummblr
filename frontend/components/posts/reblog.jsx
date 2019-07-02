@@ -21,10 +21,16 @@ class Reblog extends React.Component {
     }
 
     render() {
+
+        let originalPost;
+        if (this.props.post.reblog_post_id) {
+            originalPost = this.props.posts[this.props.post.reblog_post_id]
+            while (originalPost.reblog_post_id) originalPost = this.props.posts[originalPost.reblog_post_id]
+        }
         
         let title = this.props.formType === "Reblog" ?
-        (this.props.originalPost && this.props.originalPost.photoUrl) ? 
-            (<img className="image-prev" src={this.props.originalPost.photoUrl} />) :
+        (originalPost && originalPost.photoUrl) ? 
+            (<img className="image-prev" src={originalPost.photoUrl} />) :
             <p className="title-text">{this.state.title}</p> :
             <input className="title-text"
                 type="text"
