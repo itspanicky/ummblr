@@ -99,17 +99,7 @@
 
 } */
 
-.larger-avatar {
-    width: 84px;
-    height: 84px;
-    border: none;
-    border-radius: 4px;
-    background-color: black;
-}
-
-
 .dashboard-side {
-    color: white;
     width: 320px;
     height: 400px;
     margin: 0 auto;
@@ -118,6 +108,7 @@
 
 
 .recommended-blogs > p {
+    color: white;
     font-size: 18px;
     text-align: center;
     padding: 10px 0px;
@@ -133,6 +124,7 @@
 }
 
 .recommended-users {
+    color: white;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

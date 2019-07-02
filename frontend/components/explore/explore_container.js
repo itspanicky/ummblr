@@ -26,7 +26,7 @@ const mdp = (dispatch) => {
         unfollow: (user) => dispatch(unfollow(user)),
         likePost: (postId, userId) => dispatch(likePost(postId, userId)),
         unlikePost: (postId) => dispatch(unlikePost(postId)),
-        openModal: (modal) => dispatch(openModal(modal))
+        openModal: (modal, postId) => dispatch(openModal(modal, postId))
     })
 }
 

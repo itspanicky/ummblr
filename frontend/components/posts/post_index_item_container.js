@@ -8,8 +8,7 @@ import { likePost, unlikePost } from '../../actions/entities/like_actions';
 
 const msp = (state, ownProps) => {
     const post = ownProps.post
-    // const authorId = ownProps.post.author_id;
-    // const author = state.entities.users[authorId];
+    const posts = state.entities.posts
     const currentUser = state.entities.users[state.session.id];
     const authorId = ownProps.post.author.id;
     // const followings = {};
@@ -18,7 +17,10 @@ const msp = (state, ownProps) => {
         followingStatus = currentUser.followings.includes(authorId)
     }
     let originalPost;
-    if (post.reblog_post_id) originalPost = state.entities.posts[post.reblog_post_id];
+    if (post.reblog_post_id) {
+        originalPost = posts[post.reblog_post_id]
+        while (originalPost.reblog_post_id) originalPost = posts[originalPost.reblog_post_id]
+    }
 
     // const followings = Object.values(currentUser.followings);
     return ({

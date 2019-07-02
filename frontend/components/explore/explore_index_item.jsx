@@ -143,7 +143,7 @@ const ExploreIndexItem = (props) => {
             </div>
         )
     } 
-
+    
     let likeBtn = !props.post.likers.includes(props.currentUser.id) ?
         <button className="like-btn" onClick={() => props.likePost(props.post.id, props.currentUser.id)}>
             <i className="fas fa-heart unclicked"></i>
@@ -152,7 +152,7 @@ const ExploreIndexItem = (props) => {
         <button onClick={() => props.unlikePost(props.post.id)}>
             <i className="fas fa-heart clicked"></i>
         </button>;
-
+    
     return (
         <div className="explore-index-item-container">
             <div className="explore post-author-container">
