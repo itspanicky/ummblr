@@ -14,7 +14,11 @@ class Api::PostsController < ApplicationController
 
     def update
         @post = Post.find(params[:id])
-        if @post.update(post_params)
+        
+        if @post.post_type == "photo" && @post.update(post_params)
+            
+            render json: @post
+        elsif @post.update(post_params)
             render json: @post
         else
             render @post.errors.full_messages, status: 422

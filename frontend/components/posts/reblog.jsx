@@ -21,8 +21,9 @@ class Reblog extends React.Component {
     }
 
     render() {
+        
         let title = this.props.formType === "Reblog" ?
-        this.props.originalPost.photoUrl ? 
+        (this.props.originalPost && this.props.originalPost.photoUrl) ? 
             (<img className="image-prev" src={this.props.originalPost.photoUrl} />) :
             <p className="title-text">{this.state.title}</p> :
             <input className="title-text"
