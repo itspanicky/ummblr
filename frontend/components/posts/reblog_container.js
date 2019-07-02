@@ -10,16 +10,11 @@ const msp = (state, ownProps) => {
         const postId = ownProps.postId;
         const posts = state.entities.posts
         const post = posts[postId];
-        let originalPost;
-        if (post.reblog_post_id) {
-            originalPost = posts[post.reblog_post_id]
-            while (originalPost.reblog_post_id) originalPost = posts[originalPost.reblog_post_id]
-        }
     return ({
+        posts,
         post: {title: post.title, content: post.content, post_type: post.post_type, author_id: currentUser.id, reblog_post_id: post.id, reblog_description: "", photoUrl: post.photoUrl},
         currentUser,
         formType: "Reblog",
-        originalPost
     })
 }
 
