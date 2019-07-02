@@ -88,6 +88,7 @@ class Dashboard extends React.Component {
             <div className="dashboard-container">
                 <NavbarContainer />
                 <div className="dashboard">
+                    <section className="empty-space"></section>
                     <section className="dashboard-main">
                         <div className="post-nav-container">
                             {avatar}
@@ -109,6 +110,7 @@ class Dashboard extends React.Component {
                         </ul>
                         <AboutMe />
                     </section>
+                    <section className="empty-space"></section>
                 </div>
             </div>
         )

@@ -14,7 +14,7 @@ const msp = (state) => {
     return ({
         posts: posts,
         currentUser: currentUser,
-        postLiked: postLiked
+        postLiked: postLiked,
     });
 }
 
