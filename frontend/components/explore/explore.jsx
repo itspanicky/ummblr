@@ -56,6 +56,7 @@ class Explore extends React.Component {
                             unfollow={this.props.unfollow}
                             likePost={this.props.likePost}
                             unlikePost={this.props.unlikePost}
+                            openModal={this.props.openModal}
                         />
                     )
                 }
@@ -76,6 +77,7 @@ class Explore extends React.Component {
                             unfollow={this.props.unfollow}
                             likePost={this.props.likePost}
                             unlikePost={this.props.unlikePost}
+                            openModal={this.props.openModal}
                         />
                     )
                 }
@@ -96,6 +98,7 @@ class Explore extends React.Component {
                             unfollow={this.props.unfollow}
                             likePost={this.props.likePost}
                             unlikePost={this.props.unlikePost}
+                            openModal={this.props.openModal}
                         />
                     )
                 }

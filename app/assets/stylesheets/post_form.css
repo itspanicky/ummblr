@@ -120,12 +120,9 @@
 
 
 /* quote */
-.quote {
-    
-}
 
 .quote-text {
-    font-size: 28px;
+    font-size: 25px;
     padding: 2px 20px;
     width: 500px;
     word-wrap: break-word;

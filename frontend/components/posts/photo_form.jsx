@@ -50,8 +50,8 @@ class PhotoForm extends React.Component {
 
         const imageUpload = this.state.photoUrl ?
             ( <img className="image-prev" src={this.state.photoUrl} /> ) :
-            this.props.post.photoUrl ?
-            (<img className="image-prev" src={this.props.post.photoUrl} />) :
+            this.props.originalPost.photoUrl ?
+            (<img className="image-prev" src={this.props.originalPost.photoUrl} />) :
             ( <div>
                 <input className="upload"
                 type="file"

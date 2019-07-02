@@ -195,6 +195,7 @@ class PostIndexItem extends React.Component {
 
         let notes = <div></div>;
         let likers = post.likers.length;
+        
         if (likers > 0) {
             notes = (
                 <div>
