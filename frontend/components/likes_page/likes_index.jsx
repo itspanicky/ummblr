@@ -43,6 +43,7 @@ class LikesIndex extends React.Component {
                     // openModal={this.props.openModal}
                     likePost={this.props.likePost}
                     unlikePost={this.props.unlikePost}
+                    openModal={this.props.openModal}
 
                 />
             )
