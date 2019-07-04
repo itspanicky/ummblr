@@ -20,16 +20,30 @@ class QuoteForm extends React.Component {
     }
 
     render() {
+        let inputContent;
+        if (this.props.post.reblog_post_id) {
+            
+            inputContent = (
+                <>
+                    <p className="quote-text">{this.props.post.title}</p>
+                    <p className="content-text">{this.props.post.content}</p>
 
-        return (
-            <div className="form_container">
-                <div className="author_name">{this.props.currentUser.username}</div>
-                <form className="text-form" onSubmit={this.handleSubmit}>
+                    <textarea className="content-text"
+                        type="text"
+                        value={this.state.reblog_description}
+                        onChange={this.handleInput("reblog_description")}
+                        placeholder="Add a caption, if you like"
+                    />
+                </>
+            )
+        } else {
+            inputContent = (
+                <>
                     <textarea className="quote-text"
                         type="text"
                         value={this.state.title}
-                        onChange={this.handleInput("title")} 
-                        placeholder="&ldquo;Quote&rdquo;" 
+                        onChange={this.handleInput("title")}
+                        placeholder="&ldquo;Quote&rdquo;"
                     />
 
                     <textarea className="content-text"
@@ -38,6 +52,15 @@ class QuoteForm extends React.Component {
                         onChange={this.handleInput("content")}
                         placeholder="Source"
                     />
+                </>
+            )
+        }
+
+        return (
+            <div className="form_container">
+                <div className="author_name">{this.props.currentUser.username}</div>
+                <form className="text-form" onSubmit={this.handleSubmit}>
+                    {inputContent}
                     
                     <div className="post-form-footer">
                         <button onClick={this.props.closeModal} className="close-modal">Close</button>

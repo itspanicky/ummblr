@@ -20,10 +20,25 @@ class LinkForm extends React.Component {
     }
 
     render() {
-        return (
-            <div className="form_container">
-                <div className="author_name">{this.props.currentUser.username}</div>
-                <form className="text-form" onSubmit={this.handleSubmit}>
+        let inputContent;
+        if (this.props.post.reblog_post_id) {
+
+            inputContent = (
+                <>
+                    <p className="link-text">{this.props.post.title}</p>
+                    <p className="content-text">{this.props.post.content}</p>
+
+                    <textarea className="content-text"
+                        type="text"
+                        value={this.state.reblog_description}
+                        onChange={this.handleInput("reblog_description")}
+                        placeholder="Add a caption, if you like"
+                    />
+                </>
+            )
+        } else {
+            inputContent = (
+                <>
                     <input className="link-text"
                         type="text"
                         value={this.state.title}
@@ -37,6 +52,15 @@ class LinkForm extends React.Component {
                         onChange={this.handleInput("content")}
                         placeholder="Add a description, if you like"
                     />
+                </>
+            )
+        }
+
+        return (
+            <div className="form_container">
+                <div className="author_name">{this.props.currentUser.username}</div>
+                <form className="text-form" onSubmit={this.handleSubmit}>
+                    {inputContent}
 
                     <div className="post-form-footer">
                         <button onClick={this.props.closeModal} className="close-modal">Close</button>

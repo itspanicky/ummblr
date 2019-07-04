@@ -92,7 +92,7 @@ let postBody = (props) => {
                 )
             case "link":
                 let link;
-                if (post.title.includes("https://")) {
+                if (props.post.title.includes("https://")) {
                     link = props.post.title
                 } else {
                     link = "http://" + props.post.title;
