@@ -122,6 +122,7 @@
 /* quote */
 
 .quote-text {
+    font-family: cursive;
     font-size: 25px;
     padding: 2px 20px;
     width: 500px;
@@ -136,6 +137,9 @@
 
 
 .link-text {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     color: black;
     text-align: center;
     font-size: 14px;

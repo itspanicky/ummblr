@@ -39,7 +39,7 @@ class PostForm extends React.Component {
                 placeholder="Your text here"
             />
 
-        let reblogDescription = this.props.formType === "Reblog" || this.props.post.reblog_post_id ?
+        let reblogDescription = this.props.post.reblog_post_id ?
             <textarea className="content-text"
                 type="text"
                 value={this.state.reblog_description}
