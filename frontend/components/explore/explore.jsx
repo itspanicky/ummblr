@@ -46,6 +46,7 @@ class Explore extends React.Component {
                 if (post.author_id != this.props.currentUser.id) {
                     return (
                         <ExploreIndexItem
+                            allPosts={allPosts}
                             key={post.id}
                             post={post}
                             originalPost={originalPost}
@@ -67,6 +68,7 @@ class Explore extends React.Component {
                 if (post.author_id != this.props.currentUser.id) {
                     return (
                         <ExploreIndexItem
+                            allPosts={allPosts}
                             key={post.id}
                             post={post}
                             originalPost={originalPost}
@@ -88,6 +90,7 @@ class Explore extends React.Component {
                 if (post.author_id != this.props.currentUser.id) {
                     return (
                         <ExploreIndexItem
+                            allPosts={allPosts}
                             key={post.id}
                             post={post}
                             originalPost={originalPost}
@@ -110,6 +113,7 @@ class Explore extends React.Component {
                 if (post.author_id != this.props.currentUser.id) {
                     return (
                         <ExploreIndexItem
+                            allPosts={allPosts}
                             key={post.id}
                             post={post}
                             originalPost={originalPost}

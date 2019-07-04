@@ -15,11 +15,21 @@ let follow = (props) => {
 
 let postBody = (props) => {
     if (props.post.reblog_post_id) {
-        let reblogDescription = props.post.reblog_description ?
-            <div className="reblog-container">
-                <p className="content-author-name">{props.post.author.username}:</p>
-                <p className="content-post">{props.post.reblog_description}</p>
-            </div> : <span></span>
+        let reblogDescription = <span></span>;
+        let originalPost = props.originalPost;
+        if (props.post.reblog_description) {
+            reblogDescription = (
+                <div className="reblog-container">
+                    <p className="content-author-name">{props.post.author.username}:</p>
+                    <p className="content-post">{props.post.reblog_description}</p>
+                </div>
+            )
+            while (originalPost.reblog_post_id) {
+                originalPost = props.allPosts[originalPost.reblog_post_id]
+            }
+        }
+
+            
         switch (props.post.post_type) {
             case "text":
                 return (
@@ -35,7 +45,7 @@ let postBody = (props) => {
             case "photo":
                 return (
                     <div>
-                        <img className="photo-post" src={props.originalPost.photoUrl} />
+                        <img className="photo-post" src={originalPost.photoUrl} />
                         <p className="content-author-name">{props.originalPost.author.username}:</p>
                         <p className="content-post">{props.post.content}</p>
                         {reblogDescription}
