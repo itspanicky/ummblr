@@ -20,7 +20,7 @@
     border-radius: 3px;
     animation: 1s ease 0s normal forwards 1 fadein;
     -webkit-animation: 1s ease 0s normal forwards 1 fadein;
-    z-index: 90;
+    z-index: 90000;
 
 }
 
