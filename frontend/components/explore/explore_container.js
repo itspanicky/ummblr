@@ -9,13 +9,10 @@ const msp = (state) => {
     const posts = Object.values(state.entities.posts);
     const allPosts = state.entities.posts;
     const currentUser = state.entities.users[state.session.id];
-    
     return ({
         posts: posts,
         allPosts,
         currentUser: currentUser,
-        // followingStatus,
-        // followings: currentUser.followings
     })
 }
 

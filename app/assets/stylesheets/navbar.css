@@ -188,16 +188,12 @@
 /* alt creat post */
 
 .alt-post-buttons {
-    position: fixed;
     display: flex;
     flex-direction: row;
-    top: 250px;
-    left: -200px;
-    /* margin: 0 auto; */
+    margin: 120px auto;
     justify-content: space-around;
     align-items: center;
     color: white;
-    /* z-index: 600; */
 }
 
 .alt-post-buttons > li > *{

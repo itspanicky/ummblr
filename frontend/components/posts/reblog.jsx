@@ -16,6 +16,7 @@ class Reblog extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        debugger
         this.props.createPost(this.state).then(this.props.closeModal());
         
     }

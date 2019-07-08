@@ -15,21 +15,21 @@ const msp = (state, ownProps) => {
     let followingStatus = false;
     if (currentUser.followings ) {
         followingStatus = currentUser.followings.includes(authorId)
-    }
-    let originalPost;
-    if (post.reblog_post_id) {
-        originalPost = posts[post.reblog_post_id]
-        while (originalPost.reblog_post_id) originalPost = posts[originalPost.reblog_post_id]
-    }
+    };
 
+    const originalPost = posts[post.reblog_post_id];
+
+    
     // const followings = Object.values(currentUser.followings);
     return ({
         post: post,
+        posts,
         originalPost,
         followingStatus: followingStatus,
         authorId: authorId,
         currentUser: currentUser,
-        followings: currentUser.followings
+        followings: currentUser.followings,
+
     })
 }
 

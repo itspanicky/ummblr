@@ -3,7 +3,6 @@ import UserMini from '../avatar/user-mini';
 
 let follow = (props) => {
     if (props.currentUser) {
-
         if (!props.currentUser.followings.includes(props.post.author.id)) {
     
             return <button className="follow-button" onClick={() => props.follow(props.post.author.id)}>Follow</button>
@@ -15,20 +14,36 @@ let follow = (props) => {
 
 let postBody = (props) => {
     if (props.post.reblog_post_id) {
-        let reblogDescription = <span></span>;
+        let reblogDescription = props.post.reblog_description ?
+            <div className="reblog-container">
+                <p className="content-author-name">{props.post.author.username}:</p>
+                <p className="content-post">{props.post.reblog_description}</p>
+            </div> : <span></span>
+        
+        let firstPost = props.post;
         let originalPost = props.originalPost;
-        if (props.post.reblog_description) {
-            reblogDescription = (
-                <div className="reblog-container">
-                    <p className="content-author-name">{props.post.author.username}:</p>
-                    <p className="content-post">{props.post.reblog_description}</p>
+        let reblogContents = [];
+
+        while (firstPost && firstPost.reblog_post_id != null) {
+            firstPost = props.allPosts[firstPost.reblog_post_id]
+        };
+        
+        const firstPhoto = firstPost ? <img className="photo-post" src={firstPost.photoUrl} /> : <p className="content-post">Post Removed</p>
+        const firstAuthor = firstPost ? firstPost.author.username : "removed"
+        
+        while (originalPost && originalPost.reblog_post_id) {
+            if (originalPost.reblog_description) reblogContents.push([originalPost.author.username, originalPost.reblog_description]);
+            originalPost = props.allPosts[originalPost.reblog_post_id];
+        } 
+
+        let contents = reblogContents.map(content => {
+            return (
+                <div className="reblog-container" key={content[1]}>
+                    <p className="content-author-name">{content[0]}:</p>
+                    <p className="content-post">{content[1]}</p>
                 </div>
             )
-            while (originalPost.reblog_post_id) {
-                originalPost = props.allPosts[originalPost.reblog_post_id]
-            }
-        }
-
+        })
             
         switch (props.post.post_type) {
             case "text":
@@ -36,18 +51,20 @@ let postBody = (props) => {
                     <div className="explore text-post">
                         <h3>{props.post.title}</h3>
                         <div>
-                            <p className="content-author-name">{props.originalPost.author.username}:</p>
+                            <p className="content-author-name">{firstAuthor}:</p>
                             <p className="content-post">{props.post.content}</p>
                         </div>
+                        {contents}
                         {reblogDescription}
                     </div>
                 );
             case "photo":
                 return (
                     <div>
-                        <img className="photo-post" src={originalPost.photoUrl} />
-                        <p className="content-author-name">{props.originalPost.author.username}:</p>
+                        {firstPhoto}
+                        <p className="content-author-name">{firstAuthor}:</p>
                         <p className="content-post">{props.post.content}</p>
+                        {contents}
                         {reblogDescription}
                     </div>
                 )
@@ -56,12 +73,13 @@ let postBody = (props) => {
                     <div className="explore quote-post">
                         <h3>&ldquo;{props.post.title}&rdquo;</h3>
                         <p className="content-post"><span>-</span> {props.post.content}</p>
+                        {contents}
                         {reblogDescription}
                     </div>
                 )
             case "link":
                 let link;
-                if (post.title.includes("https://")) {
+                if (props.post.title.includes("https://")) {
                     link = props.post.title
                 } else {
                     link = "http://" + props.post.title;
@@ -70,8 +88,9 @@ let postBody = (props) => {
                 return (
                     <div className="text-post">
                         <h3 className="link-post"><a href={link}>{props.post.title}</a></h3>
-                        <p className="content-author-name">{props.originalPost.author.username}:</p>
+                        <p className="content-author-name">{firstAuthor}:</p>
                         <p className="content-post">{props.post.content}</p>
+                        {contents}
                         {reblogDescription}
                     </div>
                 )
@@ -119,10 +138,10 @@ let postBody = (props) => {
 }
 
 const ExploreIndexItem = (props) => {
-
     let originalPost;
     let originalAuthor;
     if (props.originalPost && props.originalPost.type !== "span") {
+        
         originalPost = props.originalPost;
         originalAuthor = 
             <>
@@ -139,7 +158,7 @@ const ExploreIndexItem = (props) => {
 
             </>;
     }
-
+    
 
     let notes = <div></div>;
     let likers = props.post.likers.length;
@@ -162,7 +181,7 @@ const ExploreIndexItem = (props) => {
         <button onClick={() => props.unlikePost(props.post.id)}>
             <i className="fas fa-heart clicked"></i>
         </button>;
-    
+
     return (
         <div className="explore-index-item-container">
             <div className="explore post-author-container">
