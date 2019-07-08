@@ -1,6 +1,5 @@
 import React from 'react';
 import NavbarContainer from '../navbar/navbar_container';
-import PostIndexItem from '../posts/post_index_item_container';
 import ExploreIndexItem from './explore_index_item';
 
 class Explore extends React.Component {
@@ -14,7 +13,6 @@ class Explore extends React.Component {
 
     render() {
 
-        let posts = null;
         let allPosts = this.props.posts;
         let allPostsIds = this.props.allPosts;
         let colOne;
@@ -22,7 +20,7 @@ class Explore extends React.Component {
         let colThree;
         let colFour;
         if (allPosts.length > 0) {
-            posts=[];
+
             let col1 = [];
             let col2 = [];
             let col3 = [];
@@ -46,13 +44,11 @@ class Explore extends React.Component {
                 if (post.author_id != this.props.currentUser.id) {
                     return (
                         <ExploreIndexItem
-                            allPosts={allPosts}
+                            allPosts={allPostsIds}
                             key={post.id}
                             post={post}
                             originalPost={originalPost}
-                            deletePost={this.props.deletePost}
                             currentUser={this.props.currentUser}
-                            followingStatus={this.props.followingStatus}
                             follow={this.props.follow}
                             unfollow={this.props.unfollow}
                             likePost={this.props.likePost}
@@ -68,13 +64,11 @@ class Explore extends React.Component {
                 if (post.author_id != this.props.currentUser.id) {
                     return (
                         <ExploreIndexItem
-                            allPosts={allPosts}
+                            allPosts={allPostsIds}
                             key={post.id}
                             post={post}
                             originalPost={originalPost}
-                            deletePost={this.props.deletePost}
                             currentUser={this.props.currentUser}
-                            followingStatus={this.props.followingStatus}
                             follow={this.props.follow}
                             unfollow={this.props.unfollow}
                             likePost={this.props.likePost}
@@ -90,13 +84,11 @@ class Explore extends React.Component {
                 if (post.author_id != this.props.currentUser.id) {
                     return (
                         <ExploreIndexItem
-                            allPosts={allPosts}
+                            allPosts={allPostsIds}
                             key={post.id}
                             post={post}
                             originalPost={originalPost}
-                            deletePost={this.props.deletePost}
                             currentUser={this.props.currentUser}
-                            followingStatus={this.props.followingStatus}
                             follow={this.props.follow}
                             unfollow={this.props.unfollow}
                             likePost={this.props.likePost}
@@ -113,13 +105,11 @@ class Explore extends React.Component {
                 if (post.author_id != this.props.currentUser.id) {
                     return (
                         <ExploreIndexItem
-                            allPosts={allPosts}
+                            allPosts={allPostsIds}
                             key={post.id}
                             post={post}
                             originalPost={originalPost}
-                            deletePost={this.props.deletePost}
                             currentUser={this.props.currentUser}
-                            followingStatus={this.props.followingStatus}
                             follow={this.props.follow}
                             unfollow={this.props.unfollow}
                             likePost={this.props.likePost}

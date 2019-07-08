@@ -36,24 +36,60 @@ class PostIndexItem extends React.Component {
                     <p className="content-author-name">{post.author.username}:</p>
                     <p className="content-post">{post.reblog_description}</p>
                 </div> : <span></span>
+                
+            let reblogContents = [];
+            let originalPost = this.props.originalPost;
+            let firstPost = post;
+
+            if (!originalPost) {
+                return (
+                    <div className="text-post">
+                        <h3 className="content-post">Original post removed</h3>
+                        {reblogDescription}
+                    </div>
+                )
+            } else {
+                while (originalPost && originalPost.reblog_post_id) {
+                    if (originalPost.reblog_description) reblogContents.push([originalPost.author.username, originalPost.reblog_description]);
+                    originalPost = this.props.posts[originalPost.reblog_post_id];
+                } 
+            }
+            
+            while (firstPost && firstPost.reblog_post_id != null) {
+                firstPost = this.props.posts[firstPost.reblog_post_id]
+            };
+            const firstPhoto = firstPost ? <img className="photo-post" src={firstPost.photoUrl} /> : <p className="content-post">Post Removed</p>
+            const firstAuthor = firstPost ? firstPost.author.username : "removed"
+            
+            let contents = reblogContents.map(content => {
+                return (
+                <div className="reblog-container" key={content[1]}>
+                    <p className="content-author-name">{content[0]}:</p>
+                    <p className="content-post">{content[1]}</p>
+                </div>
+                )
+            })
+            
             switch (post.post_type) {
                 case "text":
                     return (
                         <div className="text-post">
                             <h3>{post.title}</h3>
                             <div>
-                                <p className="content-author-name">{this.props.originalPost.author.username}:</p>
+                                <p className="content-author-name">{firstAuthor}:</p>
                                 <p className="content-post">{post.content}</p>
                             </div>
+                            {contents}
                             {reblogDescription}
                         </div>
                     );
                 case "photo":
                     return (
                         <div>
-                            <img className="photo-post" src={this.props.originalPost.photoUrl} />
-                            <p className="content-author-name">{this.props.originalPost.author.username}:</p>
+                            {firstPhoto}
+                            <p className="content-author-name">{firstAuthor}:</p>
                             <p className="content-post">{post.content}</p>
+                            {contents}
                             {reblogDescription}
                         </div>
                     )
@@ -62,6 +98,7 @@ class PostIndexItem extends React.Component {
                         <div className="quote-post">
                             <h3>&ldquo;{post.title}&rdquo;</h3>
                             <p className="content-post"><span>-</span> {post.content}</p>
+                            {contents}
                             {reblogDescription}
                         </div>
                     )
@@ -76,8 +113,9 @@ class PostIndexItem extends React.Component {
                     return (
                         <div className="text-post">
                             <h3 className="link-post"><a href={link}>{post.title}</a></h3>
-                            <p className="content-author-name">{this.props.originalPost.author.username}:</p>
+                            <p className="content-author-name">{firstAuthor}:</p>
                             <p className="content-post">{post.content}</p>
+                            {contents}
                             {reblogDescription}
                         </div>
                     )

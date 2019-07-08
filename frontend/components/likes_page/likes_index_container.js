@@ -10,11 +10,13 @@ const msp = (state) => {
     const currentUser = state.entities.users[state.session.id];
     const postLiked = posts.filter(post => {
         if (post.likers.includes(currentUser.id)) return post
-    })
+    });
+    const allPosts = state.entities.posts;
     return ({
         posts: posts,
         currentUser: currentUser,
         postLiked: postLiked,
+        allPosts
     });
 }
 

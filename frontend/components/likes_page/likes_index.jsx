@@ -15,38 +15,22 @@ class LikesIndex extends React.Component {
 
     render() {
         const currentUser = this.props.currentUser;
-        // let posts = this.props.posts.map(post => {
-        //     if (post.likers.includes(currentUser.id)) {
-        //         return (
-        //             <PostIndexItem
-        //                 key={post.id}
-        //                 post={post}
-        //                 deletePost={this.props.deletePost}
-        //                 currentUser={this.props.currentUser}
-        //                 follow={this.props.follow}
-        //                 unfollow={this.props.unfollow}
-        //                 openModal={this.props.openModal}
-        //             />
-        //         )
-        //     }
-        // }).reverse();
 
         let posts = this.props.postLiked.map(post => {
             let originalPost;
             if (post.reblog_post_id) {
                 originalPost = this.props.posts[post.reblog_post_id]
-                while (originalPost.reblog_post_id) originalPost = posts[originalPost.reblog_post_id]
+                while (originalPost && originalPost.reblog_post_id) originalPost = posts[originalPost.reblog_post_id]
             }
             return (
                 <ExploreIndexItem
                     key={post.id}
+                    allPosts={this.props.allPosts}
                     post={post}
-                    // deletePost={this.props.deletePost}
                     currentUser={this.props.currentUser}
                     originalPost={originalPost}
                     follow={this.props.follow}
                     unfollow={this.props.unfollow}
-                    // openModal={this.props.openModal}
                     likePost={this.props.likePost}
                     unlikePost={this.props.unlikePost}
                     openModal={this.props.openModal}
