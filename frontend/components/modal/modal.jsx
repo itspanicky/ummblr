@@ -62,6 +62,9 @@ const Modal = ({modal, currentUser, closeModal}) => {
         case 'Create Reblog':
             component = <CreateReblogContainer postId={modal.postId} />
             break;
+        case 'user show':
+            
+            break;
         default:
             return null;
     }

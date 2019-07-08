@@ -1,10 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { openModal } from '../../actions/modal_actions';
 
 const Navbar = ({currentUser, logout, openModal}) => {
     const user = (currentUser ? currentUser.username : 'Account')
-
+    
     const leftNav = (
         <section className="left-side">
             <Link to="/" className="u-logo">u</Link>
