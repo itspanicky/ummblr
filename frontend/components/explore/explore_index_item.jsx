@@ -30,6 +30,7 @@ let postBody = (props) => {
         
         const firstPhoto = firstPost ? <img className="photo-post" src={firstPost.photoUrl} /> : <p className="content-post">Post Removed</p>
         const firstAuthor = firstPost ? firstPost.author.username : "removed"
+        const firstAuthorName = props.post.content ? <p className="content-author-name">{firstAuthor}:</p> : <span></span>
         
         while (originalPost && originalPost.reblog_post_id) {
             if (originalPost.reblog_description) reblogContents.push([originalPost.author.username, originalPost.reblog_description]);
@@ -51,7 +52,7 @@ let postBody = (props) => {
                     <div className="explore text-post">
                         <h3>{props.post.title}</h3>
                         <div>
-                            <p className="content-author-name">{firstAuthor}:</p>
+                            {firstAuthorName}
                             <p className="content-post">{props.post.content}</p>
                         </div>
                         {contents}
@@ -62,7 +63,7 @@ let postBody = (props) => {
                 return (
                     <div>
                         {firstPhoto}
-                        <p className="content-author-name">{firstAuthor}:</p>
+                        {firstAuthorName}
                         <p className="content-post">{props.post.content}</p>
                         {contents}
                         {reblogDescription}
@@ -88,7 +89,7 @@ let postBody = (props) => {
                 return (
                     <div className="text-post">
                         <h3 className="link-post"><a href={link}>{props.post.title}</a></h3>
-                        <p className="content-author-name">{firstAuthor}:</p>
+                        {firstAuthorName}
                         <p className="content-post">{props.post.content}</p>
                         {contents}
                         {reblogDescription}
