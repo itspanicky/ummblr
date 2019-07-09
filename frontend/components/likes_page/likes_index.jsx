@@ -25,6 +25,7 @@ class LikesIndex extends React.Component {
             return (
                 <ExploreIndexItem
                     key={post.id}
+                    postsArray={this.props.posts}
                     allPosts={this.props.allPosts}
                     post={post}
                     currentUser={this.props.currentUser}

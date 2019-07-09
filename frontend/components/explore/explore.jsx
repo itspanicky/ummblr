@@ -45,6 +45,7 @@ class Explore extends React.Component {
                     return (
                         <ExploreIndexItem
                             allPosts={allPostsIds}
+                            postsArray={allPosts}
                             key={post.id}
                             post={post}
                             originalPost={originalPost}
@@ -65,6 +66,7 @@ class Explore extends React.Component {
                     return (
                         <ExploreIndexItem
                             allPosts={allPostsIds}
+                            postsArray={allPosts}
                             key={post.id}
                             post={post}
                             originalPost={originalPost}
@@ -85,6 +87,7 @@ class Explore extends React.Component {
                     return (
                         <ExploreIndexItem
                             allPosts={allPostsIds}
+                            postsArray={allPosts}
                             key={post.id}
                             post={post}
                             originalPost={originalPost}
@@ -106,6 +109,7 @@ class Explore extends React.Component {
                     return (
                         <ExploreIndexItem
                             allPosts={allPostsIds}
+                            postsArray={allPosts}
                             key={post.id}
                             post={post}
                             originalPost={originalPost}

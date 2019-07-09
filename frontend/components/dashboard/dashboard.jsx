@@ -70,6 +70,7 @@ class Dashboard extends React.Component {
             radarPost = 
                 ( <ExploreIndexItem
                     key={radar.id}
+                    postsArray={this.props.posts}
                     post={radar}
                     originalPost={originalPost}
                     currentUser={this.props.currentUser}

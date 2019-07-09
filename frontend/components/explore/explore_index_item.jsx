@@ -163,12 +163,16 @@ const ExploreIndexItem = (props) => {
 
     let notes = <div></div>;
     let likers = props.post.likers.length;
-    if (likers > 0) {
+    let reblogs = props.postsArray.filter(post => post.reblog_post_id === props.post.id);
+    let notesTotal = likers + reblogs.length;
+
+    if (notesTotal > 0) {
         notes = (
-            <div>
-                <ul className="explore notes">{`${likers} ${likers === 1 ? "note" : "notes"}`}
-                    <li className="notes-dropdown">
-                    </li>
+            <div className="">
+                <ul className="notes"><p className="note">{`${notesTotal} ${notesTotal === 1 ? "note" : "notes"}`}</p>
+                    <ul className="notes-dropdown">
+                        <li className="notes-info">{`${likers} ${likers === 1 ? "like" : "likes"} and ${reblogs.length} ${reblogs.length === 1 ? "reblog" : "reblogs"}`}</li>
+                    </ul>
                 </ul>
             </div>
         )
