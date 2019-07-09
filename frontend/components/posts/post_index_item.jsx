@@ -22,7 +22,7 @@ class PostIndexItem extends React.Component {
     }
 
     closeMenu(e) {
-        if (!this.dropdownMenu.contains(event.target)) {
+        if (this.dropdownMenu && !this.dropdownMenu.contains(event.target)) {
             this.setState({ showMenu: false }, () => {
                 document.removeEventListener('click', this.closeMenu);
             });  
@@ -30,7 +30,7 @@ class PostIndexItem extends React.Component {
     }
 
     postBody(post){
-        if (post.reblog_post_id) {
+        if (post.reblog_post_id && post.reblog_description) {
             let reblogDescription = post.reblog_description ? 
                 <div className="reblog-container">
                     <p className="content-author-name">{post.author.username}:</p>
@@ -60,6 +60,7 @@ class PostIndexItem extends React.Component {
             };
             const firstPhoto = firstPost ? <img className="photo-post" src={firstPost.photoUrl} /> : <p className="content-post">Post Removed</p>
             const firstAuthor = firstPost ? firstPost.author.username : "removed"
+            const firstAuthorName = post.content ? <p className="content-author-name">{firstAuthor}:</p> : <span></span>
             
             let contents = reblogContents.map(content => {
                 return (
@@ -76,7 +77,7 @@ class PostIndexItem extends React.Component {
                         <div className="text-post">
                             <h3>{post.title}</h3>
                             <div>
-                                <p className="content-author-name">{firstAuthor}:</p>
+                                {firstAuthorName}
                                 <p className="content-post">{post.content}</p>
                             </div>
                             {contents}
@@ -87,7 +88,7 @@ class PostIndexItem extends React.Component {
                     return (
                         <div>
                             {firstPhoto}
-                            <p className="content-author-name">{firstAuthor}:</p>
+                            {firstAuthorName}
                             <p className="content-post">{post.content}</p>
                             {contents}
                             {reblogDescription}
@@ -113,7 +114,7 @@ class PostIndexItem extends React.Component {
                     return (
                         <div className="text-post">
                             <h3 className="link-post"><a href={link}>{post.title}</a></h3>
-                            <p className="content-author-name">{firstAuthor}:</p>
+                            {firstAuthorName}
                             <p className="content-post">{post.content}</p>
                             {contents}
                             {reblogDescription}
@@ -233,12 +234,16 @@ class PostIndexItem extends React.Component {
 
         let notes = <div></div>;
         let likers = post.likers.length;
-        
-        if (likers > 0) {
+        let reblogs = this.props.reblogs;
+        let notesTotal = likers + reblogs.length;
+
+        if (notesTotal > 0) {
             notes = (
-                <div>
-                    <ul>{`${likers} ${likers === 1 ? "note" : "notes"}`}
-                        <li className="notes-dropdown"></li>
+                <div className="notes">
+                    <ul className="notes">{`${notesTotal} ${notesTotal === 1 ? "note" : "notes"}`}
+                        <ul className="notes-dropdown">
+                            <li className="notes-info">{`${likers} likes and ${reblogs.length} reblogs`}</li>
+                        </ul>
                     </ul>
                 </div>
             )

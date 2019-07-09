@@ -11,16 +11,16 @@ const msp = (state, ownProps) => {
     const posts = state.entities.posts
     const currentUser = state.entities.users[state.session.id];
     const authorId = ownProps.post.author.id;
-    // const followings = {};
+
     let followingStatus = false;
     if (currentUser.followings ) {
         followingStatus = currentUser.followings.includes(authorId)
     };
 
     const originalPost = posts[post.reblog_post_id];
-
+    const postsArray = Object.values(state.entities.posts);
+    const reblogs = postsArray.filter(post => post.reblog_post_id === ownProps.post.id)
     
-    // const followings = Object.values(currentUser.followings);
     return ({
         post: post,
         posts,
@@ -29,6 +29,7 @@ const msp = (state, ownProps) => {
         authorId: authorId,
         currentUser: currentUser,
         followings: currentUser.followings,
+        reblogs,
 
     })
 }

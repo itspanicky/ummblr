@@ -163,3 +163,26 @@
     cursor: pointer;
     color: red;
 }
+
+.notes:hover {
+    cursor: pointer;
+}
+
+.notes-dropdown {
+    display: none;
+    position: absolute;
+}
+
+.notes:hover .notes-dropdown {
+    display: block;
+    border: 1px solid black;
+    border-radius: 3px;
+    background-color: white;
+    color: black;
+    margin: 0 auto;
+    z-index: 10;
+}
+
+.notes-info {
+    padding: 10px 10px;
+}
