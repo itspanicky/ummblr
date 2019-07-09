@@ -96,7 +96,6 @@ class Dashboard extends React.Component {
                             <PostNavContainer />
                         </div>
                         <div className="post-index-container">
-                            {/* <span></span> */}
                             <PostIndexContainer />
                         </div>
                     </section>
