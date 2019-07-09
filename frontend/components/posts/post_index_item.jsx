@@ -239,10 +239,10 @@ class PostIndexItem extends React.Component {
 
         if (notesTotal > 0) {
             notes = (
-                <div className="notes">
-                    <ul className="notes">{`${notesTotal} ${notesTotal === 1 ? "note" : "notes"}`}
+                <div className="">
+                    <ul className="notes"><p className="note">{`${notesTotal} ${notesTotal === 1 ? "note" : "notes"}`}</p>
                         <ul className="notes-dropdown">
-                            <li className="notes-info">{`${likers} likes and ${reblogs.length} reblogs`}</li>
+                            <li className="notes-info">{`${likers} ${likers === 1 ? "like" : "likes"} and ${reblogs.length} ${reblogs.length === 1 ? "reblog" : "reblogs"}`}</li>
                         </ul>
                     </ul>
                 </div>
