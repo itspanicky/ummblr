@@ -11,6 +11,7 @@ User.delete_all
 Post.delete_all
 Follow.delete_all
 Like.delete_all
+Comment.delete_all
 
 # to get user avatars:
 # file = open('file_url/file.jpg')
@@ -100,7 +101,6 @@ photo1 = open('https://ummblr-dev.s3.amazonaws.com/Window.jpeg')
 image1 = Post.create(title: 'Photo', content: 'This is a window', post_type: "photo", author_id: user2.id)
 image1.photo.attach(io: photo1, filename: 'https://ummblr-dev.s3.amazonaws.com/Window.jpeg')
 
-
 like1 = Like.create(user: user1, post: text1)
 like2 = Like.create(user: user2, post: text1)
 like3 = Like.create(user: user1, post: image1)
@@ -114,4 +114,6 @@ like10 = Like.create(user: demo, post: quote2)
 like11 = Like.create(user: user1, post: quote1)
 
 
-
+comment1_text1 = Comment.create(body: "Hiyo", post_id: text1.id, author_id: user1.id)
+comment2_text1 = Comment.create(body: "Hihi", post_id: text1.id, author_id: user2.id)
+comment1_wallpaperPost1 = Comment.create(body: "Wow so beauty", post_id: wallpaperPost1.id, author_id: demo.id)
