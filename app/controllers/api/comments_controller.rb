@@ -14,7 +14,6 @@ class Api::CommentsController < ApplicationController
     end
 
     def index
-        debugger
         @comments = Comment.find_by(params[:post_id])
     end
 

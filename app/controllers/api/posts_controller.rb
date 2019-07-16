@@ -32,7 +32,7 @@ class Api::PostsController < ApplicationController
         #     @posts = Post.all
         #     render @posts
         # end
-        @posts = Post.all
+        @posts = Post.includes(:likes, :comments, :author).all
         
         render :index
     end
