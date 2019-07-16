@@ -46,7 +46,6 @@ class SessionForm extends React.Component {
     }
 
     render() {
-
         let backgroundImages = this.props.posts.slice(0, 7).map(post => {
             if (post.post_type === "photo") {
                 return (

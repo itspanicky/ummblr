@@ -17,9 +17,8 @@ json.set! :likers do
     # json.partial! "api/likes/like", like: post.likes
 end
 
-json.set! :comments do
-    json.comments post.comments, :body, :author_id
-end
+
+json.comments post.comments, :body, :author_id
 
 # json.photoUrls post.photo.map { |file| url_for(file) }
 

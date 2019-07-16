@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { signup, clearSessionErrors, login } from '../../actions/session_actions';
 import SessionForm from './session_form';
-import { fetchPosts } from '../../actions/entities/post_actions';
+import { fetchPosts, fetchPost } from '../../actions/entities/post_actions';
 
 const msp = state => {
     const posts = Object.values(state.entities.posts);
@@ -18,6 +18,7 @@ const mdp = dispatch => {
         processLogin: (userForm) => dispatch(login(userForm)),
         clearSessionErrors: (errors) => dispatch(clearSessionErrors(errors)),
         fetchPosts: () => dispatch(fetchPosts()),
+        fetchPost: () => dispatch(fetchPost()),
     });
 };
 
