@@ -273,6 +273,7 @@ class PostIndexItem extends React.Component {
         } else {
             settings = (
                 <li>
+                    <i class="fas fa-comments"></i>
                     <i className="fas fa-retweet" onClick={() => this.props.openModal('Create Reblog', this.props.post.id)}></i>
                     {likeBtn}
                 </li>
@@ -302,23 +303,17 @@ class PostIndexItem extends React.Component {
                 <div className="explore post-container">
                     <div className="post-author-container">
                         < UserMini
-
                             follow={this.props.follow}
                             unfollow={this.props.unfollow}
                             currentUser={this.props.currentUser}
                             otherUser={author}
                         /> {reblogSymbol} {originalAuthor}
-                        {/* <button onClick={() => this.props.follow(author.id)}>Follow</button>
-                        <button onClick={() => this.props.unfollow(author.id)}>Unfollow</button> */}
-                        {/* {follow} */}
                     </div>
                     <div className="post-body-container">
                         {this.postBody(post)}
-                        {/* {reblogDescription} */}
                     </div>
                     <div className="post-action-container">
                         {notes}
-                        
                         <ul className="post-action-actions">
                             {settings} 
                         </ul>

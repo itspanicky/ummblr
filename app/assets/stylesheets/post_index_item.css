@@ -148,10 +148,12 @@
     flex-direction: row;
     align-items: center;
 }
+
 .post-action-actions > li > * {
     font-size: 22px;
     cursor: pointer;
 }
+
 .fa-heart.unclicked {
     position: relative;
     color: gray;
