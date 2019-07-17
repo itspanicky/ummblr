@@ -1,5 +1,6 @@
 import React from 'react';
 import UserMini from '../avatar/user-mini';
+import Comments from '../comments/comments';
 
 let follow = (props) => {
     if (props.currentUser) {
@@ -163,8 +164,10 @@ const ExploreIndexItem = (props) => {
 
     let notes = <div></div>;
     let likers = props.post.likers.length;
+    let commentsArr = Object.values(props.post.comments);
+    let comments = <Comments comments={commentsArr} users={props.users} />
     let reblogs = props.postsArray.filter(post => post.reblog_post_id === props.post.id);
-    let notesTotal = likers + reblogs.length;
+    let notesTotal = likers + reblogs.length + props.post.comments.length;
 
     if (notesTotal > 0) {
         notes = (
@@ -172,6 +175,7 @@ const ExploreIndexItem = (props) => {
                 <ul className="notes"><p className="note">{`${notesTotal} ${notesTotal === 1 ? "note" : "notes"}`}</p>
                     <ul className="notes-dropdown">
                         <li className="notes-info">{`${likers} ${likers === 1 ? "like" : "likes"} and ${reblogs.length} ${reblogs.length === 1 ? "reblog" : "reblogs"}`}</li>
+                        <li>{comments}</li>
                     </ul>
                 </ul>
             </div>

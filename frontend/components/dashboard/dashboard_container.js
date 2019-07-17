@@ -17,7 +17,8 @@ const msp = (state) => {
         allUsers: Object.values(state.entities.users),
         radarPosts,
         allPosts,
-        posts
+        posts,
+        users: state.entities.users
     };
 };
 

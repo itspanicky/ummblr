@@ -2,19 +2,22 @@ class Api::CommentsController < ApplicationController
     def create
         @comment = Comment.new(comment_params)
         if @comment.save
-            render :show
-        else
-            render json: @comment.errors.full_messages, status 422
+            render json: @comment
+        # else
+        #     render json: @comment.errors.full_messages, status 422
         end
     end
 
     def show
         @comment = Comment.find(params[:id])
-        render :show
+        render json: @comment
     end
 
     def index
-        @comments = Comment.find_by(params[:post_id])
+        post = Post.find(params[:post_id])
+        @comments = post.comments
+        render :index
+
     end
 
     private

@@ -1,6 +1,7 @@
 import React from 'react';
 import Avatar from '../avatar/avatar';
 import UserMini from '../avatar/user-mini';
+import Comments from '../comments/comments';
 
 class PostIndexItem extends React.Component {
     constructor(props) {
@@ -12,7 +13,6 @@ class PostIndexItem extends React.Component {
         this.closeMenu = this.closeMenu.bind(this);
         this.handleFollow = this.handleFollow.bind(this);
     }
-
     
     showMenu(e) {
         e.preventDefault();
@@ -231,11 +231,11 @@ class PostIndexItem extends React.Component {
                 <i className="fas fa-heart clicked"></i>
             </button> ;
 
-
+        const comments = <Comments comments={this.props.comments} users={this.props.users} />
         let notes = <div></div>;
         let likers = post.likers.length;
         let reblogs = this.props.reblogs;
-        let notesTotal = likers + reblogs.length;
+        let notesTotal = likers + reblogs.length + this.props.comments.length;
 
         if (notesTotal > 0) {
             notes = (
@@ -243,13 +243,13 @@ class PostIndexItem extends React.Component {
                     <ul className="notes"><p className="note">{`${notesTotal} ${notesTotal === 1 ? "note" : "notes"}`}</p>
                         <ul className="notes-dropdown">
                             <li className="notes-info">{`${likers} ${likers === 1 ? "like" : "likes"} and ${reblogs.length} ${reblogs.length === 1 ? "reblog" : "reblogs"}`}</li>
+                            <li>{comments}</li>
                         </ul>
                     </ul>
                 </div>
             )
         } 
         
-
 
         let settings;
         if (this.props.currentUser.id === this.props.authorId) {
@@ -318,6 +318,7 @@ class PostIndexItem extends React.Component {
                     </div>
                     <div className="post-action-container">
                         {notes}
+                        
                         <ul className="post-action-actions">
                             {settings} 
                         </ul>

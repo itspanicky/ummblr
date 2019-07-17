@@ -1,0 +1,54 @@
+.note:hover {
+    cursor: pointer;
+}
+
+.notes-dropdown {
+    display: none;
+    position: absolute;
+    width: 300px;
+}
+
+.notes:hover .notes-dropdown {
+    display: block;
+    border: 1px solid black;
+    border-radius: 3px;
+    background-color: white;
+    color: black;
+    margin: 0 auto;
+    z-index: 10;
+}
+
+.notes-info {
+    padding: 10px 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.comments-container {
+    border-top: 1px solid grey;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(216, 218, 197, 0.808);
+    border-radius: 5px;
+    margin: 4px 5px;
+    padding: 6px 5px;
+    border: 1px transparent;
+}
+
+.comment > li {
+    padding-left: 10px;
+}
+
+.comment-author {
+    font-weight: bold;
+}
+
+.comment-body {
+    width: 100%;
+}
