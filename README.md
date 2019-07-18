@@ -15,7 +15,7 @@
 - Credential checking blocks users from accessing certain features
 
 #### Dashboard
-![alt text](https://ummblr-dev.s3.amazonaws.com/ummblr-dash.png "dashboard)
+![alt text](https://ummblr-dev.s3.amazonaws.com/ummblr-dash.png "dashboard")
 - Users have personalize Dashboards that consist of only content they create, reblog, or other content from other users that they follow
 - A list of recommended blogs and trending posts give users access to discover more content.
 
