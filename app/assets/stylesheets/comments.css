@@ -1,0 +1,14 @@
+.comments-dropdown {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    
+    background-color: white;
+    padding: 4px 0;
+    width: 300px;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    z-index: 500;
+    max-height: 300px;
+    overflow-y: scroll;
+}

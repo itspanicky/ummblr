@@ -232,3 +232,8 @@
     cursor: pointer;
     transform: scale(1.2);
 }
+
+.fa-child {
+    font-size: 22px;
+    
+}

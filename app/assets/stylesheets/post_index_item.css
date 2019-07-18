@@ -150,6 +150,23 @@
 }
 
 .post-action-actions > li > * {
+    /* font-size: 22px;
+    cursor: pointer; */
+}
+
+.fa-retweet {
+    color: coral;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.fa-comments {
+    color: rgb(91, 216, 91);
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.post-index-like {
     font-size: 22px;
     cursor: pointer;
 }

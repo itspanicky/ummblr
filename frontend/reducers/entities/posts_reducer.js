@@ -9,6 +9,10 @@ import {
     REMOVE_LIKE
 } from '../../actions/entities/like_actions';
 
+import {
+    RECEIVE_COMMENT
+} from '../../actions/entities/comment_actions';
+
 import { merge } from 'lodash';
 
 export default (state = {}, action) => {
@@ -34,6 +38,10 @@ export default (state = {}, action) => {
             post = action.like.post_id;
             const index = newState[post].likers.indexOf(liker);
             newState[post].likers.splice(index);
+            return newState;
+        case RECEIVE_COMMENT:
+            post = action.comment.post_id;
+            newState[post].comments.push({body: action.comment.body, author_id: action.comment.author_id})
             return newState;
         default:
             return state;

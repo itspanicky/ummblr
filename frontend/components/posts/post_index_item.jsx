@@ -245,11 +245,11 @@ class PostIndexItem extends React.Component {
 
         let likeBtn = !post.likers.includes(currentUser.id) ? 
             <button className="like-btn" onClick={() => this.props.likePost(post.id, currentUser.id)}>
-                <i className="fas fa-heart unclicked"></i>
+                <i className="fas fa-heart unclicked post-index-like"></i>
             </button>
             :
             <button onClick={() => this.props.unlikePost(post.id)}>
-                <i className="fas fa-heart clicked"></i>
+                <i className="fas fa-heart clicked post-index-like"></i>
             </button> ;
 
         const comments = <Comments comments={this.props.comments} users={this.props.users} />
@@ -264,7 +264,7 @@ class PostIndexItem extends React.Component {
                     <ul className="notes"><p className="note">{`${notesTotal} ${notesTotal === 1 ? "note" : "notes"}`}</p>
                         <ul className="notes-dropdown">
                             <li className="notes-info">{`${likers} ${likers === 1 ? "like" : "likes"} and ${reblogs.length} ${reblogs.length === 1 ? "reblog" : "reblogs"}`}</li>
-                            <li>{comments}</li>
+                            {comments}
                         </ul>
                     </ul>
                 </div>
@@ -300,8 +300,9 @@ class PostIndexItem extends React.Component {
 
                     {this.state.showCommentForm
                         ? (
-                            <div className="settings-dropdown" ref={(element) => { this.dropdownCommentForm = element }}>
-                                <CommentForm postId={this.props.post.id} />
+                            <div className="comments-dropdown" ref={(element) => { this.dropdownCommentForm = element }}>
+                                {<CommentForm postId={this.props.post.id} />}
+                                <ul>{comments}</ul>
                             </div>
                         )
                         : (null) 

@@ -1,8 +1,8 @@
 import React from 'react';
 
-const Comments = ({ comments, users}) => {
+const Comments = ({ comments, users }) => {
 
-    const allComments = comments ? comments.map(comment => {
+    let allComments = comments ? comments.map(comment => {
         const username = users[comment.author_id] ? users[comment.author_id].username : <span></span>
 
         return (
@@ -13,10 +13,10 @@ const Comments = ({ comments, users}) => {
         )
 
     }) : <span></span>
-
+    
     return (
         <div>
-            <ul className="comments-container">
+            <ul className="comments-container" >
                 {allComments}
             </ul>
         </div>
