@@ -25,7 +25,7 @@
 - Image files can be dragged and dropped in, which will then render a image preview before submitting. Upon submission, the image file will be uploaded to AWS.
 
 #### Explore Feed
-![alt text](https://ummblr-dev.s3.amazonaws.com/ummblr-explore.gif "explore")
+![Alt Text](https://ummblr-dev.s3.amazonaws.com/ummblr-explore.gif "explore")
 - Users can explore other users' content on this page.
 - Users can like, reblog, and comment on other posts.
 
