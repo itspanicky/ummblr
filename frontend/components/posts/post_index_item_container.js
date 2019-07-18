@@ -5,7 +5,7 @@ import { deletePost } from '../../actions/entities/post_actions';
 import { follow, unfollow, fetchFollows } from '../../actions/entities/follow_actions';
 import { fetchPosts } from '../../actions/entities/post_actions';
 import { likePost, unlikePost } from '../../actions/entities/like_actions';
-import { fetchComments } from '../../actions/entities/comment_actions';
+import { fetchComments, createComment } from '../../actions/entities/comment_actions';
 
 const msp = (state, ownProps) => {
     const post = ownProps.post
@@ -48,7 +48,8 @@ const mdp = (dispatch) => {
         // fetchFollows: (userId) => dispatch(fetchFollows(userId)),
         likePost: (postId, userId) => dispatch(likePost(postId, userId)),
         unlikePost: (postId) => dispatch(unlikePost(postId)),
-        fetchComments: (postId) => dispatch(fetchComments(postId))
+        fetchComments: (postId) => dispatch(fetchComments(postId)),
+        createComment: (comment) => dispatch(createComment(comment))
     });
 }
 

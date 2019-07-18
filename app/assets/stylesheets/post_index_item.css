@@ -165,3 +165,11 @@
     cursor: pointer;
     color: red;
 }
+
+/* .fa-comments {
+    padding: 1px 7px 2px;
+} */
+
+.fa-retweet {
+    padding: 1px 1px 2px;
+}

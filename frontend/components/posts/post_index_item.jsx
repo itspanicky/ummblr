@@ -2,15 +2,21 @@ import React from 'react';
 import Avatar from '../avatar/avatar';
 import UserMini from '../avatar/user-mini';
 import Comments from '../comments/comments';
+import CommentForm from '../comments/comment_form_container';
 
 class PostIndexItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             showMenu:  false,
+            showCommentForm: false
         }
         this.showMenu = this.showMenu.bind(this);
         this.closeMenu = this.closeMenu.bind(this);
+
+        this.showCommentForm = this.showCommentForm.bind(this);
+        this.closeCommentForm = this.closeCommentForm.bind(this);
+
         this.handleFollow = this.handleFollow.bind(this);
     }
     
@@ -26,6 +32,21 @@ class PostIndexItem extends React.Component {
             this.setState({ showMenu: false }, () => {
                 document.removeEventListener('click', this.closeMenu);
             });  
+        }
+    }
+
+    showCommentForm(e) {
+        e.preventDefault();
+        this.setState({ showCommentForm: true }, () => {
+            document.addEventListener('click', this.closeCommentForm)
+        });
+    }
+
+    closeCommentForm(e) {
+        if (this.dropdownCommentForm && !this.dropdownCommentForm.contains(event.target)) {
+            this.setState({ showCommentForm: false }, () => {
+                document.removeEventListener('click', this.closeCommentForm);
+            });
         }
     }
 
@@ -273,7 +294,18 @@ class PostIndexItem extends React.Component {
         } else {
             settings = (
                 <li>
-                    <i class="fas fa-comments"></i>
+                    <button className="" onClick={this.showCommentForm}>
+                        <i className="fas fa-comments"></i>
+                    </button>
+
+                    {this.state.showCommentForm
+                        ? (
+                            <div className="settings-dropdown" ref={(element) => { this.dropdownCommentForm = element }}>
+                                <CommentForm postId={this.props.post.id} />
+                            </div>
+                        )
+                        : (null) 
+                    }
                     <i className="fas fa-retweet" onClick={() => this.props.openModal('Create Reblog', this.props.post.id)}></i>
                     {likeBtn}
                 </li>
