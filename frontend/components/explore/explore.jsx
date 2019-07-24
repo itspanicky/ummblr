@@ -134,9 +134,6 @@ class Explore extends React.Component {
             <>
                 <NavbarContainer />
                 <div className="explore-container">
-                    {/* <ul className="explore-posts">
-                        {posts}
-                    </ul> */}
                     <ul className="col col-1">
                         {colOne}
                     </ul>

@@ -18,7 +18,7 @@ import CreateReblogContainer from '../posts/reblog_container';
 
 import Avatar from '../avatar/avatar';
 
-const Modal = ({modal, currentUser, closeModal}) => {
+const Modal = ({modal, closeModal}) => {
     if (!modal) {
         return null;
     }
@@ -71,7 +71,6 @@ const Modal = ({modal, currentUser, closeModal}) => {
     return (
         <div className="modal-background">
             <div className="modal-child" onClick={e => e.stopPropagation()}>
-                {/* <Avatar photoUrl={currentUser.photoUrl} currentUser={currentUser.username} /> */}
                 { component }
             </div>
             <div></div>

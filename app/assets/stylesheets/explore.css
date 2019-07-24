@@ -1,7 +1,5 @@
 .explore-container {
     position: relative;
-
-    /* padding: 60px 10px; */
     margin: 80px auto;
     background-color: #34526f;
     display: flex;
@@ -13,16 +11,13 @@
     padding: 20px;
     display: flex;
     flex-flow: column wrap;
-    /* justify-content: space-around; */
     height: 1200px;
-    /* width: 20em; */
 }
 
 .explore-index-item-container {
     align-self: flex-start;
     background-color: white;
     width: 300px;
-    /* min-height: 100px; */
     border-radius: 3px;
     margin: 10px;
     
