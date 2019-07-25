@@ -152,7 +152,6 @@ const ExploreIndexItem = (props) => {
     }
 
     function closeCommentForm(e) {
-        debugger
         if (dropdownCommentForm && !dropdownCommentForm.contains(event.target)) {
             setCommentForm(false)
             useEffect(() => {
