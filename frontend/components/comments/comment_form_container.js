@@ -6,8 +6,10 @@ import { receiveCurrentUser } from '../../actions/session_actions';
 const msp = (state, ownProps) => {
     const currentUser = state.entities.users[state.session.id];
     const postId = ownProps.postId;
+    const closeCommentForm = ownProps.closeCommentForm
     return ({
-        comment: {body: "", post_id: postId, author_id: currentUser.id}
+        comment: {body: "", post_id: postId, author_id: currentUser.id},
+        closeCommentForm
     });
 }
 

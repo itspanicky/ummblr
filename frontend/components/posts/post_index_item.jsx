@@ -301,7 +301,7 @@ class PostIndexItem extends React.Component {
                     {this.state.showCommentForm
                         ? (
                             <div className="comments-dropdown" ref={(element) => { this.dropdownCommentForm = element }}>
-                                {<CommentForm postId={this.props.post.id} />}
+                                {<CommentForm postId={this.props.post.id} closeCommentForm={this.closeCommentForm} />}
                                 <ul>{comments}</ul>
                             </div>
                         )

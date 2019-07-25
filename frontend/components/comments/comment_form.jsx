@@ -15,20 +15,20 @@ class CommentForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createComment(this.state);
+        this.props.createComment(this.state).then(this.setState({ body: ""}));
     }
 
     render() {
         return (
-            <form action="" onSubmit={this.handleSubmit}>
-                <textarea className=""
+            <form className="comment-form" action="" onSubmit={this.handleSubmit}>
+                <textarea className="comment-form-textarea"
                     type="text"
                     value={this.state.body}
                     onChange={this.handleInput("body")}
                     placeholder="Say your thing"
                 />
 
-                <input type="submit" value="Reply"/>
+                <input className="comment-form-submit" type="submit" value="Reply"/>
             </form>
         )
     }

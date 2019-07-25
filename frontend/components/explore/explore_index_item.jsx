@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import UserMini from '../avatar/user-mini';
 import Comments from '../comments/comments';
+import CommentForm from '../comments/comment_form_container';
 
 let follow = (props) => {
     if (props.currentUser) {
@@ -140,6 +141,26 @@ let postBody = (props) => {
 }
 
 const ExploreIndexItem = (props) => {
+    const [ commentForm, setCommentForm ] = useState(false);
+
+    function showCommentForm(e) {
+        e.preventDefault();
+        setCommentForm(true) 
+        useEffect(() => {
+            document.addEventListener('click', closeCommentForm)
+        }, []);
+    }
+
+    function closeCommentForm(e) {
+        debugger
+        if (dropdownCommentForm && !dropdownCommentForm.contains(event.target)) {
+            setCommentForm(false)
+            useEffect(() => {
+                document.removeEventListener('click', closeCommentForm);
+            }, []);
+        }
+    }
+
     let originalPost;
     let originalAuthor;
     if (props.originalPost && props.originalPost.type !== "span") {
@@ -181,6 +202,24 @@ const ExploreIndexItem = (props) => {
             </div>
         )
     } 
+
+    let commentBtn = (
+        <li>
+            <button className="" onClick={showCommentForm}>
+                <i className="fas fa-comments"></i>
+            </button>
+
+            {commentForm
+                ? (
+                    <div className="comments-dropdown" ref={(element) => { const dropdownCommentForm = element }}>
+                        {<CommentForm postId={props.post.id} />}
+                        <ul>{comments}</ul>
+                    </div>
+                )
+                : (null)
+            }
+        </li>
+    )
     
     let likeBtn = !props.post.likers.includes(props.currentUser.id) ?
         <button className="like-btn" onClick={() => props.likePost(props.post.id, props.currentUser.id)}>
@@ -210,6 +249,7 @@ const ExploreIndexItem = (props) => {
             <div className="explore post-action-container">
                 {notes}
                 <ul className="explore post-action-actions">
+                    {/* {commentBtn} */}
                     <li><i className="fas fa-retweet" onClick={() => props.openModal('Create Reblog', props.post.id)}></i></li>
                     <li>{likeBtn}</li>
                 </ul>
