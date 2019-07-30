@@ -156,7 +156,7 @@ const ExploreIndexItem = (props) => {
             setCommentForm(false)
             useEffect(() => {
                 document.removeEventListener('click', closeCommentForm);
-            }, []);
+            });
         }
     }
 
