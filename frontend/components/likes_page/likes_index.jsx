@@ -1,7 +1,7 @@
 import React from 'react';
 import NavbarContainer from '../navbar/navbar_container';
 import PostIndexItem from '../posts/post_index_container';
-import ExploreIndexItem from '../explore/explore_index_item';
+import ExploreIndexItem from '../explore/explore_index_item_container';
 import Avatar from '../avatar/avatar';
 import AboutMe from '../greeting/about-me';
 

@@ -38,7 +38,7 @@ class FollowingIndex extends React.Component {
         return (
             <>
                 <NavbarContainer />
-                <div className="following-index-container"><h3 className="following-length">{`Following ${followLength} ummblrs`}</h3>
+                <div className="following-index-container"><h3 className="following-length">{`Following ${followLength} Blogs`}</h3>
                     <ul className="following-index-list">
                         {following}
                     </ul>
