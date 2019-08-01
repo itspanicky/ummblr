@@ -15,7 +15,7 @@ const msp = (state, ownProps) => {
     const comments = Object.values(post.comments);
     
     return ({
-        allposts: posts,
+        posts: posts,
         postsArray,
         currentUser,
         originalPost,
