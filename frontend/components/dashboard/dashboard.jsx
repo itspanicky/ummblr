@@ -4,7 +4,7 @@ import NavbarContainer from '../navbar/navbar_container';
 import PostIndexContainer from '../posts/post_index_container';
 import Avatar from '../avatar/avatar';
 import AboutMe from '../greeting/about-me';
-import ExploreIndexItem from '../explore/explore_index_item'
+import ExploreIndexItem from '../explore/explore_index_item_container';
 import UserMini from '../avatar/user-mini';
 import Modal from '../modal/modal';
 
@@ -67,6 +67,7 @@ class Dashboard extends React.Component {
                 }
                 originalPost = this.props.allPosts[radar.reblog_post_id]
             }
+            
             radarPost = 
                 ( <ExploreIndexItem
                     key={radar.id}

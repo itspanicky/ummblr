@@ -1,6 +1,7 @@
 import React from 'react';
 import NavbarContainer from '../navbar/navbar_container';
-import ExploreIndexItem from './explore_index_item';
+// import ExploreIndexItem from './explore_index_item';
+import ExploreIndexItem from './explore_index_item_container';
 
 class Explore extends React.Component {
     constructor(props) {
