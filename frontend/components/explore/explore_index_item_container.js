@@ -21,7 +21,8 @@ const msp = (state, ownProps) => {
         originalPost,
         authorId,
         reblogs,
-        comments
+        comments,
+        users: state.entities.users
     })
 }
 

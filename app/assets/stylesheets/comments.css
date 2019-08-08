@@ -25,6 +25,7 @@
     padding: 4px 6px;
     width: 240px;
     overflow: visible;
+    hyphens: auto;
 }
 
 .comment-form-submit {
@@ -35,4 +36,9 @@
     background-color: rgb(91, 216, 91);
     color: blue;
     cursor: pointer;
+}
+
+.comment-body {
+    hyphens: auto;
+    padding: 2px 0;
 }
