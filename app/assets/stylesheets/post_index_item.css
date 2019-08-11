@@ -149,25 +149,28 @@
     align-items: center;
 }
 
-.post-action-actions > li > * {
-    /* font-size: 22px;
-    cursor: pointer; */
+.post-action-container > .post-action-actions > li > * {
+    font-size: 22px;
+}
+
+.post-action-container > div > .notes {
+    font-size: 16px;
 }
 
 .fa-retweet {
     color: coral;
-    font-size: 22px;
+    /* font-size: 22px; */
     cursor: pointer;
 }
 
 .fa-comments {
     color: rgb(91, 216, 91);
-    font-size: 22px;
+    /* font-size: 22px; */
     cursor: pointer;
 }
 
 .post-index-like {
-    font-size: 22px;
+    /* font-size: 22px; */
     cursor: pointer;
 }
 

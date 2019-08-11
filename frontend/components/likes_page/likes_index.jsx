@@ -102,7 +102,7 @@ class LikesIndex extends React.Component {
             <div className="likes-index-container">
                 <NavbarContainer />
                 <section className="empty-space"></section>
-                <section className="empty-space"></section>
+                {/* <section className="empty-space"></section> */}
                 <div className="posts-container">
                     <ul>
                         {posts}

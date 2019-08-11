@@ -3,6 +3,7 @@ import ExploreIndexItem from './explore_index_item';
 import { follow, unfollow } from '../../actions/entities/follow_actions';
 import { fetchComments, createComment } from '../../actions/entities/comment_actions';
 import { likePost, unlikePost } from '../../actions/entities/like_actions';
+import { openModal } from '../../actions/modal_actions';
 
 const msp = (state, ownProps) => {
     const post = ownProps.post
@@ -28,6 +29,7 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => {
     return ({
+        openModal: (modal, postId) => dispatch(openModal(modal, postId)),
         follow: (user) => dispatch(follow(user)),
         unfollow: (user) => dispatch(unfollow(user)),
         likePost: (postId, userId) => dispatch(likePost(postId, userId)),
