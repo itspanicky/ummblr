@@ -51,7 +51,7 @@ class PostIndexItem extends React.Component {
     }
 
     postBody(post){
-        if (post.reblog_post_id && post.reblog_description) {
+        if (post.reblog_post_id) {
             let reblogDescription = post.reblog_description ? 
                 <div className="reblog-container">
                     <p className="content-author-name">{post.author.username}:</p>
