@@ -11,7 +11,7 @@
 ## Features 
 
 #### User authenetication
-- Users are able to signup and login.
+- Users are able to signup and login
 - Credential checking blocks users from accessing certain features
 ```javascript
     const Auth = ({ component: Component, path, loggedIn, exact }) => (
